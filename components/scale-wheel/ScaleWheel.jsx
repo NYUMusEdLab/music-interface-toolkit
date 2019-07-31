@@ -1,10 +1,12 @@
 import React from 'react';
 
+import './ScaleWheel.css';
+
 import { note } from '@tonaljs/tonal';
 
 import { CircleLayout, SegmentPath, SegmentLabel } from '../circle-layout/Ring';
 import { Polygon } from '../circle-layout/Ring';
-import { PitchName } from '../labels/PitchLabel';
+import { PitchLabel } from '../labels';
 
 const defaultPitchNames = [
   'C',
@@ -36,13 +38,19 @@ const noteTypes = [
   'major'
 ];
 
-export function ScaleWheel({ scale = [], size = 100, activeNotes }) {
+export function ScaleWheel({
+  scale = [],
+  size = 100,
+  pitchOrder = 'chromatic',
+  activeNotes
+}) {
   let wheelContents = [];
 
   let scaleChromas = scale.map(pitch => note(pitch).chroma);
 
   for (let i = 0; i < 12; ++i) {
-    let chroma = (i + (scaleChromas[0] || 0)) % 12;
+    let chroma =
+      (i * (pitchOrder === 'fifths' ? 7 : 1) + (scaleChromas[0] || 0)) % 12;
 
     // Main label shapes
     wheelContents.push(
@@ -55,8 +63,8 @@ export function ScaleWheel({ scale = [], size = 100, activeNotes }) {
           'note-wedge ' +
           (scaleChromas.includes(chroma) ? noteTypes[i] : 'skip')
         }
-        strokeWidth={1}
-        stroke="#FFF"
+        stroke="#000"
+        fill="#fff"
       />
     );
 
@@ -66,12 +74,15 @@ export function ScaleWheel({ scale = [], size = 100, activeNotes }) {
         key={'pc-label-' + i}
         index={i}
         radius={0.39 * size}
+        width={20}
+        height={20}
+        style={{ background: '#fff' }}
         className="note-label">
-        {scaleChromas.includes(chroma) ? (
-          <PitchName>{scale[scaleChromas.indexOf(chroma)]}</PitchName>
-        ) : (
-          defaultPitchNames[chroma]
-        )}
+        <PitchLabel>
+          {scaleChromas.includes(chroma)
+            ? scale[scaleChromas.indexOf(chroma)]
+            : defaultPitchNames[chroma]}
+        </PitchLabel>
       </SegmentLabel>
     );
 
@@ -84,8 +95,8 @@ export function ScaleWheel({ scale = [], size = 100, activeNotes }) {
           innerRad={0.2 * size}
           outerRad={0.3 * size}
           className={noteTypes[i]}
-          strokeWidth={1}
-          stroke="#FFF"
+          fill="#fff"
+          stroke="#000"
         />
       );
     }
@@ -106,7 +117,7 @@ export function ScaleWheel({ scale = [], size = 100, activeNotes }) {
 
   return (
     <svg
-      className="scale-wheel"
+      className="pitch-wheel"
       width={size}
       height={size}
       viewBox={`${-size / 2} ${-size / 2} ${size} ${size}`}>

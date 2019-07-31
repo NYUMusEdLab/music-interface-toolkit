@@ -1,0 +1,11 @@
+.pitch-wheel .pitch-label .pitch-enharmonic {
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+  display: block;
+}
+
+.pitch-wheel .pitch-label.ambiguous .pitch-enharmonic {
+  font-size: 10px;
+  line-height: 10px;
+}

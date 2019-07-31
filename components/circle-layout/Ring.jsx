@@ -37,18 +37,25 @@ export function SegmentPath({ index, outerRad, innerRad, ...pathProps }) {
   return <path {...pathProps} d={data} />;
 }
 
-export function SegmentLabel({ index, radius, children, className }) {
+export function SegmentLabel({
+  index,
+  radius,
+  width = 20,
+  height = 20,
+  children,
+  ...objectProps
+}) {
   let context = useContext(CircleLayoutContext);
 
   let { mid } = context.angles[index];
 
   return (
     <foreignObject
-      className={className}
-      width={20}
-      height={20}
-      x={Math.sin(mid) * radius - 10}
-      y={-Math.cos(mid) * radius - 10}>
+      {...objectProps}
+      width={width}
+      height={width}
+      x={Math.sin(mid) * radius - width / 2}
+      y={-Math.cos(mid) * radius - height / 2}>
       {children}
     </foreignObject>
   );
