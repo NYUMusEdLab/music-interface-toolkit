@@ -1,5 +1,9 @@
+.pitch-wheel .pitch-label {
+  cursor: default;
+}
+
 .pitch-wheel .pitch-label .pitch-enharmonic {
-  font-size: 20px;
+  font-size: 16px;
   line-height: 20px;
   text-align: center;
   display: block;

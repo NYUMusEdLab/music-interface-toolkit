@@ -4,8 +4,13 @@ import './ScaleWheel.css';
 
 import { note } from '@tonaljs/tonal';
 
-import { CircleLayout, SegmentPath, SegmentLabel } from '../circle-layout/Ring';
-import { Polygon } from '../circle-layout/Ring';
+import {
+  RadialLayout,
+  SliceShape,
+  SliceGroup,
+  RadialPolygon
+} from '../radial-layout';
+
 import { PitchLabel } from '../labels';
 
 const defaultPitchNames = [
@@ -54,7 +59,7 @@ export function ScaleWheel({
 
     // Main label shapes
     wheelContents.push(
-      <SegmentPath
+      <SliceShape
         key={'pc-shape-' + i}
         index={i}
         innerRad={0.3 * size}
@@ -70,26 +75,25 @@ export function ScaleWheel({
 
     // Label
     wheelContents.push(
-      <SegmentLabel
+      <SliceGroup
         key={'pc-label-' + i}
         index={i}
         radius={0.39 * size}
-        width={20}
-        height={20}
-        style={{ background: '#fff' }}
-        className="note-label">
-        <PitchLabel>
-          {scaleChromas.includes(chroma)
-            ? scale[scaleChromas.indexOf(chroma)]
-            : defaultPitchNames[chroma]}
-        </PitchLabel>
-      </SegmentLabel>
+        scale={4}>
+        <foreignObject width={20} height={20} x={-10} y={-10}>
+          <PitchLabel>
+            {scaleChromas.includes(chroma)
+              ? scale[scaleChromas.indexOf(chroma)]
+              : defaultPitchNames[chroma]}
+          </PitchLabel>
+        </foreignObject>
+      </SliceGroup>
     );
 
     // Scale degree label shapes
     if (scaleChromas.includes(chroma)) {
       wheelContents.push(
-        <SegmentPath
+        <SliceShape
           key={'sd-shape-' + i}
           index={i}
           innerRad={0.2 * size}
@@ -104,7 +108,7 @@ export function ScaleWheel({
 
   if (activeNotes) {
     wheelContents.push(
-      <Polygon
+      <RadialPolygon
         indices={scaleChromas.map(
           chroma => (chroma + (12 - scaleChromas[0])) % 12
         )}
@@ -121,7 +125,7 @@ export function ScaleWheel({
       width={size}
       height={size}
       viewBox={`${-size / 2} ${-size / 2} ${size} ${size}`}>
-      <CircleLayout divisions={12}>{wheelContents}</CircleLayout>
+      <RadialLayout divisions={12}>{wheelContents}</RadialLayout>
     </svg>
   );
 }
