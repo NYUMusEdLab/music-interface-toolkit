@@ -1,0 +1,76 @@
+.piano-keyboard {
+  height: 90px;
+  position: relative;
+}
+
+.piano-keyboard .row {
+  display: flex;
+}
+
+.piano-keyboard .white-row {
+  height: 100%;
+}
+
+.piano-keyboard .black-row {
+  width: 100%;
+  height: 55%;
+  position: absolute;
+}
+
+.piano-keyboard .key {
+  flex: 1;
+}
+
+.piano-keyboard .white-row .key {
+  background: var(--level-1);
+  border-color: var(--level-3);
+}
+
+.piano-keyboard .white-row .key:first-child {
+  border-bottom-left-radius: 4px;
+}
+
+.piano-keyboard .white-row .key:last-child {
+  border-bottom-right-radius: 4px;
+}
+
+.piano-keyboard .white-row .key:not(:first-child) {
+  border-left-style: solid;
+  border-left-width: 1px;
+}
+
+.piano-keyboard .white-row .key.highlighted {
+  background: #ed4b10;
+  border-color: #a02d03;
+}
+
+.piano-keyboard .white-row .key.highlighted + .key:not(.highlighted) {
+  border-color: #a02d03;
+}
+
+.piano-keyboard .black-row .key {
+  background: var(--level-3);
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.piano-keyboard .black-row .gap {
+  visibility: hidden;
+  flex: 0.3;
+}
+
+.piano-keyboard .black-row .gap + .gap {
+  flex: 1;
+}
+
+.piano-keyboard .black-row .gap:first-child {
+  flex: 0.7;
+}
+
+.piano-keyboard .black-row .gap:last-child {
+  flex: 1.6;
+}
+
+.piano-keyboard .black-row .key.highlighted {
+  background: #a02d03;
+}
