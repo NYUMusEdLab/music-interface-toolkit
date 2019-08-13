@@ -79,7 +79,7 @@ export function ScaleWheel({
         key={'pc-label-' + i}
         index={i}
         radius={0.39 * size}
-        scale={4}>
+        scale={2}>
         <foreignObject width={20} height={20} x={-10} y={-10}>
           <PitchLabel>
             {scaleChromas.includes(chroma)
@@ -107,12 +107,31 @@ export function ScaleWheel({
   }
 
   if (activeNotes) {
+    // Map active note names to pitch class chromas (eg, 'D' to 2)
+    // Also, remove duplicate listings
+    let activeNoteChromas = activeNotes
+      .map(pitch => note(pitch).chroma + scaleChromas[0])
+      .filter((chroma, index, array) => array.indexOf(chroma) === index);
+
+    for (let chroma of activeNoteChromas) {
+      wheelContents.push(
+        <SliceShape
+          key={'active-shape-' + chroma}
+          index={chroma}
+          innerRad={0.3 * size}
+          outerRad={0.475 * size}
+          stroke="rgb(255, 0, 255)"
+          strokeWidth={5}
+          fill="none"
+        />
+      );
+    }
+
     wheelContents.push(
       <RadialPolygon
-        indices={scaleChromas.map(
-          chroma => (chroma + (12 - scaleChromas[0])) % 12
-        )}
-        radius={25}
+        indices={activeNoteChromas}
+        radius={0.25 * size}
+        strokeWidth={5}
         stroke="rgb(255, 0, 255)"
         fill="rgba(255, 0, 255, 0.4)"
       />
