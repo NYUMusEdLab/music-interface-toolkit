@@ -37,6 +37,7 @@ function SinglePitchLabel({ children }) {
     <span className="pitch-enharmonic">
       {parse.letter}
       {accidental}
+      {parse.oct}
     </span>
   );
 }
