@@ -1,8 +1,7 @@
 {
-  "name": "@musedlab/music-interface-toolkit",
+  "name": "@musedlab/toolkit",
   "version": "0.0.1",
   "description": "Interface components (and other utilities) for building interactive music applications for the web",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,23 +9,22 @@
     "type": "git",
     "url": "git+https://github.com/NYUMusEdLab/music-interface-toolkit.git"
   },
-  "author": "",
+  "author": "NYU Music Experience Design Lab (MusEDLab)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/NYUMusEdLab/music-interface-toolkit/issues"
   },
   "homepage": "https://github.com/NYUMusEdLab/music-interface-toolkit#readme",
-  "prettier": {
-    "singleQuote": true,
-    "jsxBracketSameLine": true
-  },
   "dependencies": {
     "@tonaljs/tonal": "^3.2.1"
   },
-  "source": true,
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "jsxBracketSameLine": true
   }
 }
