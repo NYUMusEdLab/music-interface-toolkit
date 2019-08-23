@@ -140,6 +140,7 @@ export function ScaleWheel({
 
     wheelContents.push(
       <RadialPolygon
+        key={'active-polygon'}
         indices={activeNoteChromas}
         radius={0.25 * size}
         strokeWidth={5}
