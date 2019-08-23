@@ -7,7 +7,7 @@ export function RadialPolygon({ indices, radius, ...pathProps }) {
 
   indices = indices
     .filter((pointIndex, index, array) => array.indexOf(pointIndex) === index)
-    .sort();
+    .sort((a, b) => a - b);
 
   if (indices.length > 0) {
     let dataParts = indices.map(
