@@ -96,7 +96,10 @@ export function ScaleWheel({
           height={20}
           x={-12}
           y={-10}
-          className={scaleChromas.includes(chroma) ? 'in-scale' : ''}>
+          className={
+            (scaleChromas.includes(chroma) ? 'in-scale ' : '') +
+            (activeNoteChromas.includes(chroma) ? 'active' : '')
+          }>
           <PitchLabel>
             {scaleChromas.includes(chroma)
               ? scale[scaleChromas.indexOf(chroma)]
