@@ -1,3 +1,9 @@
+.pitch-label .accidental.sharp {
+  margin-left: -0.1em;
+  letter-spacing: -0.1em;
+  font-size: 80%;
+}
+
 .pitch-label .accidental.flat {
   margin-left: -0.25em;
   letter-spacing: -0.2em;
