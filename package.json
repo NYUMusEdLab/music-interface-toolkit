@@ -3,6 +3,7 @@
   "version": "0.0.2",
   "description": "Interface components (and other utilities) for building interactive music applications for the web",
   "scripts": {
+    "dev": "rollup -c -w",
     "prepack": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

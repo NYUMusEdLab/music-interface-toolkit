@@ -2,7 +2,7 @@ import React from 'react';
 
 import './ScaleWheel.css';
 
-import { note } from '@tonaljs/tonal';
+import { note, interval, distance } from '@tonaljs/tonal';
 
 import {
   RadialLayout,
@@ -43,14 +43,15 @@ const noteTypes = [
   'major'
 ];
 
+// Constant values for representing pitch orders
+export const CHROMATIC = Symbol();
+export const CIRCLE_OF_FIFTHS = Symbol();
+
 export function ScaleWheel({
   scale = [],
   size = 100,
-  pitchOrder = 'chromatic',
-  activeNotes = [],
-  stroke = '#000',
-  strokeWidth = 1,
-  fill = '#fff'
+  pitchOrder = CHROMATIC,
+  activeNotes = []
 }) {
   let wheelContents = [];
 
@@ -64,25 +65,29 @@ export function ScaleWheel({
 
   for (let i = 0; i < 12; ++i) {
     let chroma =
-      (i * (pitchOrder === 'fifths' ? 7 : 1) + (scaleChromas[0] || 0)) % 12;
+      (i * (pitchOrder === CIRCLE_OF_FIFTHS ? 7 : 1) + (scaleChromas[0] || 0)) %
+      12;
 
     // Main label shapes
     wheelContents.push(
       <SliceShape
         key={'pc-shape-' + i}
         index={i}
-        innerRad={0.3 * size}
-        outerRad={0.475 * size}
+        innerRadius={0.3 * size}
+        outerRadius={0.475 * size}
         className={
           'note-wedge' +
           (scaleChromas.includes(chroma) ? ' ' + noteTypes[i] : '') +
           (activeNoteChromas.includes(chroma) ? ' active' : '')
         }
-        stroke={stroke}
-        fill={fill}
-        strokeWidth={strokeWidth}
+        stroke="#000"
+        fill="#fff"
       />
     );
+
+    if (scaleChromas.includes(chroma)) {
+      getIntervalQuality('C', 'F');
+    }
 
     // Label
     wheelContents.push(
@@ -115,12 +120,11 @@ export function ScaleWheel({
         <SliceShape
           key={'sd-shape-' + i}
           index={i}
-          innerRad={0.2 * size}
-          outerRad={0.3 * size}
+          innerRadius={0.2 * size}
+          outerRadius={0.3 * size}
           className={noteTypes[i]}
-          fill={fill}
-          stroke={stroke}
-          strokeWidth={strokeWidth}
+          fill="#FFF"
+          stroke="#000"
         />
       );
     }
@@ -136,10 +140,10 @@ export function ScaleWheel({
         <SliceShape
           key={'active-shape-' + index}
           index={index}
-          innerRad={0.3 * size}
-          outerRad={0.475 * size}
-          stroke="rgb(255, 133, 13)"
-          strokeWidth={5}
+          innerRadius={0.3 * size}
+          outerRadius={0.475 * size}
+          stroke="#000"
+          strokeWidth={3}
           fill="none"
         />
       );
@@ -150,20 +154,39 @@ export function ScaleWheel({
         key={'active-polygon'}
         indices={activeNoteIndices}
         radius={0.25 * size}
-        strokeWidth={5}
-        stroke="rgb(255, 133, 13)"
-        fill="rgba(255, 133, 13, 0.4)"
+        stroke="#000"
+        strokeWidth={3}
+        fill="none"
       />
     );
   }
 
   return (
     <svg
-      className="pitch-wheel"
+      className="scale-wheel"
       width={size}
       height={size}
       viewBox={`${-size / 2} ${-size / 2} ${size} ${size}`}>
       <RadialLayout divisions={12}>{wheelContents}</RadialLayout>
     </svg>
   );
+}
+
+function getIntervalQuality(root, scalePitch) {
+  switch (interval(distance(root, scalePitch)).q) {
+    case 'dd':
+      return 'double-diminished';
+    case 'd':
+      return 'diminished';
+    case 'm':
+      return 'minor';
+    case 'P':
+      return 'perfect';
+    case 'M':
+      return 'major';
+    case 'A':
+      return 'augmented';
+    case 'AA':
+      return 'double-augmented';
+  }
 }

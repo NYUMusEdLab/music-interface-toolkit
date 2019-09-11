@@ -1,15 +1,15 @@
-.pitch-wheel .pitch-label {
+.scale-wheel .pitch-label {
   cursor: default;
 }
 
-.pitch-wheel .pitch-label .pitch-enharmonic {
+.scale-wheel .pitch-label .pitch-enharmonic {
   font-size: 16px;
   line-height: 20px;
   text-align: center;
   display: block;
 }
 
-.pitch-wheel .pitch-label.ambiguous .pitch-enharmonic {
+.scale-wheel .pitch-label.ambiguous .pitch-enharmonic {
   font-size: 10px;
   line-height: 10px;
 }
