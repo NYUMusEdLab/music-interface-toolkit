@@ -1,1 +1,1 @@
-export { ScaleWheel } from './ScaleWheel.jsx';
+export * from './ScaleWheel.jsx';

@@ -64,70 +64,25 @@ export function ScaleWheel({
     .filter((chroma, index, array) => array.indexOf(chroma) === index);
 
   for (let i = 0; i < 12; ++i) {
-    let chroma =
-      (i * (pitchOrder === CIRCLE_OF_FIFTHS ? 7 : 1) + (scaleChromas[0] || 0)) %
-      12;
+    let step = pitchOrder === CIRCLE_OF_FIFTHS ? 7 : 1;
+    let root = scale[0];
+    let rootChroma = note(scale[0]).chroma || 0;
+    let chroma = (i * step + rootChroma) % 12;
 
-    // Main label shapes
+    let pitchInScale = getPitchInScale(chroma, scale);
+    let pitch = pitchInScale || defaultPitchNames[chroma];
+
     wheelContents.push(
-      <SliceShape
-        key={'pc-shape-' + i}
+      <ScaleWheelSlice
+        key={i}
         index={i}
-        innerRadius={0.3 * size}
-        outerRadius={0.475 * size}
-        className={
-          'note-wedge' +
-          (scaleChromas.includes(chroma) ? ' ' + noteTypes[i] : '') +
-          (activeNoteChromas.includes(chroma) ? ' active' : '')
-        }
-        stroke="#000"
-        fill="#fff"
+        pitch={pitch}
+        root={root}
+        isInScale={!!pitchInScale}
+        isActive={true}
+        size={size}
       />
     );
-
-    if (scaleChromas.includes(chroma)) {
-      getIntervalQuality('C', 'F');
-    }
-
-    // Label
-    wheelContents.push(
-      <SliceGroup
-        key={'pc-label-' + i}
-        index={i}
-        radius={0.39 * size}
-        scale={(size * 0.13) / 20}>
-        <foreignObject
-          width={24}
-          height={20}
-          x={-12}
-          y={-10}
-          className={
-            (scaleChromas.includes(chroma) ? 'in-scale ' : '') +
-            (activeNoteChromas.includes(chroma) ? 'active' : '')
-          }>
-          <PitchLabel>
-            {scaleChromas.includes(chroma)
-              ? scale[scaleChromas.indexOf(chroma)]
-              : defaultPitchNames[chroma]}
-          </PitchLabel>
-        </foreignObject>
-      </SliceGroup>
-    );
-
-    // Scale degree label shapes
-    if (scaleChromas.includes(chroma)) {
-      wheelContents.push(
-        <SliceShape
-          key={'sd-shape-' + i}
-          index={i}
-          innerRadius={0.2 * size}
-          outerRadius={0.3 * size}
-          className={noteTypes[i]}
-          fill="#FFF"
-          stroke="#000"
-        />
-      );
-    }
   }
 
   if (activeNotes.length > 0) {
@@ -170,6 +125,62 @@ export function ScaleWheel({
       <RadialLayout divisions={12}>{wheelContents}</RadialLayout>
     </svg>
   );
+}
+
+function ScaleWheelSlice({ index, pitch, root, isInScale, isActive, size }) {
+  let classList = ['pitch-slice'];
+
+  if (isInScale) {
+    classList.push(getIntervalQuality(root, pitch));
+  }
+
+  if (isActive) {
+    classList.push('active');
+  }
+
+  return (
+    <g className={classList.join(' ')}>
+      <SliceShape
+        index={index}
+        innerRadius={0.3 * size}
+        outerRadius={0.475 * size}
+        stroke="#000"
+        fill="#fff"
+      />
+      <SliceGroup index={index} radius={0.39 * size} scale={(size * 0.13) / 20}>
+        <foreignObject width={24} height={20} x={-12} y={-10}>
+          <PitchLabel>{pitch}</PitchLabel>
+        </foreignObject>
+      </SliceGroup>
+      {isInScale ? (
+        <>
+          <SliceShape
+            index={index}
+            innerRadius={0.2 * size}
+            outerRadius={0.3 * size}
+            stroke="#000"
+            fill="#fff"
+          />
+          <SliceGroup
+            index={index}
+            radius={0.25 * size}
+            scale={(size * 0.13) / 20}>
+            <foreignObject width={24} height={20} x={-12} y={-10}>
+              <PitchLabel>{pitch}</PitchLabel>
+            </foreignObject>
+          </SliceGroup>
+        </>
+      ) : null}
+    </g>
+  );
+}
+
+function getPitchInScale(chroma, scale) {
+  let scaleChromas = scale.map(pitch => note(pitch).chroma);
+
+  return scaleChromas.includes(chroma)
+    ? scale[scaleChromas.indexOf(chroma)]
+    : null;
 }
 
 function getIntervalQuality(root, scalePitch) {
