@@ -28,21 +28,6 @@ const defaultPitchNames = [
   'B'
 ];
 
-const noteTypes = [
-  'perfect',
-  'minor',
-  'major',
-  'minor',
-  'major',
-  'perfect',
-  'minor',
-  'perfect',
-  'minor',
-  'major',
-  'minor',
-  'major'
-];
-
 // Constant values for representing pitch orders
 export const CHROMATIC = Symbol();
 export const CIRCLE_OF_FIFTHS = Symbol();
@@ -55,6 +40,9 @@ export function ScaleWheel({
 }) {
   let wheelContents = [];
 
+  let root = scale[0] || 'C';
+  let rootChroma = note(root).chroma;
+
   let scaleChromas = scale.map(pitch => note(pitch).chroma);
 
   // Map active note names to pitch class chromas (eg, 'D' to 2)
@@ -65,8 +53,6 @@ export function ScaleWheel({
 
   for (let i = 0; i < 12; ++i) {
     let step = pitchOrder === CIRCLE_OF_FIFTHS ? 7 : 1;
-    let root = scale[0];
-    let rootChroma = note(scale[0]).chroma || 0;
     let chroma = (i * step + rootChroma) % 12;
 
     let pitchInScale = getPitchInScale(chroma, scale);
@@ -79,7 +65,7 @@ export function ScaleWheel({
         pitch={pitch}
         root={root}
         isInScale={!!pitchInScale}
-        isActive={true}
+        isActive={!!getPitchInScale(chroma, activeNotes)}
         size={size}
       />
     );
@@ -87,32 +73,33 @@ export function ScaleWheel({
 
   if (activeNotes.length > 0) {
     let activeNoteIndices = activeNoteChromas.map(
-      chroma => (chroma - scaleChromas[0] + 12) % 12
+      chroma => (chroma - rootChroma + 12) % 12
     );
 
-    for (let index of activeNoteIndices) {
-      wheelContents.push(
-        <SliceShape
-          key={'active-shape-' + index}
-          index={index}
-          innerRadius={0.3 * size}
-          outerRadius={0.475 * size}
+    wheelContents.push(
+      <g className="active-pitches">
+        {activeNoteIndices.map(index => (
+          <SliceShape
+            key={'active-shape-' + index}
+            index={index}
+            innerRadius={0.3 * size}
+            outerRadius={0.475 * size}
+            className="slice"
+            stroke="#000"
+            strokeWidth={3}
+            fill="none"
+          />
+        ))}
+        <RadialPolygon
+          key={'active-polygon'}
+          className="polygon"
+          indices={activeNoteIndices}
+          radius={0.25 * size}
           stroke="#000"
           strokeWidth={3}
           fill="none"
         />
-      );
-    }
-
-    wheelContents.push(
-      <RadialPolygon
-        key={'active-polygon'}
-        indices={activeNoteIndices}
-        radius={0.25 * size}
-        stroke="#000"
-        strokeWidth={3}
-        fill="none"
-      />
+      </g>
     );
   }
 
@@ -166,7 +153,7 @@ function ScaleWheelSlice({ index, pitch, root, isInScale, isActive, size }) {
             radius={0.25 * size}
             scale={(size * 0.13) / 20}>
             <foreignObject width={24} height={20} x={-12} y={-10}>
-              <PitchLabel>{pitch}</PitchLabel>
+              {/* <PitchLabel>{pitch}</PitchLabel> */}
             </foreignObject>
           </SliceGroup>
         </>
