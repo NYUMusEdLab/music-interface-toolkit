@@ -133,6 +133,7 @@ function ScaleWheelSlice({ index, pitch, root, isInScale, isActive, size }) {
         outerRadius={0.475 * size}
         stroke="#000"
         fill="#fff"
+        className="pitch-shape"
       />
       <SliceGroup index={index} radius={0.39 * size} scale={(size * 0.13) / 20}>
         <foreignObject width={24} height={20} x={-12} y={-10}>
