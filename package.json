@@ -1,6 +1,6 @@
 {
   "name": "@musedlab/toolkit",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Interface components (and other utilities) for building interactive music applications for the web",
   "scripts": {
     "dev": "rollup -c -w",
