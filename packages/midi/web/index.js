@@ -1,33 +1,46 @@
-import { OutputEngine } from '../OutputEngine';
+const requestMIDI = navigator.requestMIDIAccess || (() => new Promise());
 
-const requestMidi = navigator.requestMIDIAccess
-  ? navigator.requestMIDIAccess()
-  : null;
+export function sendMIDI(data, options = {}) {
+  let { timestamp = 0 } = options;
 
-export class MidiEngine extends OutputEngine {
-  noteOn(note) {
-    if (requestMidi) {
-      // [message_type, note, velocity]
-      const message = [144, note, 80];
-
-      requestMidi.then(access => {
-        for (let output of access.outputs.values()) {
-          output.send(message);
-        }
-      });
+  requestMIDI().then(access => {
+    for (let output of access.outputs.values()) {
+      output.send(data, timestamp);
     }
-  }
+  });
+}
 
-  noteOff(note) {
-    if (requestMidi) {
-      // [message_type, note, velocity]
-      const message = [128, note, 80];
+export function receiveMIDI(callback, options = {}) {
+  let dispose;
 
-      requestMidi.then(access => {
-        for (let output of access.outputs.values()) {
-          output.send(message);
-        }
-      });
+  requestMIDI().then(access => {
+    let inputs = new Set();
+
+    for (let input of access.inputs.values()) {
+      input.addEventListener('midimessage', callback);
+      inputs.add(input);
     }
-  }
+
+    function handleStateChange({ port }) {
+      if (port.type === 'input' && port.connection !== 'open') {
+        if (port.state === 'connected') {
+          port.addEventListener('midimessage', callback);
+          inputs.add(port);
+        }
+      }
+    }
+
+    access.addEventListener('statechange', handleStateChange);
+
+    dispose = () => {
+      access.removeEventListener('statechange', handleStateChange);
+
+      for (let input of inputs) {
+        input.removeEventListener('midimessage', callback);
+      }
+    };
+  });
+
+  // Return function for removing event listeners
+  return dispose;
 }
