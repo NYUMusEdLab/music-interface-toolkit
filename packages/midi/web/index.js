@@ -1,4 +1,10 @@
-const requestMIDI = navigator.requestMIDIAccess || (() => new Promise());
+function requestMIDI() {
+  if ('requestMIDIAccess' in navigator) {
+    return navigator.requestMIDIAccess();
+  } else {
+    return () => new Promise();
+  }
+}
 
 export function sendMIDI(data, options = {}) {
   let { timestamp = 0 } = options;
@@ -11,20 +17,29 @@ export function sendMIDI(data, options = {}) {
 }
 
 export function receiveMIDI(callback, options = {}) {
+  let callbackList = Array.isArray(callback) ? [...callback] : [callback];
+
+  console.log('receive...');
+
   let dispose;
 
   requestMIDI().then(access => {
+    console.log('midi access granted...');
     let inputs = new Set();
 
     for (let input of access.inputs.values()) {
-      input.addEventListener('midimessage', callback);
+      for (let callback of callbackList) {
+        input.addEventListener('midimessage', callback);
+      }
       inputs.add(input);
     }
 
     function handleStateChange({ port }) {
       if (port.type === 'input' && port.connection !== 'open') {
         if (port.state === 'connected') {
-          port.addEventListener('midimessage', callback);
+          for (let callback of callbackList) {
+            port.addEventListener('midimessage', callback);
+          }
           inputs.add(port);
         }
       }
@@ -36,7 +51,9 @@ export function receiveMIDI(callback, options = {}) {
       access.removeEventListener('statechange', handleStateChange);
 
       for (let input of inputs) {
-        input.removeEventListener('midimessage', callback);
+        for (let callback of callbackList) {
+          input.removeEventListener('midimessage', callback);
+        }
       }
     };
   });

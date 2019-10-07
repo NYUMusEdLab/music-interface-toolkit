@@ -50,7 +50,7 @@ export function noteOn(...args) {
 
     return ({ data: [status, note, velocity], ...metadata }) => {
       if (
-        (status & messageMask) === noteOffMessage &&
+        (status & messageMask) === noteOnMessage &&
         (channel === null || channel === (status & channelMask))
       ) {
         return callback({
