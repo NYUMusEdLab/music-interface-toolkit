@@ -1,6 +1,33 @@
-const { noteOn, noteOff } = require('./channelMessages.js');
+const { noteOn, noteOff, controlChange } = require('./channelMessages.js');
 
-describe('noteOff()');
+describe('noteOff()', () => {
+  describe('with data', () => {
+    test('constructs a "note off" message', () => {
+      const message = noteOff(0, 60, 0);
+      expect(Array.isArray(message)).toBe(true);
+      expect(message).toHaveLength(3);
+      expect(message[0]).toBe(128);
+    });
+
+    test('has the correct channel', () => {
+      expect(noteOff(0, 60, 127)[0]).toBe(128);
+      expect(noteOff(5, 60, 127)[0]).toBe(133);
+      expect(noteOff(15, 60, 127)[0]).toBe(143);
+    });
+
+    test('has the correct pitch', () => {
+      expect(noteOff(0, 60, 127)[1]).toBe(60);
+      expect(noteOff(0, 0, 127)[1]).toBe(0);
+      expect(noteOff(0, 140, 127)[1]).toBe(140);
+    });
+
+    test('has the correct velocity (if specified)', () => {
+      expect(noteOff(0, 60, 0)[2]).toBe(0);
+      expect(noteOff(0, 60, 127)[2]).toBe(127);
+      expect(noteOff(15, 60)[2]).toBe(0);
+    });
+  });
+});
 
 describe('noteOn()', () => {
   describe('with data', () => {
@@ -35,20 +62,27 @@ describe('noteOn()', () => {
   });
 });
 
-describe('noteOn()');
+describe('keyPressure()', () => {});
 
-describe('keyPressure()');
+describe('controlChange()', () => {
+  describe('with data', () => {
+    test('constructs a "control change" message', () => {
+      const message = controlChange(0, 0, 100);
+      expect(Array.isArray(message)).toBe(true);
+      expect(message).toHaveLength(3);
+      expect(message[0]).toBe(176);
+    });
+  });
+});
 
-describe('controlChange()');
+describe('programChange()', () => {});
 
-describe('programChange()');
+describe('channelPressure()', () => {});
 
-describe('channelPressure()');
+describe('pitchBend()', () => {});
 
-describe('pitchBend()');
+describe('allSoundOff()', () => {});
 
-describe('allSoundOff()');
+describe('resetControllers()', () => {});
 
-describe('resetControllers()');
-
-describe('localControl()');
+describe('localControl()', () => {});

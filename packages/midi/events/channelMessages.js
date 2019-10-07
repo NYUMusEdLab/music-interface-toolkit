@@ -27,7 +27,7 @@ export function noteOff(...args) {
       }
     };
   } else {
-    const [channel, note, velocity = 127] = args;
+    const [channel, note, velocity = 0] = args;
 
     if (process.env.NODE_ENV === 'development') {
       checkChannel(channel);
@@ -77,7 +77,7 @@ export function noteOn(...args) {
 export function keyPressure() {}
 
 export function controlChange(...args) {
-  const controlChangeMessage = 0b10010000;
+  const controlChangeMessage = 0b10110000;
   if (typeof args[0] === 'function') {
     const [callback, channel = null, controllerFilter = null] = args;
 
