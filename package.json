@@ -2,15 +2,30 @@
   "name": "music-interface-toolkit",
   "private": true,
   "scripts": {
+    "dev": "lerna exec -- rollup -c -w",
+    "prepare": "lerna exec -- rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "NYU Music Experience Design Lab (MusEDLab)",
   "license": "MIT",
   "devDependencies": {
-    "lerna": "^3.19.0"
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
+    "lerna": "^3.19.0",
+    "rollup": "^1.20.3",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^2.0.3"
   },
   "prettier": {
     "singleQuote": true,
     "jsxBracketSameLine": true
+  },
+  "dependencies": {
+    "@musedlab/midi": "file:packages/midi",
+    "@musedlab/toolkit": "file:packages/components"
   }
 }
