@@ -17,9 +17,7 @@ export default {
   input: {
     'components/labels': 'packages/components/labels/index.js',
     'components/radial-layout': 'packages/components/radial-layout/index.js',
-    'components/scale-wheel': 'packages/components/scale-wheel/index.js',
-    'midi/events': 'packages/midi/events/index.js',
-    'midi/web': 'packages/midi/web/index.js'
+    'components/scale-wheel': 'packages/components/scale-wheel/index.js'
   },
   output: {
     dir: '.',

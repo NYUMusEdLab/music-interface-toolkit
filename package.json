@@ -1,7 +1,6 @@
 {
-  "name": "@musedlab/toolkit",
-  "version": "0.0.3",
-  "description": "Interface components (and other utilities) for building interactive music applications for the web",
+  "name": "music-interface-toolkit",
+  "private": true,
   "scripts": {
     "dev": "rollup -c -w",
     "prepack": "rollup -c",
@@ -21,22 +20,8 @@
     "url": "https://github.com/NYUMusEdLab/music-interface-toolkit/issues"
   },
   "homepage": "https://github.com/NYUMusEdLab/music-interface-toolkit#readme",
-  "dependencies": {
-    "@tonaljs/tonal": "^3.2.1"
-  },
-  "peerDependencies": {
-    "react": "^16.8.0"
-  },
   "devDependencies": {
-    "@babel/core": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
-    "@babel/preset-react": "^7.0.0",
-    "babel-jest": "^24.9.0",
-    "jest": "^24.9.0",
-    "rollup": "^1.20.3",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-postcss": "^2.0.3"
+    "lerna": "^3.19.0"
   },
   "prettier": {
     "singleQuote": true,

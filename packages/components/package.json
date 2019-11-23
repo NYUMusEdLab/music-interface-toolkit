@@ -1,0 +1,33 @@
+{
+  "name": "@musedlab/toolkit",
+  "version": "0.0.3",
+  "description": "UI Components for music interfaces",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NYUMusEdLab/music-interface-toolkit.git",
+    "directory": "packages/components"
+  },
+  "author": "NYU Music Experience Design Lab (MusEDLab)",
+  "license": "MIT",
+  "dependencies": {
+    "@tonaljs/tonal": "^3.2.1"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
+    "lerna": "^3.19.0",
+    "rollup": "^1.20.3",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^2.0.3"
+  }
+}

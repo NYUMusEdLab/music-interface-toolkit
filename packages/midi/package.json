@@ -1,0 +1,26 @@
+{
+  "name": "@musedlab/midi",
+  "version": "0.0.0",
+  "description": "Tools for working with midi data in Javascript",
+  "scripts": {
+    "dev": "rollup -c -w",
+    "clean": "rm events.js web.js",
+    "prepack": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NYUMusEdLab/music-interface-toolkit.git",
+    "directory": "packages/midi"
+  },
+  "author": "NYU Music Experience Design Lab (MusEDLab)",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
+    "rollup": "^1.20.3",
+    "rollup-plugin-babel": "^4.3.3"
+  }
+}
