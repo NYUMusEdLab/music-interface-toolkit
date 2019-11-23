@@ -1,6 +1,6 @@
 {
   "name": "@musedlab/midi",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Tools for working with midi data in Javascript",
   "scripts": {
     "dev": "rollup -c -w",
