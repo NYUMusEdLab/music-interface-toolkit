@@ -1,6 +1,6 @@
 {
   "name": "@musedlab/midi",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Tools for working with midi data in Javascript",
   "files": [
     "events.js",
