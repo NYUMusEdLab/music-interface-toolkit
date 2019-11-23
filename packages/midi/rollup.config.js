@@ -8,8 +8,8 @@ export default {
     })
   ],
   input: {
-    'events': 'events/index.js',
-    'web': 'web/index.js'
+    'events': 'src/events/index.js',
+    'web': 'src/web/index.js'
   },
   output: {
     dir: '.',

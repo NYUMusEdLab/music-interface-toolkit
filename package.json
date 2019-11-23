@@ -2,24 +2,10 @@
   "name": "music-interface-toolkit",
   "private": true,
   "scripts": {
-    "dev": "rollup -c -w",
-    "prepack": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "files": [
-    "components/**/*",
-    "shared/*"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NYUMusEdLab/music-interface-toolkit.git"
   },
   "author": "NYU Music Experience Design Lab (MusEDLab)",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/NYUMusEdLab/music-interface-toolkit/issues"
-  },
-  "homepage": "https://github.com/NYUMusEdLab/music-interface-toolkit#readme",
   "devDependencies": {
     "lerna": "^3.19.0"
   },

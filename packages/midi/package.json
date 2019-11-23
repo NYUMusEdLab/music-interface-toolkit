@@ -6,13 +6,22 @@
     "dev": "rollup -c -w",
     "clean": "rm events.js web.js",
     "prepack": "rollup -c",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
+  "files": [
+    "events.js",
+    "web.js",
+    "shared/*"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/NYUMusEdLab/music-interface-toolkit.git",
     "directory": "packages/midi"
   },
+  "bugs": {
+    "url": "https://github.com/NYUMusEdLab/music-interface-toolkit/issues"
+  },
+  "homepage": "https://github.com/NYUMusEdLab/music-interface-toolkit#readme",
   "author": "NYU Music Experience Design Lab (MusEDLab)",
   "license": "MIT",
   "devDependencies": {

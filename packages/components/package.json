@@ -3,8 +3,17 @@
   "version": "0.0.3",
   "description": "UI Components for music interfaces",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "rollup -c -w",
+    "clean": "rm labels.js radial-layout.js scale-wheel.js",
+    "prepack": "rollup -c",
+    "test": "jest"
   },
+  "files": [
+    "labels.js",
+    "radial-layout.js",
+    "scale-wheel.js",
+    "shared/*"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/NYUMusEdLab/music-interface-toolkit.git",
