@@ -8,7 +8,7 @@ export default {
     })
   ],
   input: {
-    'events': 'src/events/index.js',
+    'messages': 'src/messages/index.js',
     'web': 'src/web/index.js'
   },
   output: {
