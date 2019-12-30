@@ -8,8 +8,8 @@ export default {
     })
   ],
   input: {
-    'messages': 'src/messages/index.js',
-    'web': 'src/web/index.js'
+    'messages/index': 'src/messages/index.js',
+    'web/index': 'src/web/index.js'
   },
   output: {
     dir: '.',

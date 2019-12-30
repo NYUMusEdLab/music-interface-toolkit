@@ -2,8 +2,11 @@
   "name": "music-interface-toolkit",
   "private": true,
   "scripts": {
-    "dev": "lerna exec -- rollup -c -w",
-    "prepare": "lerna exec -- rollup -c",
+    "clean-built": "lerna exec -- git clean -Xdf -e node_modules",
+    "dev": "trap 'exit 0' INT; lerna exec -- rollup -c -w",
+    "postdev": "npm run clean-built",
+    "prepublishOnly": "lerna exec -- rollup -c",
+    "postpublish": "npm run clean-built",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "NYU Music Experience Design Lab (MusEDLab)",
@@ -26,6 +29,6 @@
   },
   "dependencies": {
     "@musedlab/midi": "file:packages/midi",
-    "@musedlab/toolkit": "file:packages/components"
+    "@musedlab/toolkit": "file:packages/toolkit"
   }
 }
