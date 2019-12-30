@@ -8,7 +8,8 @@ export default {
     })
   ],
   input: {
-    'messages/index': 'src/messages/index.js',
+    'message/index': 'src/message/index.js',
+    'message/statuses': 'src/message/statuses.js',
     'web/index': 'src/web/index.js'
   },
   output: {

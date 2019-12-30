@@ -1,6 +1,6 @@
 function requestMIDI() {
   if ('requestMIDIAccess' in navigator) {
-    return navigator.requestMIDIAccess();
+    return navigator.requestMIDIAccess({ sysex: true });
   } else {
     return () => new Promise();
   }
@@ -16,30 +16,31 @@ export function sendMIDI(data, options = {}) {
   });
 }
 
-export function receiveMIDI(callback, options = {}) {
+export function receiveMIDI(callback) {
   let callbackList = Array.isArray(callback) ? [...callback] : [callback];
 
-  console.log('receive...');
+  function dispatch({ timeStamp: time, data }) {
+    let rawMidiMessage = { time, data };
+
+    for (let callback of callbackList) {
+      callback(rawMidiMessage);
+    }
+  }
 
   let dispose;
 
   requestMIDI().then(access => {
-    console.log('midi access granted...');
     let inputs = new Set();
 
     for (let input of access.inputs.values()) {
-      for (let callback of callbackList) {
-        input.addEventListener('midimessage', callback);
-      }
+      input.addEventListener('midimessage', dispatch);
       inputs.add(input);
     }
 
     function handleStateChange({ port }) {
       if (port.type === 'input' && port.connection !== 'open') {
         if (port.state === 'connected') {
-          for (let callback of callbackList) {
-            port.addEventListener('midimessage', callback);
-          }
+          port.addEventListener('midimessage', dispatch);
           inputs.add(port);
         }
       }
@@ -51,9 +52,7 @@ export function receiveMIDI(callback, options = {}) {
       access.removeEventListener('statechange', handleStateChange);
 
       for (let input of inputs) {
-        for (let callback of callbackList) {
-          input.removeEventListener('midimessage', callback);
-        }
+        input.removeEventListener('midimessage', dispatch);
       }
     };
   });
