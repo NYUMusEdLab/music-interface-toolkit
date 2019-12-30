@@ -6,6 +6,49 @@ function requestMIDI() {
   }
 }
 
+export function receiveMidiInputs(callback) {
+  let cancelled = false;
+  let dispose = () => {
+    cancelled = true;
+  };
+
+  requestMIDI().then(access => {
+    // Check if the user has already cancelled the callback
+    if (cancelled) {
+      return;
+    }
+
+    function listInputs() {
+      return [...access.inputs.values()].map(input => ({
+        id: input.id,
+        name: input.name,
+        manufacturer: input.manufacturer
+      }));
+    }
+
+    function handleStateChange({ port }) {
+      if (port.type === 'input') {
+        callback(listInputs());
+      }
+    }
+
+    access.addEventListener('statechange', handleStateChange);
+
+    dispose = () => {
+      access.removeEventListener('statechange', handleStateChange);
+    };
+
+    callback(listInputs());
+  });
+
+  // Return function for removing event listeners
+  return () => {
+    dispose();
+  };
+}
+
+export function receiveMidiOutputs(callback) {}
+
 export function sendMIDI(data, options = {}) {
   let { timestamp = 0 } = options;
 
@@ -17,19 +60,27 @@ export function sendMIDI(data, options = {}) {
 }
 
 export function receiveMIDI(callback) {
-  let callbackList = Array.isArray(callback) ? [...callback] : [callback];
-
-  function dispatch({ timeStamp: time, data }) {
-    let rawMidiMessage = { time, data };
-
-    for (let callback of callbackList) {
-      callback(rawMidiMessage);
-    }
-  }
-
-  let dispose;
+  let cancelled = false;
+  let dispose = () => {
+    cancelled = true;
+  };
 
   requestMIDI().then(access => {
+    // Check if the user has already cancelled the callbacks
+    if (cancelled) {
+      return;
+    }
+
+    let callbackList = Array.isArray(callback) ? [...callback] : [callback];
+
+    function dispatch({ timeStamp: time, data }) {
+      let rawMidiMessage = { time, data };
+
+      for (let callback of callbackList) {
+        callback(rawMidiMessage);
+      }
+    }
+
     let inputs = new Set();
 
     for (let input of access.inputs.values()) {
@@ -58,5 +109,7 @@ export function receiveMIDI(callback) {
   });
 
   // Return function for removing event listeners
-  return dispose;
+  return () => {
+    dispose();
+  };
 }

@@ -1,15 +1,10 @@
-import babel from 'rollup-plugin-babel';
+import ts from 'rollup-plugin-ts';
 
 export default {
-  plugins: [
-    babel({
-      presets: ['@babel/preset-env'],
-      exclude: 'node_modules/**'
-    })
-  ],
+  plugins: [ts()],
   input: {
     'message/index': 'src/message/index.js',
-    'message/statuses': 'src/message/statuses.js',
+    'message/statuses': 'src/message/statuses.ts',
     'web/index': 'src/web/index.js'
   },
   output: {
