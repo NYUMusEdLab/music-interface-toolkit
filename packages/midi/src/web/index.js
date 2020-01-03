@@ -73,8 +73,12 @@ export function receiveMIDI(callback) {
 
     let callbackList = Array.isArray(callback) ? [...callback] : [callback];
 
-    function dispatch({ timeStamp: time, data }) {
-      let rawMidiMessage = { time, data };
+    function dispatch({
+      timeStamp: time,
+      data,
+      target: { id, name, manufacturer }
+    }) {
+      let rawMidiMessage = { time, input: { id, name, manufacturer }, data };
 
       for (let callback of callbackList) {
         callback(rawMidiMessage);
