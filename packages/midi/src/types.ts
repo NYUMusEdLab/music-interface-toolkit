@@ -39,8 +39,26 @@ export interface ControlChangeMessage extends ChannelMessage {
   value: number;
 }
 
+export interface ProgramChangeMessage extends ChannelMessage {
+  status: typeof Status.PROGRAM_CHANGE;
+  value: number;
+}
+
+export interface ChannelPressureMessage extends ChannelMessage {
+  status: typeof Status.CHANNEL_PRESSURE;
+  value: number;
+}
+
+export interface PitchBendMessage extends ChannelMessage {
+  status: typeof Status.PITCH_BEND;
+  value: number;
+}
+
 export type LiveMidiMessage =
   | NoteOffMessage
   | NoteOnMessage
   | KeyPressureMessage
-  | ControlChangeMessage;
+  | ControlChangeMessage
+  | ProgramChangeMessage
+  | ChannelPressureMessage
+  | PitchBendMessage;

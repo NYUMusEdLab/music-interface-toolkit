@@ -29,13 +29,13 @@ export function parseMidiMessage(message: RawMidiMessage): LiveMidiMessage {
       case Status.CONTROL_CHANGE:
         [controller, value] = data;
         return { ...metadata, status, channel, controller, value };
-      // case Status.PROGRAM_CHANGE:
-      // case Status.CHANNEL_PRESSURE:
-      //   [value] = data;
-      //   return { ...metadata, status, channel, value };
-      // case Status.PITCH_BEND:
-      //   value = ((data[0] | (data[1] << 7)) - 0x2000) / 0b1111111;
-      //   return { ...metadata, status, channel, value };
+      case Status.PROGRAM_CHANGE:
+      case Status.CHANNEL_PRESSURE:
+        [value] = data;
+        return { ...metadata, status, channel, value };
+      case Status.PITCH_BEND:
+        value = ((data[0] | (data[1] << 7)) - 0x2000) / 0b1111111;
+        return { ...metadata, status, channel, value };
     }
   }
 

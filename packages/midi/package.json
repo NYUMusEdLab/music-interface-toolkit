@@ -3,8 +3,8 @@
   "version": "0.0.2",
   "description": "Tools for working with midi data in Javascript",
   "files": [
-    "events.js",
-    "web.js",
+    "message/*",
+    "web/*",
     "shared/*"
   ],
   "repository": {
@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/NYUMusEdLab/music-interface-toolkit/issues"
   },
-  "homepage": "https://github.com/NYUMusEdLab/music-interface-toolkit#readme",
+  "homepage": "https://github.com/NYUMusEdLab/music-interface-toolkit/tree/master/packages/midi#readme",
   "author": "NYU Music Experience Design Lab (MusEDLab)",
   "license": "MIT",
   "publishConfig": {
