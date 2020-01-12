@@ -1,9 +1,17 @@
+import { TimedMidiMessage } from '../types';
+
 function int16(n: number) {
   return new Uint8Array([n >> 8, n]);
 }
 
 function int32(n: number) {
   return new Uint8Array([...int16(n >> 16), ...int16(n)]);
+}
+
+function test(foo: [number, number] | [string, object]) {
+  if (typeof foo[0] === 'number') {
+    foo;
+  }
 }
 
 function variable(n: number) {
@@ -39,7 +47,7 @@ function encodeChunk(chunkType: string, data: Uint8Array) {
 function encodeMidiFile(
   format: 0 | 1 | 2,
   division: number | [24 | 25 | 29 | 30, number],
-  tracks: (number[] | Uint8Array)[]
+  tracks: TimedMidiMessage[][]
 ) {
   if (format === 0 && tracks.length !== 1) {
     throw new Error('Format 0 MIDI file must only have one track');
@@ -62,4 +70,15 @@ function encodeMidiFile(
       ...divisionBytes
     ])
   );
+
+  for (let track of tracks) {
+    let trackData = [];
+    let lastTime = 0;
+    let runningStatus = null;
+
+    for (let event of track) {
+      // Encode the delta time
+      variable(event.time - lastTime);
+    }
+  }
 }
