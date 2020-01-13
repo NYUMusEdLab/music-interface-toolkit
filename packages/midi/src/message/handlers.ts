@@ -1,31 +1,77 @@
-import { MidiMessage, NoteMessage, MidiData } from '../types';
-import { NOTE_ON, NOTE_OFF } from './statuses';
+import {
+  MidiMessage,
+  ChannelMessage,
+  NoteMessage,
+  ControlChangeMessage,
+  KeyPressureMessage
+} from '../types';
+import { NOTE_ON, NOTE_OFF, KEY_PRESSURE, CONTROL_CHANGE } from './statuses';
 
-export function onNoteOn(fn: (m: NoteMessage) => void) {
+function mask(status: number) {
+  return status & 0xf0;
+}
+
+export function onChannelMessage(fn: (m: ChannelMessage) => void) {
   return (m: MidiMessage) => {
     let {
-      data: [status, key, velocity]
+      data: [status]
     } = m;
 
-    if ((status & 0xf0) === NOTE_ON && velocity > 0) {
-      fn({ ...m, channel: status & 0x0f, key, velocity });
+    if (status >= 0x80 && status < 0xf0) {
+      fn({ ...m, channel: status & 0x0f });
     }
   };
 }
 
+export function onNoteOn(fn: (m: NoteMessage) => void) {
+  return onChannelMessage((m: ChannelMessage) => {
+    let {
+      data: [status, key, velocity]
+    } = m;
+
+    if (mask(status) === NOTE_ON && velocity > 0) {
+      fn({ ...m, key, velocity });
+    }
+  });
+}
+
 export function onNoteOff(fn: (m: NoteMessage) => void) {
-  return (m: MidiMessage) => {
+  return onChannelMessage((m: ChannelMessage) => {
     let {
       data: [status, key, velocity]
     } = m;
 
     if (
-      (status & 0xf0) === NOTE_OFF ||
-      ((status & 0xf0) === NOTE_ON && velocity === 0)
+      mask(status) === NOTE_OFF ||
+      (mask(status) === NOTE_ON && velocity === 0)
     ) {
-      fn({ ...m, channel: status & 0x0f, key, velocity });
+      fn({ ...m, key, velocity });
     }
-  };
+  });
+}
+
+export function onKeyPressure(fn: (m: KeyPressureMessage) => void) {
+  return onChannelMessage((m: ChannelMessage) => {
+    let {
+      data: [status, key, value]
+    } = m;
+
+    if (mask(status) === KEY_PRESSURE) {
+      fn({ ...m, key, value });
+    }
+  });
+}
+
+export function onControlChange(fn: (m: ControlChangeMessage) => void) {
+  return onChannelMessage((m: ChannelMessage) => {
+    let {
+      data: [status, controller, value]
+    } = m;
+
+    if (mask(status) === CONTROL_CHANGE) {
+      fn({ ...m, controller, value });
+    }
+  });
 }
 
 // switch (status) {
