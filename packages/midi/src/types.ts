@@ -1,5 +1,3 @@
-import * as Status from './message/statuses';
-
 export type MidiData = number[] | Uint8Array;
 
 export interface MidiMessage {
@@ -30,6 +28,10 @@ export interface ControlChangeMessage extends ChannelMessage {
 }
 
 // Program change, channel pressure, and pitch bend
-export interface ChannelValueMessage extends ChannelMessage {
+interface ChannelValueMessage extends ChannelMessage {
   value: number;
 }
+
+export type ProgramChangeMessage = ChannelValueMessage;
+export type ChannelPressureMessage = ChannelValueMessage;
+export type PitchBendMessage = ChannelValueMessage;
