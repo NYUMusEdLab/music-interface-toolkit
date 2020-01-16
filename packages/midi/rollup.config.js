@@ -4,7 +4,6 @@ export default {
   plugins: [ts()],
   input: {
     'message/index': 'src/message/index.js',
-    'message/statuses': 'src/message/statuses.ts',
     'web/index': 'src/web/index.js'
   },
   output: {

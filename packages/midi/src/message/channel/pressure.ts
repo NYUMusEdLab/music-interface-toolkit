@@ -3,7 +3,7 @@ import {
   KeyPressureMessage,
   ChannelPressureMessage
 } from '../../types';
-import { onChannelMessage } from './index';
+import { onChannelMessage } from './channel';
 import { KEY_PRESSURE, CHANNEL_PRESSURE } from '../../data/statusBytes';
 
 export function onKeyPressure(fn: (m: KeyPressureMessage) => void) {
