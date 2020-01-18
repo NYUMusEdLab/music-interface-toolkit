@@ -12,7 +12,7 @@ export function onChannelMessage(
     if (status >= 0x80 && status < 0xf0) {
       let channel = status & 0x0f;
 
-      if (!('channel' in opts) || opts.channel === channel) {
+      if (opts.channel === undefined || opts.channel === channel) {
         fn({ ...m, channel: status & 0x0f });
       }
     }
