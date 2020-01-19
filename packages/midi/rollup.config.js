@@ -1,14 +1,15 @@
-import ts from 'rollup-plugin-ts';
+import ts from '@wessberg/rollup-plugin-ts';
 
 export default {
-  plugins: [ts()],
+  plugins: [ts({ hook: { outputPath: path => path } })],
   input: {
-    'message/index': 'src/message/index.ts',
-    'web/index': 'src/web/index.js'
+    message: 'src/message/index.ts',
+    web: 'src/web/index.js'
   },
   output: {
     dir: '.',
     format: 'esm',
+    entryFileNames: '[name]/index.js',
     chunkFileNames: 'shared/[name]-[hash].js'
   }
 };

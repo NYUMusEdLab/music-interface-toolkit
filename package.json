@@ -15,6 +15,7 @@
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
+    "@wessberg/rollup-plugin-ts": "^1.2.13",
     "babel-jest": "^24.9.0",
     "jest": "^24.9.0",
     "lerna": "^3.20.2",
@@ -22,8 +23,7 @@
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-postcss": "^2.0.3",
-    "rollup-plugin-ts": "^0.2.0",
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.5"
   },
   "prettier": {
     "singleQuote": true,
