@@ -2,6 +2,12 @@
   "name": "@musedlab/midi",
   "version": "0.0.2",
   "description": "Tools for working with midi data in Javascript",
+  "type": "module",
+  "exports": {
+    "./file": "./file/index.js",
+    "./message": "./message/index.js",
+    "./web": "./web/index.js"
+  },
   "files": [
     "message/*",
     "web/*",
