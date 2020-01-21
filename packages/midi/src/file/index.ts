@@ -155,10 +155,6 @@ function consumeChunk(data: MidiData): [string, MidiData, MidiData] {
   let type = new TextDecoder().decode(new Uint8Array(data.slice(0, 4)));
   let length = fromBytes(data.slice(4, 8));
 
-  console.log(`Test: ${fromBytes([0, 0, 0, 6])}`);
-
-  console.log(`Length: ${length}`);
-
   if (data.length < 8 + length) {
     throw new Error('File is missing data');
   }
@@ -166,4 +162,83 @@ function consumeChunk(data: MidiData): [string, MidiData, MidiData] {
   return [type, data.slice(8, 8 + length), data.slice(8 + length)];
 }
 
-function decodeTrack(data: MidiData) {}
+function decodeTrack(bytes: MidiData) {
+  let track: TimedMidiMessage[] = [];
+
+  let endOfTrackEncountered = false;
+  let time = 0;
+  let runningStatus: number | null = null;
+
+  let i = 0;
+
+  while (!endOfTrackEncountered) {
+    // Get event delta time
+    let delta: number;
+    [delta, i] = readVarLengthValue(bytes, i);
+    time += delta;
+
+    // Pointer to the byte after the message
+    let j: number;
+
+    if (bytes[i] <= 0x7f && runningStatus !== null) {
+      // If the next byte is a MIDI Data byte
+      j = channelMessageLength(runningStatus) + i - 1;
+      track.push({ time, data: [runningStatus, ...bytes.slice(i, j)] });
+    } else if (bytes[i] >= 0x80 && bytes[i] < 0xf0) {
+      // Channel mode message
+      runningStatus = bytes[i];
+      j = channelMessageLength(runningStatus) + i;
+      track.push({ time, data: bytes.slice(i, j) });
+    } else if (bytes[i] === 0xf0) {
+      // SysEx Message
+      runningStatus = null;
+      [length, i] = readVarLengthValue(bytes, i + 1);
+      j = i + length;
+      track.push({ time, data: [0xf0, ...bytes.slice(i, j)] });
+    } else if (bytes[i] === 0xf7) {
+      // Escaped Data
+      runningStatus = null;
+      [length, i] = readVarLengthValue(bytes, i + 1);
+      j = i + length;
+      track.push({ time, data: bytes.slice(i, j) });
+    } else if (bytes[i] === 0xff) {
+      // Meta Message
+      runningStatus = null;
+      let metaType = bytes[i + 1];
+      [length, j] = readVarLengthValue(bytes, i + 2);
+      j += length;
+      track.push({ time, data: bytes.slice(i, j) });
+      if (metaType === 0x2f) {
+        endOfTrackEncountered = true;
+      }
+    } else {
+      throw new Error('File has unexpected event type');
+    }
+
+    i = j;
+  }
+}
+
+function readVarLengthValue(data: MidiData, i: number) {
+  let value = 0;
+  while (data[i] > 0x7f) {
+    value = (value << 7) | (data[i] & 0x7f);
+    i++;
+  }
+  value = (value << 7) | data[i];
+  i++;
+
+  return [value, i];
+}
+
+function channelMessageLength(status: number) {
+  if (status >= 0x80 && status < 0xc0) {
+    return 3;
+  } else if (status >= 0xc0 && status < 0xe0) {
+    return 2;
+  } else if (status >= 0xe0 && status < 0xf0) {
+    return 3;
+  } else {
+    throw new Error();
+  }
+}
