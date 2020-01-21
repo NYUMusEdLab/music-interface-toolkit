@@ -82,17 +82,13 @@ export interface MidiFile {
 }
 
 export function decodeMidiFile(data: MidiData): MidiFile {
-  // Parse header
-  console.log('parse header');
-  let [headType, headData, rest] = consumeChunk(data);
-
-  console.log('correctly consumed');
-  console.log(data);
-  console.log(headData);
-
-  if (headType !== 'MThd') {
+  // Check for a MIDI header first thing
+  if (new TextDecoder().decode(new Uint8Array(data.slice(0, 4))) !== 'MThd') {
     throw new Error(`File doesn't have a valid MIDI header`);
   }
+
+  // Parse header
+  let [, headData, rest] = consumeChunk(data);
 
   let format = fromBytes(headData.slice(0, 2));
 
@@ -130,17 +126,14 @@ export function decodeMidiFile(data: MidiData): MidiFile {
     division = fromBytes(headData.slice(4, 6));
   }
 
-  let tracks = [[]];
+  let tracks = [];
 
-  let tempTracks = [];
-
-  while (tempTracks.length < numTracks) {
+  while (tracks.length < numTracks) {
     let chunkType, trackData;
     [chunkType, trackData, rest] = consumeChunk(rest);
 
     if (chunkType === 'MTrk') {
-      // decodeTrack(trackData);
-      tempTracks.push([]);
+      tracks.push(decodeTrack(trackData));
     }
   }
 
@@ -180,6 +173,9 @@ function decodeTrack(bytes: MidiData) {
     // Pointer to the byte after the message
     let j: number;
 
+    // Length of variable-length messages (SysEx and Meta)
+    let length: number;
+
     if (bytes[i] <= 0x7f && runningStatus !== null) {
       // If the next byte is a MIDI Data byte
       j = channelMessageLength(runningStatus) + i - 1;
@@ -212,11 +208,13 @@ function decodeTrack(bytes: MidiData) {
         endOfTrackEncountered = true;
       }
     } else {
-      throw new Error('File has unexpected event type');
+      throw new Error(`File has unexpected event type: ${bytes[i]}`);
     }
 
     i = j;
   }
+
+  return track;
 }
 
 function readVarLengthValue(data: MidiData, i: number) {
