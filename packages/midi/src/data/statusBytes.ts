@@ -25,7 +25,7 @@ export const TUNE_REQUEST = 0b11110110;
 export const END_OF_EXCLUSIVE = 0b11110111;
 
 // System Real-Time
-export const CLOCK = 0b111110000;
+export const CLOCK = 0b11111000;
 // 0b11111001 is Undefined (Reserved)
 export const START = 0b11111010;
 export const CONTINUE = 0b11111011;
