@@ -1,5 +1,46 @@
 import { MidiMessage } from '../types';
 
+const SYSTEM_EXCLUSIVE = 0xf0;
+const END_OF_EXCLUSIVE = 0xf7;
+
+export function isSystemExclusive({ data: [status] }: MidiMessage) {
+  return status === SYSTEM_EXCLUSIVE;
+}
+
+export function getSysExVendor(message: MidiMessage) {
+  let { data } = message;
+  return data.slice(1, data[1] !== 0 ? 2 : 4);
+}
+
+export function getSysExData(message: MidiMessage) {
+  let { data } = message;
+  return data.slice(data[1] !== 0 ? 2 : 4, data.indexOf(END_OF_EXCLUSIVE));
+}
+
+const MIDI_TIMECODE = 0xf1;
+
+export function isTimecode({ data: [status] }: MidiMessage) {
+  return status === MIDI_TIMECODE;
+}
+
+const SONG_POSITION = 0xf2;
+
+export function isSongPosition({ data: [status] }: MidiMessage) {
+  return status === SONG_POSITION;
+}
+
+const SONG_SELECT = 0xf3;
+
+export function isSongSelect({ data: [status] }: MidiMessage) {
+  return status === SONG_SELECT;
+}
+
+const TUNE_REQUEST = 0xf6;
+
+export function isTuneRequest({ data: [status] }: MidiMessage) {
+  return status === TUNE_REQUEST;
+}
+
 const CLOCK = 0xf8;
 
 export function clock() {
