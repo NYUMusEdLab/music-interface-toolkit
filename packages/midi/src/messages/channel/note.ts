@@ -1,6 +1,6 @@
 import { ChannelMessage, NoteMessage } from '../../types';
 import { NOTE_OFF, NOTE_ON } from '../../data/statusBytes';
-import { onChannelMessage } from './channel';
+import { onChannelMessage } from '../channel';
 
 /**
  * Generate raw MIDI data for a Note On message (status byte 0x90).

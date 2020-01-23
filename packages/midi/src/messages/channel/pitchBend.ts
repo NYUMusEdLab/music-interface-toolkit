@@ -1,6 +1,6 @@
 import { PITCH_BEND } from '../../data/statusBytes';
 import { ChannelMessage, PitchBendMessage } from '../../types';
-import { onChannelMessage } from './channel';
+import { onChannelMessage } from '../channel';
 
 export function pitchBend(channel: number, value: number) {
   return [

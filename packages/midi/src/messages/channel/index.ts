@@ -1,4 +1,4 @@
-export * from './channel';
+export * from '../channel';
 export * from './note';
 export * from './controlChange';
 export * from './programChange';

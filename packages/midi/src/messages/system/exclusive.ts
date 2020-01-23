@@ -6,8 +6,12 @@ export interface SystemExclusiveMessage extends MidiMessage {
   systemExclusiveData: MidiData;
 }
 
-export function systemExclusive(manufacturer: number[], data: MidiData) {
+export function systemExclusive(manufacturer: MidiData, data: MidiData) {
   return [SYSTEM_EXCLUSIVE, ...manufacturer, ...data, END_OF_EXCLUSIVE];
+}
+
+export function isSystemExclusive(message: MidiMessage) {
+  return true;
 }
 
 export function onSystemExclusive(fn: (m: SystemExclusiveMessage) => void) {

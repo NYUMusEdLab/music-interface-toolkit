@@ -1,6 +1,6 @@
 import { CONTROL_CHANGE } from '../../data/statusBytes';
 import { ChannelMessage, ControlChangeMessage } from '../../types';
-import { onChannelMessage } from './channel';
+import { onChannelMessage } from '../channel';
 
 export function controlChange(
   channel: number,

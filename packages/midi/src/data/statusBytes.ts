@@ -23,13 +23,3 @@ export const SONG_SELECT = 0b11110011;
 // 0b11110101 is Undefined (Reserved)
 export const TUNE_REQUEST = 0b11110110;
 export const END_OF_EXCLUSIVE = 0b11110111;
-
-// System Real-Time
-export const CLOCK = 0b11111000;
-// 0b11111001 is Undefined (Reserved)
-export const START = 0b11111010;
-export const CONTINUE = 0b11111011;
-export const STOP = 0b11111100;
-// 0b11111101 is Undefined (Reserved)
-export const ACTIVE_SENSING = 0b11111110;
-export const RESET = 0b111111111;

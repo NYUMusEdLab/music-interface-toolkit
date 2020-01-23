@@ -1,6 +1,6 @@
 import { ChannelMessage, ProgramChangeMessage } from '../../types';
 import { PROGRAM_CHANGE } from '../../data/statusBytes';
-import { onChannelMessage } from './channel';
+import { onChannelMessage } from '../channel';
 
 export function programChange(channel: number, program: number) {
   return [PROGRAM_CHANGE | (channel & 0xf), program];
