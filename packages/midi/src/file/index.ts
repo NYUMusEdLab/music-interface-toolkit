@@ -1,5 +1,5 @@
 import { TimedMidiMessage, MidiData } from '../types';
-import { toBytes, fromBytes } from '../number/index';
+import { toBytes, fromBytes } from '../data/index';
 
 function variable(n: number) {
   let bytes = [];
