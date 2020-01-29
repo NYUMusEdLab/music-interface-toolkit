@@ -5,7 +5,7 @@ export default {
   input: {
     messages: 'src/messages/index.ts',
     file: 'src/file/index.ts',
-    web: 'src/web/index.js'
+    web: 'src/web/index.ts'
   },
   output: {
     dir: '.',
