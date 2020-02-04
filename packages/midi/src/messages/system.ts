@@ -1,7 +1,11 @@
-import { MidiMessage } from '../types';
+import { MidiData, MidiMessage } from '../types';
 
 const SYSTEM_EXCLUSIVE = 0xf0;
 const END_OF_EXCLUSIVE = 0xf7;
+
+export function systemExclusive(vendor: MidiData, data: MidiData) {
+  return [SYSTEM_EXCLUSIVE, ...vendor, ...data, END_OF_EXCLUSIVE];
+}
 
 export function isSystemExclusive({ data: [status] }: MidiMessage) {
   return status === SYSTEM_EXCLUSIVE;

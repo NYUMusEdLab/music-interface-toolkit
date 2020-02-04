@@ -1,6 +1,6 @@
 import { MidiData, LiveMidiMessage } from '../types';
 
-export function receiveMidiInputs(fn: (inputs: WebMidi.MIDIInput[]) => any) {
+export function receiveMidiInputs(fn: (inputs: MIDIInput[]) => any) {
   let cancelled = false;
   let dispose = () => {
     cancelled = true;
@@ -13,7 +13,7 @@ export function receiveMidiInputs(fn: (inputs: WebMidi.MIDIInput[]) => any) {
         return;
       }
 
-      function handleStateChange({ port }: WebMidi.MIDIConnectionEvent) {
+      function handleStateChange({ port }: MIDIConnectionEvent) {
         if (port.type === 'input') {
           fn([...access.inputs.values()]);
         }
@@ -35,7 +35,7 @@ export function receiveMidiInputs(fn: (inputs: WebMidi.MIDIInput[]) => any) {
   };
 }
 
-export function receiveMidiOutputs(fn: (inputs: WebMidi.MIDIOutput[]) => any) {
+export function receiveMidiOutputs(fn: (inputs: MIDIOutput[]) => any) {
   let cancelled = false;
   let dispose = () => {
     cancelled = true;
@@ -48,7 +48,7 @@ export function receiveMidiOutputs(fn: (inputs: WebMidi.MIDIOutput[]) => any) {
         return;
       }
 
-      function handleStateChange({ port }: WebMidi.MIDIConnectionEvent) {
+      function handleStateChange({ port }: MIDIConnectionEvent) {
         if (port.type === 'output') {
           fn([...access.outputs.values()]);
         }
@@ -82,7 +82,7 @@ export function sendMIDI(data: MidiData, options: { timestamp?: number } = {}) {
   }
 }
 
-function isInput(port: WebMidi.MIDIPort): port is WebMidi.MIDIInput {
+function isInput(port: MIDIPort): port is MIDIInput {
   return port.type === 'input';
 }
 
@@ -103,18 +103,18 @@ export function receiveMIDI(fn: (message: LiveMidiMessage) => any) {
         timeStamp: time,
         data,
         target: input
-      }: WebMidi.MIDIMessageEvent) {
+      }: MIDIMessageEvent) {
         fn({ data, input, time });
       }
 
-      let inputs = new Set<WebMidi.MIDIInput>();
+      let inputs = new Set<MIDIInput>();
 
       for (let input of access.inputs.values()) {
         input.addEventListener('midimessage', dispatch);
         inputs.add(input);
       }
 
-      function handleStateChange({ port }: WebMidi.MIDIConnectionEvent) {
+      function handleStateChange({ port }: MIDIConnectionEvent) {
         if (
           isInput(port) &&
           port.connection !== 'open' &&

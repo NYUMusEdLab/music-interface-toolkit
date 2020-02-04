@@ -1,4 +1,5 @@
 import { MidiMessage } from '../types';
+import { toDataBytes } from '../data/index';
 
 export function isChannelMessage(
   message: MidiMessage,
@@ -19,6 +20,27 @@ export function getChannel(message: MidiMessage) {
   return status & 0xf;
 }
 
+/**
+ * Generate a status byte, where the first four bits represent the type of
+ * message and the last four bits represent the channel.
+ *
+ * @param type Message type
+ * @param channel Message channel
+ */
+function status(type: number, channel: number) {
+  return (type & 0xf0) | (channel & 0x0f);
+}
+
+/**
+ * Check if a channel message is of a specific type
+ *
+ * @param message The message to check
+ * @param type The type of message to check against
+ */
+function isType(message: MidiMessage, type: number) {
+  return (message.data[0] & 0xf0) === type;
+}
+
 const NOTE_OFF = 0x80;
 const NOTE_ON = 0x90;
 
@@ -30,59 +52,76 @@ const NOTE_ON = 0x90;
  * @param velocity The attack velocity for the note. A note on with a velocity of 0 will generally be treated as a Note Off message.
  */
 export function noteOn(channel: number, key: number, velocity = 64) {
-  return [NOTE_ON | (channel & 0xf), key, velocity];
+  return [status(NOTE_ON, channel), key, velocity];
 }
 
 export function isNoteOn(
   message: MidiMessage,
   options: { channel?: number } = {}
 ) {
-  let [status, , velocity] = message.data;
+  let [, , velocity] = message.data;
 
   return (
     isChannelMessage(message, options) &&
-    (status & 0xf0) === NOTE_ON &&
+    isType(message, NOTE_ON) &&
     velocity > 0
   );
 }
 
+/**
+ *
+ * @param channel
+ * @param key
+ * @param velocity
+ */
 export function noteOff(channel: number, key: number, velocity = 64) {
-  return [NOTE_OFF | (channel & 0xf), key, velocity];
+  return [status(NOTE_OFF, channel), key, velocity];
 }
 
 export function isNoteOff(
   message: MidiMessage,
   options: { channel?: number } = {}
 ) {
-  let [status, , velocity] = message.data;
+  let [, , velocity] = message.data;
 
   return (
-    (isChannelMessage(message, options) && (status & 0xf0) === NOTE_OFF) ||
-    ((status & 0xf0) === NOTE_ON && velocity === 0)
+    (isChannelMessage(message, options) && isType(message, NOTE_OFF)) ||
+    (isType(message, NOTE_ON) && velocity === 0)
   );
 }
 
 const KEY_PRESSURE = 0xa0;
 
+export function keyPressure(channel: number, key: number, pressure: number) {
+  return [status(KEY_PRESSURE, channel), key, pressure];
+}
+
 export function isKeyPressure(
   message: MidiMessage,
   options: { channel?: number } = {}
 ) {
-  let [status] = message.data;
-  return isChannelMessage(message, options) && (status & 0xf0) === KEY_PRESSURE;
+  return isChannelMessage(message, options) && isType(message, KEY_PRESSURE);
 }
 
 const CONTROL_CHANGE = 0xb0;
+
+export function controlChange(
+  channel: number,
+  controller: number,
+  value: number
+) {
+  return [status(CONTROL_CHANGE, channel), controller, value];
+}
 
 export function isControlChange(
   message: MidiMessage,
   options: { channel?: number; controller?: number } = {}
 ) {
-  let [status, controller] = message.data;
+  let [, controller] = message.data;
 
   return (
     isChannelMessage(message, options) &&
-    (status & 0xf0) === CONTROL_CHANGE &&
+    isType(message, CONTROL_CHANGE) &&
     controller < 120 &&
     (options.controller === undefined || options.controller === controller)
   );
@@ -90,34 +129,42 @@ export function isControlChange(
 
 const PROGRAM_CHANGE = 0xc0;
 
+export function programChange(channel: number, program: number) {
+  return [status(PROGRAM_CHANGE, channel), program];
+}
+
 export function isProgramChange(
   message: MidiMessage,
   options: { channel?: number } = {}
 ) {
-  let [status] = message.data;
-  return (
-    isChannelMessage(message, options) && (status & 0xf0) === PROGRAM_CHANGE
-  );
+  return isChannelMessage(message, options) && isType(message, PROGRAM_CHANGE);
 }
 
 const CHANNEL_PRESSURE = 0xd0;
+
+export function channelPressure(channel: number, pressure: number) {
+  return [status(CHANNEL_PRESSURE, channel), pressure];
+}
 
 export function isChannelPressure(
   message: MidiMessage,
   options: { channel?: number } = {}
 ) {
-  let [status] = message.data;
   return (
-    isChannelMessage(message, options) && (status & 0xf0) === CHANNEL_PRESSURE
+    isChannelMessage(message, options) && isType(message, CHANNEL_PRESSURE)
   );
 }
 
 const PITCH_BEND = 0xe0;
 
+export function pitchBend(channel: number, bend: number) {
+  let [msb, lsb] = toDataBytes(bend, 2);
+  return [status(PITCH_BEND, channel), lsb, msb];
+}
+
 export function isPitchBend(
   message: MidiMessage,
   options: { channel?: number } = {}
 ) {
-  let [status] = message.data;
-  return isChannelMessage(message, options) && (status & 0xf0) === PITCH_BEND;
+  return isChannelMessage(message, options) && isType(message, PITCH_BEND);
 }

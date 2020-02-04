@@ -9,5 +9,5 @@ export interface TimedMidiMessage extends MidiMessage {
 }
 
 export interface LiveMidiMessage extends TimedMidiMessage {
-  input: WebMidi.MIDIInput;
+  input: MIDIInput;
 }
