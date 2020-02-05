@@ -1,3 +1,5 @@
+export * from '../../third_party/webmidi';
+
 import { MidiData, LiveMidiMessage } from '../types';
 
 export function receiveMidiInputs(fn: (inputs: MIDIInput[]) => any) {

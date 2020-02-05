@@ -1,3 +1,8 @@
 {
-  "compilerOptions": { "strict": true, "target": "ESNext", "declaration": true }
+  "compilerOptions": {
+    "strict": true,
+    "target": "ESNext",
+    "declaration": true
+  },
+  "include": ["src/**/*"]
 }
