@@ -201,9 +201,12 @@ function decodeTrack(bytes: MidiData) {
       // Meta Message
       runningStatus = null;
       let metaType = bytes[i + 1];
-      [length, j] = readVarLengthValue(bytes, i + 2);
-      j += length;
-      track.push({ time, data: bytes.slice(i, j) });
+      [length, i] = readVarLengthValue(bytes, i + 2);
+      j = i + length;
+      track.push({
+        time,
+        data: [0xff, metaType, ...bytes.slice(i, j)]
+      });
       if (metaType === 0x2f) {
         endOfTrackEncountered = true;
       }

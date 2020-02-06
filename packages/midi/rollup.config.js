@@ -6,6 +6,7 @@ export default {
     data: 'src/data/index.ts',
     messages: 'src/messages/index.ts',
     file: 'src/file/index.ts',
+    'file/messages': 'src/file/messages/index.ts',
     web: 'src/web/index.ts'
   },
   output: {
