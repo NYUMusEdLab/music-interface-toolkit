@@ -1,0 +1,38 @@
+.piano-ui {
+  position: relative;
+}
+
+.piano-ui div {
+  display: flex;
+}
+
+.piano-ui > div:first-child {
+  width: 100%;
+  height: 55%;
+  position: absolute;
+}
+
+.piano-ui > div:last-child {
+  height: 100%;
+}
+
+.piano-ui .piano-ui-key {
+  flex: 1;
+}
+
+.piano-ui > div:first-child .piano-ui-gap {
+  visibility: hidden;
+  flex: 0.3;
+}
+
+.piano-ui > div:first-child .piano-ui-gap + .piano-ui-gap {
+  flex: 1;
+}
+
+.piano-ui > div:first-child .piano-ui-gap:first-child {
+  flex: 0.7;
+}
+
+.piano-ui > div:first-child .piano-ui-gap:last-child {
+  flex: 1.6;
+}
