@@ -17,17 +17,17 @@ const isNatural = [
   true
 ];
 
-export const PianoKeyboard = ({
-  low = 21,
-  high = 108,
-  keyClass = undefined
-}) => {
+export const Piano = ({ low = 21, high = 108, keyClass = undefined }) => {
   let blackKeys = [];
   let whiteKeys = [];
 
   for (let i = low; i <= high; ++i) {
-    let className = 'piano-ui-key';
-    let key = <div className={className} key={i} />;
+    let classNames = [];
+    classNames.push('piano-ui-key');
+    classNames.push(
+      isNatural[i % 12] ? 'piano-ui-white-key' : 'piano-ui-black-key'
+    );
+    let key = <div className={classNames.join(' ')} key={i} />;
 
     if (isNatural[i % 12]) {
       whiteKeys.push(key);

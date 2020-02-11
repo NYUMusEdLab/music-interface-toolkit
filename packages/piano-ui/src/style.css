@@ -36,3 +36,12 @@
 .piano-ui > div:first-child .piano-ui-gap:last-child {
   flex: 1.6;
 }
+
+.piano-ui .piano-ui-white-key {
+  border: solid 1px black;
+  background: white;
+}
+
+.piano-ui .piano-ui-black-key {
+  background: black;
+}
