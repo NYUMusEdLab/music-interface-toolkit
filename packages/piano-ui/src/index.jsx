@@ -27,6 +27,9 @@ export const Piano = ({ low = 21, high = 108, keyClass = undefined }) => {
     classNames.push(
       isNatural[i % 12] ? 'piano-ui-white-key' : 'piano-ui-black-key'
     );
+    if (keyClass) {
+      classNames.push(...keyClass(i));
+    }
     let key = <div className={classNames.join(' ')} key={i} />;
 
     if (isNatural[i % 12]) {
