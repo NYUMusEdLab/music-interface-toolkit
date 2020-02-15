@@ -1,6 +1,6 @@
 export * from '../../third_party/webmidi';
 
-import { MidiData, LiveMidiMessage } from '../types';
+import { MidiData, LiveMidiMessage, TimedMidiMessage } from '../types';
 
 export function receiveMidiInputs(fn: (inputs: MIDIInput[]) => any) {
   let cancelled = false;
@@ -72,13 +72,17 @@ export function receiveMidiOutputs(fn: (inputs: MIDIOutput[]) => any) {
   };
 }
 
-export function sendMIDI(data: MidiData, options: { timestamp?: number } = {}) {
-  let { timestamp = 0 } = options;
-
+export function sendMIDI(message: TimedMidiMessage | TimedMidiMessage[]) {
   if (navigator.requestMIDIAccess) {
     navigator.requestMIDIAccess().then(access => {
       for (let output of access.outputs.values()) {
-        output.send(data, timestamp);
+        let messages: TimedMidiMessage[] = Array.isArray(message)
+          ? message
+          : [message];
+
+        for (let { data, time } of messages) {
+          output.send(data, time);
+        }
       }
     });
   }

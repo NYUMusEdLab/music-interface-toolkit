@@ -10,12 +10,9 @@ export interface NoteMessage extends MidiMessage {
 export function onNote(
   noteOn: (m: NoteMessage) => void,
   noteOff: (m: NoteMessage) => void,
-  options: { channel?: number; sustain?: boolean } = {}
+  options: { channel?: number } = {}
 ) {
-  let { channel, sustain } = options;
-
-  let isSustaining = false;
-  let sustainedNotes = new Map<number, MidiMessage>();
+  let { channel } = options;
 
   return (m: MidiMessage) => {
     // Handle note events
@@ -30,12 +27,8 @@ export function onNote(
       if (isNoteOn(m, { channel })) {
         noteOn(message);
       } else {
-        if (sustain) {
-        } else {
-          noteOff(message);
-        }
+        noteOff(message);
       }
-    } else if (sustain && isControlChange(m, { channel, controller: 66 })) {
     }
   };
 }
