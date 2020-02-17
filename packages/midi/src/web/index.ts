@@ -1,6 +1,6 @@
 export * from '../../third_party/webmidi';
 
-import { MidiData, LiveMidiMessage, TimedMidiMessage } from '../types';
+import { LiveMidiMessage, TimedMidiMessage } from '../types';
 
 export function receiveMidiInputs(fn: (inputs: MIDIInput[]) => any) {
   let cancelled = false;
@@ -72,16 +72,21 @@ export function receiveMidiOutputs(fn: (inputs: MIDIOutput[]) => any) {
   };
 }
 
-export function sendMIDI(message: TimedMidiMessage | TimedMidiMessage[]) {
+export function sendMIDI(
+  message: TimedMidiMessage | TimedMidiMessage[],
+  outputId?: string
+) {
   if (navigator.requestMIDIAccess) {
     navigator.requestMIDIAccess().then(access => {
-      for (let output of access.outputs.values()) {
-        let messages: TimedMidiMessage[] = Array.isArray(message)
-          ? message
-          : [message];
+      let messages: TimedMidiMessage[] = Array.isArray(message)
+        ? message
+        : [message];
 
-        for (let { data, time } of messages) {
-          output.send(data, time);
+      for (let output of access.outputs.values()) {
+        if (outputId === undefined || output.id === outputId) {
+          for (let { data, time } of messages) {
+            output.send(data, time);
+          }
         }
       }
     });
@@ -92,7 +97,10 @@ function isInput(port: MIDIPort): port is MIDIInput {
   return port.type === 'input';
 }
 
-export function receiveMIDI(fn: (message: LiveMidiMessage) => any) {
+export function receiveMIDI(
+  fn: (message: LiveMidiMessage) => any,
+  inputId?: string
+) {
   let cancelled = false;
   let dispose = () => {
     cancelled = true;
@@ -116,8 +124,10 @@ export function receiveMIDI(fn: (message: LiveMidiMessage) => any) {
       let inputs = new Set<MIDIInput>();
 
       for (let input of access.inputs.values()) {
-        input.addEventListener('midimessage', dispatch);
-        inputs.add(input);
+        if (inputId === undefined || input.id === inputId) {
+          input.addEventListener('midimessage', dispatch);
+          inputs.add(input);
+        }
       }
 
       function handleStateChange({ port }: MIDIConnectionEvent) {
@@ -126,8 +136,10 @@ export function receiveMIDI(fn: (message: LiveMidiMessage) => any) {
           port.connection !== 'open' &&
           port.state === 'connected'
         ) {
-          port.addEventListener('midimessage', dispatch);
-          inputs.add(port);
+          if (inputId === undefined || port.id === inputId) {
+            port.addEventListener('midimessage', dispatch);
+            inputs.add(port);
+          }
         }
       }
 
