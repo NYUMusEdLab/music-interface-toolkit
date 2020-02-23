@@ -1,15 +1,26 @@
+import {
+  NOTE_OFF,
+  NOTE_ON,
+  KEY_PRESSURE,
+  CONTROL_CHANGE,
+  PROGRAM_CHANGE,
+  CHANNEL_PRESSURE,
+  PITCH_BEND
+} from './channelTypes';
+
 import { MidiMessage } from '../types';
 import { toDataBytes } from '../data/index';
 
 export function isChannelMessage(
   message: MidiMessage,
-  options: { channel?: number } = {}
+  options: { type?: number; channel?: number } = {}
 ) {
   let [status] = message.data;
 
   return (
     status >= 0x80 &&
     status < 0xf0 &&
+    (options.type === undefined || (options.type & 0xf0) === (status & 0x0f)) &&
     (options.channel === undefined || options.channel === (status & 0x0f))
   );
 }
@@ -40,9 +51,6 @@ function status(type: number, channel: number) {
 function isType(message: MidiMessage, type: number) {
   return (message.data[0] & 0xf0) === type;
 }
-
-const NOTE_OFF = 0x80;
-const NOTE_ON = 0x90;
 
 /**
  * Generate raw MIDI data for a Note On message (status byte 0x90).
@@ -90,8 +98,6 @@ export function isNoteOff(
   );
 }
 
-const KEY_PRESSURE = 0xa0;
-
 export function keyPressure(channel: number, key: number, pressure: number) {
   return [status(KEY_PRESSURE, channel), key, pressure];
 }
@@ -102,8 +108,6 @@ export function isKeyPressure(
 ) {
   return isChannelMessage(message, options) && isType(message, KEY_PRESSURE);
 }
-
-const CONTROL_CHANGE = 0xb0;
 
 export function controlChange(
   channel: number,
@@ -127,8 +131,6 @@ export function isControlChange(
   );
 }
 
-const PROGRAM_CHANGE = 0xc0;
-
 export function programChange(channel: number, program: number) {
   return [status(PROGRAM_CHANGE, channel), program];
 }
@@ -139,8 +141,6 @@ export function isProgramChange(
 ) {
   return isChannelMessage(message, options) && isType(message, PROGRAM_CHANGE);
 }
-
-const CHANNEL_PRESSURE = 0xd0;
 
 export function channelPressure(channel: number, pressure: number) {
   return [status(CHANNEL_PRESSURE, channel), pressure];
@@ -154,8 +154,6 @@ export function isChannelPressure(
     isChannelMessage(message, options) && isType(message, CHANNEL_PRESSURE)
   );
 }
-
-const PITCH_BEND = 0xe0;
 
 export function pitchBend(channel: number, bend: number) {
   let [msb, lsb] = toDataBytes(bend, 2);

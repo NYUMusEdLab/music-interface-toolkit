@@ -1,97 +1,50 @@
+import { META } from './types';
+
 import { MidiMessage } from '../../types';
 
-const META_EVENT = 0xff;
+import { fromBytes } from '../../data/index';
 
-export function isMetaMessage(message: MidiMessage) {
-  let [status] = message.data;
+export function isMetaMessage(
+  message: MidiMessage,
+  options: { type?: number } = {}
+) {
+  let [status, metaType] = message.data;
+  let { type } = options;
 
-  return status === META_EVENT;
+  return status === META && (type === undefined || type === metaType);
 }
 
-// TODO: More Meta events:
-
-const SEQUENCE_NUMBER = 0x00;
-
-const TEXT_EVENT = 0x01;
-
-export function isTextEvent(message: MidiMessage) {
-  let [, type] = message.data;
-  return isMetaMessage(message) && type === TEXT_EVENT;
-}
-
+// Get text from a text event, copyright event, track name event,
+// instrument name event, lyric event, marker event, or cue point event
 export function getText(message: MidiMessage) {
   return String.fromCharCode(...message.data.slice(2));
 }
 
-const COPYRIGHT = 0x02;
+export function getTempo(message: MidiMessage) {
+  let microsecondsPerQuarter = fromBytes(message.data.slice(1, 4));
 
-export function isCopyright(message: MidiMessage) {
-  let [, type] = message.data;
-  return isMetaMessage(message) && type === COPYRIGHT;
+  // (beats/microsecond) * (600000 microseconds/minute)
+  return (1 / microsecondsPerQuarter) * 600000;
 }
 
-const TRACK_NAME = 0x03;
+export function getSMPTEOffset(message: MidiMessage) {}
 
-export function isTrackName(message: MidiMessage) {
-  let [, type] = message.data;
-  return isMetaMessage(message) && type === TRACK_NAME;
+export function getTimeSignature(message: MidiMessage) {
+  let [
+    ,
+    ,
+    beatsPerMeasure,
+    beatSubdivision,
+    clocksPerQuarter,
+    thirtySecondsPerQuarter
+  ] = message.data;
 }
 
-const INSTRUMENT_NAME = 0x04;
+export function getKeySignature(message: MidiMessage) {
+  let [, , sharpsOrFlats, quality] = message.data;
 
-export function isInstrumentName(message: MidiMessage) {
-  let [, type] = message.data;
-  return isMetaMessage(message) && type === INSTRUMENT_NAME;
+  // TODO: Get Root from sharps/flats
+
+  if (quality !== 0 && quality !== 1) throw new Error();
+  let qualityName = quality === 0 ? 'major' : 'minor';
 }
-
-const LYRIC = 0x05;
-
-export function isLyric(message: MidiMessage) {
-  let [, type] = message.data;
-  return isMetaMessage(message) && type === LYRIC;
-}
-
-const MARKER = 0x06;
-
-export function isMarker(message: MidiMessage) {
-  let [, type] = message.data;
-  return isMetaMessage(message) && type === MARKER;
-}
-
-const CUE_POINT = 0x07;
-
-export function isCuePoint(message: MidiMessage) {
-  let [, type] = message.data;
-  return isMetaMessage(message) && type === CUE_POINT;
-}
-
-const CHANNEL_PREFIX = 0x20;
-
-const END_OF_TRACK = 0x2f;
-
-export function endOfTrack() {
-  return [META_EVENT, END_OF_TRACK];
-}
-
-export function isEndOfTrack(message: MidiMessage) {
-  let [, type] = message.data;
-
-  return isMetaMessage(message) && type === END_OF_TRACK;
-}
-
-// TODO: More Meta events
-const SET_TEMPO = 0x51;
-const SMPTE_OFFSET = 0x54;
-const TIME_SIGNATURE = 0x58;
-
-export function isTimeSignature(message: MidiMessage) {}
-
-export function getTimeSignature(message: MidiMessage) {}
-
-const KEY_SIGNATURE = 0x59;
-
-export function isKeySignature(message: MidiMessage) {}
-
-export function getKeySignature(message: MidiMessage) {}
-
-const SEQUENCER_SPECIFIC = 0x7f;
