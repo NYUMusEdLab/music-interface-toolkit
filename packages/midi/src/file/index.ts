@@ -1,41 +1,12 @@
 import { TimedMidiMessage, MidiData } from '../types';
-import { toBytes, fromBytes } from '../data/index';
+import {
+  toBytes,
+  fromBytes,
+  toVarLengthBytes,
+  fromVarLengthBytes
+} from '../data/index';
 
-function variable(n: number) {
-  let bytes = [];
-
-  // Numbers that need 4 bytes
-  if (n > 0x1fffff) {
-    bytes.push((n >> 21) & 0x7f);
-  }
-
-  // Numbers that need at least 3 bytes
-  if (n > 0x3fff) {
-    bytes.push((n >> 14) & 0x7f);
-  }
-
-  // Numbers that need at least 2 bytes
-  if (n > 0x7f) {
-    bytes.push((n >> 7) & 0x7f);
-  }
-
-  // All numbers need at least 1 byte
-  bytes.push(n & 0x7f);
-
-  return new Uint8Array(bytes);
-}
-
-function encodeChunk(chunkType: string, data: Uint8Array) {
-  let chunkTypeBytes = new TextEncoder().encode(chunkType);
-
-  return new Uint8Array([
-    ...chunkTypeBytes,
-    ...toBytes(data.length, 4),
-    ...data
-  ]);
-}
-
-function encodeMidiFile(
+export function encodeMidiFile(
   format: 0 | 1 | 2,
   division: number | [24 | 25 | 29 | 30, number],
   tracks: TimedMidiMessage[][]
@@ -53,14 +24,13 @@ function encodeMidiFile(
     divisionBytes = new Uint8Array([-frameRate, frameDivision]);
   }
 
-  let header = encodeChunk(
-    'MThd',
-    new Uint8Array([
-      ...toBytes(format, 2),
-      ...toBytes(tracks.length, 2),
-      ...divisionBytes
-    ])
-  );
+  let headerChunk = encodeChunk('MThd', [
+    ...toBytes(format, 2),
+    ...toBytes(tracks.length, 2),
+    ...divisionBytes
+  ]);
+
+  let trackChunks: MidiData[] = [];
 
   for (let track of tracks) {
     let trackData = [];
@@ -69,9 +39,55 @@ function encodeMidiFile(
 
     for (let event of track) {
       // Encode the delta time
-      variable(event.time - lastTime);
+      trackData.push(...toVarLengthBytes(event.time - lastTime));
+
+      let [status, ...messageData] = event.data;
+      let messageDataLength: number[];
+
+      if (status >= 0x80 && status < 0xf0) {
+        // Channel Message
+        if (event.data.length !== channelMessageLength(status)) {
+          throw new Error('Channel message has an incorrect length');
+        }
+
+        if (status === runningStatus) {
+          trackData.push(...messageData);
+        } else {
+          trackData.push(status, ...messageData);
+          runningStatus = status;
+        }
+      } else if (status === 0xf0) {
+        // SysEx Message
+        runningStatus = null;
+        messageDataLength = toVarLengthBytes(messageData.length);
+        trackData.push(status, ...messageDataLength, ...messageData);
+      } else if (status === 0xff) {
+        // Meta Message
+        runningStatus = null;
+        let metaType: number;
+        [metaType, ...messageData] = messageData;
+        messageDataLength = toVarLengthBytes(messageData.length);
+        trackData.push(status, metaType, ...messageDataLength, ...messageData);
+      } else {
+        // Unrecognized Message to be wrapped in an 0xf7
+        runningStatus = null;
+        messageDataLength = toVarLengthBytes(event.data.length);
+        trackData.push(0xf7, ...messageDataLength, ...event.data);
+      }
     }
+
+    trackChunks.push(encodeChunk('MTrk', trackData));
   }
+}
+
+function encodeChunk(chunkType: string, data: MidiData) {
+  let chunkTypeBytes = new TextEncoder().encode(chunkType);
+
+  return new Uint8Array([
+    ...chunkTypeBytes,
+    ...toBytes(data.length, 4),
+    ...data
+  ]);
 }
 
 export interface MidiFile {
@@ -82,21 +98,26 @@ export interface MidiFile {
 }
 
 export function decodeMidiFile(data: MidiData): MidiFile {
+  // Convert to a Uint8Array, if it isn't already
+  if (!(data instanceof Uint8Array)) {
+    data = new Uint8Array(data);
+  }
+
   // Check for a MIDI header first thing
-  if (new TextDecoder().decode(new Uint8Array(data.slice(0, 4))) !== 'MThd') {
+  if (new TextDecoder().decode(data.subarray(0, 4)) !== 'MThd') {
     throw new Error(`File doesn't have a valid MIDI header`);
   }
 
   // Parse header
   let [, headData, rest] = consumeChunk(data);
 
-  let format = fromBytes(headData.slice(0, 2));
+  let format = fromBytes(headData.subarray(0, 2));
 
   if (!(format === 0 || format === 1 || format === 2)) {
     throw new Error(`MIDI file is format ${format}, which is unsupported`);
   }
 
-  let numTracks = fromBytes(headData.slice(2, 4));
+  let numTracks = fromBytes(headData.subarray(2, 4));
 
   if (format === 0 && numTracks !== 1) {
     throw new Error(
@@ -123,7 +144,7 @@ export function decodeMidiFile(data: MidiData): MidiFile {
       );
     }
   } else {
-    division = fromBytes(headData.slice(4, 6));
+    division = fromBytes(headData.subarray(4, 6));
   }
 
   let tracks = [];
@@ -144,68 +165,76 @@ export function decodeMidiFile(data: MidiData): MidiFile {
   }
 }
 
-function consumeChunk(data: MidiData): [string, MidiData, MidiData] {
-  let type = new TextDecoder().decode(new Uint8Array(data.slice(0, 4)));
-  let length = fromBytes(data.slice(4, 8));
+function consumeChunk(data: Uint8Array): [string, Uint8Array, Uint8Array] {
+  let type = new TextDecoder().decode(data.subarray(0, 4));
+  let length = fromBytes(data.subarray(4, 8));
 
   if (data.length < 8 + length) {
     throw new Error('File is missing data');
   }
 
-  return [type, data.slice(8, 8 + length), data.slice(8 + length)];
+  return [type, data.subarray(8, 8 + length), data.subarray(8 + length)];
 }
 
-function decodeTrack(bytes: MidiData) {
+function decodeTrack(bytes: Uint8Array) {
   let track: TimedMidiMessage[] = [];
 
   let endOfTrackEncountered = false;
   let time = 0;
   let runningStatus: number | null = null;
 
-  let i = 0;
-
   while (!endOfTrackEncountered) {
     // Get event delta time
-    let delta: number;
-    [delta, i] = readVarLengthValue(bytes, i);
+    let [delta, n] = fromVarLengthBytes(bytes);
     time += delta;
 
-    // Pointer to the byte after the message
-    let j: number;
+    // Drop the delta time bytes from the byte array
+    bytes = bytes.subarray(n);
 
-    // Length of variable-length messages (SysEx and Meta)
+    // Message length
     let length: number;
 
-    if (bytes[i] <= 0x7f && runningStatus !== null) {
+    // Check the first byte of the message
+    if (bytes[0] <= 0x7f) {
       // If the next byte is a MIDI Data byte
-      j = channelMessageLength(runningStatus) + i - 1;
-      track.push({ time, data: [runningStatus, ...bytes.slice(i, j)] });
-    } else if (bytes[i] >= 0x80 && bytes[i] < 0xf0) {
+
+      if (runningStatus === null) {
+        throw new Error(
+          'Missing status byte while running status in not in effect'
+        );
+      }
+
+      length = channelMessageLength(runningStatus) - 1;
+      track.push({ time, data: [runningStatus, ...bytes.slice(0, length)] });
+    } else if (bytes[0] >= 0x80 && bytes[0] < 0xf0) {
       // Channel mode message
-      runningStatus = bytes[i];
-      j = channelMessageLength(runningStatus) + i;
-      track.push({ time, data: bytes.slice(i, j) });
-    } else if (bytes[i] === 0xf0) {
+      runningStatus = bytes[0];
+      length = channelMessageLength(runningStatus);
+      track.push({ time, data: bytes.slice(0, length) });
+    } else if (bytes[0] === 0xf0) {
       // SysEx Message
       runningStatus = null;
-      [length, i] = readVarLengthValue(bytes, i + 1);
-      j = i + length;
-      track.push({ time, data: [0xf0, ...bytes.slice(i, j)] });
-    } else if (bytes[i] === 0xf7) {
+      let [dataLength, l] = fromVarLengthBytes(bytes.subarray(1));
+      let dataBegin = l + 1;
+      length = dataBegin + dataLength;
+      track.push({ time, data: [0xf0, ...bytes.slice(dataBegin, length)] });
+    } else if (bytes[0] === 0xf7) {
       // Escaped Data
       runningStatus = null;
-      [length, i] = readVarLengthValue(bytes, i + 1);
-      j = i + length;
-      track.push({ time, data: bytes.slice(i, j) });
-    } else if (bytes[i] === 0xff) {
+      let [dataLength, l] = fromVarLengthBytes(bytes.subarray(1));
+      let dataBegin = l + 1;
+      length = dataBegin + dataLength;
+      track.push({ time, data: bytes.slice(dataBegin, length) });
+    } else if (bytes[0] === 0xff) {
       // Meta Message
       runningStatus = null;
-      let metaType = bytes[i + 1];
-      [length, i] = readVarLengthValue(bytes, i + 2);
-      j = i + length;
+      let metaType = bytes[1];
+      let [dataLength, l] = fromVarLengthBytes(bytes.subarray(2));
+      let dataBegin = l + 2;
+      length = dataBegin + dataLength;
       track.push({
         time,
-        data: [0xff, metaType, ...bytes.slice(i, j)]
+        data: [0xff, metaType, ...bytes.slice(dataBegin, length)]
       });
       if (metaType === 0x2f) {
         endOfTrackEncountered = true;
@@ -214,22 +243,11 @@ function decodeTrack(bytes: MidiData) {
       throw new Error(`File has unexpected event type: ${bytes[i]}`);
     }
 
-    i = j;
+    // Drop the message from the byte array
+    bytes = bytes.subarray(length);
   }
 
   return track;
-}
-
-function readVarLengthValue(data: MidiData, i: number) {
-  let value = 0;
-  while (data[i] > 0x7f) {
-    value = (value << 7) | (data[i] & 0x7f);
-    i++;
-  }
-  value = (value << 7) | data[i];
-  i++;
-
-  return [value, i];
 }
 
 function channelMessageLength(status: number) {
@@ -240,6 +258,6 @@ function channelMessageLength(status: number) {
   } else if (status >= 0xe0 && status < 0xf0) {
     return 3;
   } else {
-    throw new Error();
+    throw new Error('Unexpected channel message status');
   }
 }

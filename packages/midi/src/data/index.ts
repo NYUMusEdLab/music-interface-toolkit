@@ -44,6 +44,27 @@ export function toDataBytes(value: number, length: number) {
   return data;
 }
 
+export function toVarLengthBytes(value: number) {
+  let data: MidiData = [];
+
+  let i = 0;
+
+  while (value > 0) {
+    let byte = value & 0x7f;
+
+    // All bytes except the least significant have bit 7
+    if (i > 0) {
+      byte |= 0x80;
+    }
+
+    data.push(byte);
+    value = value >> (i * 7);
+  }
+
+  // Reverse the array to get most significant byte first
+  return data.reverse();
+}
+
 /**
  * Convert an array of unsigned bytes to a number by concatenating the binary
  * data of all the bytes.
@@ -79,4 +100,20 @@ export function fromDataBytes(data: MidiData) {
   }
 
   return value;
+}
+
+/**
+ *
+ * @param data
+ */
+export function fromVarLengthBytes(data: MidiData) {
+  let value = 0;
+  let length = 0;
+
+  do {
+    value = (value << 7) | (data[length] & 0x7f);
+    length++;
+  } while (data[length] > 0x7f);
+
+  return [value, length];
 }
