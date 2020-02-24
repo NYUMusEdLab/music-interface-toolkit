@@ -189,10 +189,6 @@ function decodeTrack(bytes: Uint8Array) {
     let [delta, n] = fromVarLengthBytes(bytes);
     time += delta;
 
-    console.log(JSON.stringify(bytes.slice(0, 4)))
-
-    console.log('event one: delta time ' + delta + ' ' + n);
-
     // Drop the delta time bytes from the byte array
     bytes = bytes.subarray(n);
 
