@@ -113,7 +113,7 @@ export function fromVarLengthBytes(data: MidiData) {
   do {
     value = (value << 7) | (data[length] & 0x7f);
     length++;
-  } while (data[length] > 0x7f);
+  } while (data[length - 1] > 0x7f);
 
   return [value, length];
 }

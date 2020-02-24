@@ -83,11 +83,12 @@ export function encodeMidiFile(
 function encodeChunk(chunkType: string, data: MidiData) {
   let chunkTypeBytes = new TextEncoder().encode(chunkType);
 
-  return new Uint8Array([
-    ...chunkTypeBytes,
-    ...toBytes(data.length, 4),
-    ...data
-  ]);
+  const chunk = new Uint8Array(8 + data.length);
+  chunk.set(chunkTypeBytes);
+  chunk.set(toBytes(data.length, 4), 4);
+  chunk.set(data, 8);
+
+  return chunk;
 }
 
 export interface MidiFile {
@@ -188,6 +189,10 @@ function decodeTrack(bytes: Uint8Array) {
     let [delta, n] = fromVarLengthBytes(bytes);
     time += delta;
 
+    console.log(JSON.stringify(bytes.slice(0, 4)))
+
+    console.log('event one: delta time ' + delta + ' ' + n);
+
     // Drop the delta time bytes from the byte array
     bytes = bytes.subarray(n);
 
@@ -200,7 +205,7 @@ function decodeTrack(bytes: Uint8Array) {
 
       if (runningStatus === null) {
         throw new Error(
-          'Missing status byte while running status in not in effect'
+          'Missing status byte while running status is not in effect'
         );
       }
 
@@ -240,7 +245,7 @@ function decodeTrack(bytes: Uint8Array) {
         endOfTrackEncountered = true;
       }
     } else {
-      throw new Error(`File has unexpected event type: ${bytes[i]}`);
+      throw new Error(`File has unexpected event type: ${bytes[0]}`);
     }
 
     // Drop the message from the byte array
