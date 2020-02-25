@@ -21,10 +21,10 @@ export function getText(message: MidiMessage) {
 }
 
 export function getTempo(message: MidiMessage) {
-  let microsecondsPerQuarter = fromBytes(message.data.slice(1, 4));
+  let microsecondsPerQuarter = fromBytes(message.data.slice(2, 5));
 
-  // (beats/microsecond) * (600000 microseconds/minute)
-  return (1 / microsecondsPerQuarter) * 600000;
+  // (beats/microsecond) * (60,000,000 microseconds/minute)
+  return (1 / microsecondsPerQuarter) * 60000000;
 }
 
 export function getSMPTEOffset(message: MidiMessage) {}
