@@ -1,7 +1,7 @@
 {
-  "name": "@musedlab/midi",
+  "name": "@musedlab/midi-ui",
   "version": "0.0.2",
-  "description": "Tools for working with midi data in Javascript",
+  "description": "React components for working with the WebMIDI API",
   "type": "module",
   "exports": {
     "./file": "./file/index.js",
@@ -9,14 +9,15 @@
     "./web": "./web/index.js"
   },
   "files": [
-    "message/*",
-    "web/*",
-    "shared/*"
+    "dist/*"
   ],
+  "dependencies": {
+    "@musedlab/midi": "0.0.2"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/NYUMusEdLab/music-interface-toolkit.git",
-    "directory": "packages/midi"
+    "directory": "packages/midi-ui"
   },
   "bugs": {
     "url": "https://github.com/NYUMusEdLab/music-interface-toolkit/issues"
