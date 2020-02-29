@@ -2,7 +2,8 @@
   "compilerOptions": {
     "strict": true,
     "target": "ESNext",
-    "declaration": true
+    "declaration": true,
+    "moduleResolution": "node"
   },
   "include": ["src/**/*"]
 }

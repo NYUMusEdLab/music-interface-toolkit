@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
-import { receiveMIDIInput } from '@musedlab/midi/web';
+import { receiveMIDI } from '@musedlab/midi/web';
 
-export function useMIDIIn(handler) {}
+export function useMIDIIn(handler) {
+  useEffect();
+}
 
 export function useMIDIOut() {}
