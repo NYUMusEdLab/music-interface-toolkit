@@ -4,5 +4,6 @@
     "target": "ESNext",
     "declaration": true,
     "moduleResolution": "node"
-  }
+  },
+  "include": ["src/**/*"]
 }

@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "@musedlab/midi": "file:packages/midi",
+    "@musedlab/midi-ui": "file:packages/midi-ui",
     "@musedlab/toolkit": "file:packages/toolkit"
   }
 }
