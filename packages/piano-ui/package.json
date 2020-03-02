@@ -1,12 +1,10 @@
 {
-  "name": "@musedlab/toolkit",
-  "version": "0.0.5",
-  "description": "UI Components for music interfaces",
+  "name": "@musedlab/piano-ui",
+  "version": "0.1.0",
+  "description": "React-based piano keyboard UI component",
+  "main": "piano/index.js",
   "files": [
-    "labels.js",
-    "radial-layout.js",
-    "scale-wheel.js",
-    "shared/*"
+    "piano/*"
   ],
   "repository": {
     "type": "git",
@@ -15,13 +13,7 @@
   },
   "author": "NYU Music Experience Design Lab (MusEDLab)",
   "license": "MIT",
-  "dependencies": {
-    "@tonaljs/tonal": "^3.2.1"
-  },
   "peerDependencies": {
     "react": "^16.8.0"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
