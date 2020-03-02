@@ -9,6 +9,8 @@
     "./web": "./web/index.js"
   },
   "files": [
+    "data/*",
+    "file/*",
     "message/*",
     "web/*",
     "shared/*"

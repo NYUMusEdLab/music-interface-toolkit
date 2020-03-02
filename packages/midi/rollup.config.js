@@ -1,7 +1,7 @@
 import ts from '@wessberg/rollup-plugin-ts';
 
 export default {
-  plugins: [ts({ hook: { outputPath: path => path } })],
+  plugins: [ts({ tsconfig: '../../tsconfig.json', include: ['src/**/*'] })],
   input: {
     data: 'src/data/index.ts',
     messages: 'src/messages/index.ts',

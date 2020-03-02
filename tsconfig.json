@@ -3,6 +3,5 @@
     "strict": true,
     "target": "ESNext",
     "declaration": true
-  },
-  "include": ["src/**/*"]
+  }
 }
