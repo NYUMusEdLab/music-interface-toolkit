@@ -1,6 +1,6 @@
 {
   "name": "@musedlab/midi",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Tools for working with midi data in Javascript",
   "type": "module",
   "exports": {
