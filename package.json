@@ -5,6 +5,7 @@
     "clean-built": "lerna exec -- git clean -Xdf -e node_modules",
     "dev": "trap 'exit 0' INT; lerna exec -- rollup -c -w",
     "postdev": "npm run clean-built",
+    "build": "lerna exec -- rollup -c -w",
     "prepublishOnly": "lerna exec -- rollup -c",
     "postpublish": "npm run clean-built",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -33,6 +34,7 @@
     "@musedlab/midi": "file:packages/midi",
     "@musedlab/midi-ui": "file:packages/midi-ui",
     "@musedlab/piano-ui": "file:packages/piano-ui",
-    "@musedlab/toolkit": "file:packages/toolkit"
+    "@musedlab/toolkit": "file:packages/toolkit",
+    "@types/react": "^16.9.23"
   }
 }

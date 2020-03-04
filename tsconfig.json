@@ -3,6 +3,8 @@
     "strict": true,
     "target": "ESNext",
     "declaration": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "allowSyntheticDefaultImports": true
   }
 }
