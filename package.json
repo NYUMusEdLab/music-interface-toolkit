@@ -2,13 +2,12 @@
   "name": "music-interface-toolkit",
   "private": true,
   "scripts": {
-    "clean-built": "lerna exec -- git clean -Xdf -e node_modules",
+    "clean": "lerna exec -- git clean -Xdf -e node_modules",
     "dev": "trap 'exit 0' INT; lerna exec -- rollup -c -w",
-    "postdev": "npm run clean-built",
-    "build": "lerna exec -- rollup -c -w",
-    "prepublishOnly": "lerna exec -- rollup -c",
-    "postpublish": "npm run clean-built",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postdev": "npm run clean",
+    "build": "lerna exec -- rollup -c",
+    "prepublishOnly": "npm run build",
+    "postpublish": "npm run clean"
   },
   "author": "NYU Music Experience Design Lab (MusEDLab)",
   "license": "MIT",
@@ -17,8 +16,6 @@
     "@babel/preset-env": "^7.8.6",
     "@babel/preset-react": "^7.8.3",
     "@wessberg/rollup-plugin-ts": "^1.2.19",
-    "babel-jest": "^24.9.0",
-    "jest": "^24.9.0",
     "lerna": "^3.20.2",
     "rollup": "^1.32.0",
     "rollup-plugin-babel": "^4.3.3",
