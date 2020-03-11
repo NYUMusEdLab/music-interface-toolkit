@@ -3,8 +3,6 @@
  * represents numeric data as bytes.
  */
 
-import { MidiData } from '../types';
-
 /**
  * Encode a numeric value as a specified number of unsigned bytes. The value is
  * assumed to be a non-negative integer small enough to be properly represented
@@ -15,7 +13,7 @@ import { MidiData } from '../types';
  * @returns An array of bytes, starting with the most significant byte
  */
 export function toBytes(value: number, length: number) {
-  let data: MidiData = [];
+  let data: MIDI.Data = [];
 
   for (let i = 0; i < length; ++i) {
     data[i] = (value >> (8 * (length - i - 1))) & 0xff;
@@ -35,7 +33,7 @@ export function toBytes(value: number, length: number) {
  * @returns An array of bytes, starting with the most significant byte
  */
 export function toDataBytes(value: number, length: number) {
-  let data: MidiData = [];
+  let data: MIDI.Data = [];
 
   for (let i = 0; i < length; ++i) {
     data[i] = (value >> (7 * (length - i - 1))) & 0x7f;
@@ -45,7 +43,7 @@ export function toDataBytes(value: number, length: number) {
 }
 
 export function toVarLengthBytes(value: number) {
-  let data: MidiData = [];
+  let data: MIDI.Data = [];
 
   let i = 0;
 
@@ -72,7 +70,7 @@ export function toVarLengthBytes(value: number) {
  * @param data An array of bytes, starting with the most significant byte
  * @returns The non-negative integer represented by those bytes
  */
-export function fromBytes(data: MidiData) {
+export function fromBytes(data: MIDI.Data) {
   let length = data.length;
   let value = 0;
 
@@ -91,7 +89,7 @@ export function fromBytes(data: MidiData) {
  * @param data An array of bytes, starting with the most significant byte
  * @returns The non-negative integer represented by those bytes
  */
-export function fromDataBytes(data: MidiData) {
+export function fromDataBytes(data: MIDI.Data) {
   let length = data.length;
   let value = 0;
 
@@ -106,7 +104,7 @@ export function fromDataBytes(data: MidiData) {
  *
  * @param data
  */
-export function fromVarLengthBytes(data: MidiData) {
+export function fromVarLengthBytes(data: MIDI.Data) {
   let value = 0;
   let length = 0;
 

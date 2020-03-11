@@ -8,11 +8,10 @@ import {
   PITCH_BEND
 } from './channelTypes';
 
-import { MidiMessage } from '../types';
 import { toDataBytes } from '../data/index';
 
 export function isChannelMessage(
-  message: MidiMessage,
+  message: MIDI.Message,
   options: { type?: number; channel?: number } = {}
 ) {
   let [status] = message.data;
@@ -25,7 +24,7 @@ export function isChannelMessage(
   );
 }
 
-export function getChannel(message: MidiMessage) {
+export function getChannel(message: MIDI.Message) {
   let [status] = message.data;
 
   return status & 0xf;
@@ -48,7 +47,7 @@ function status(type: number, channel: number) {
  * @param message The message to check
  * @param type The type of message to check against
  */
-function isType(message: MidiMessage, type: number) {
+function isType(message: MIDI.Message, type: number) {
   return (message.data[0] & 0xf0) === type;
 }
 
@@ -64,7 +63,7 @@ export function noteOn(channel: number, key: number, velocity = 64) {
 }
 
 export function isNoteOn(
-  message: MidiMessage,
+  message: MIDI.Message,
   options: { channel?: number } = {}
 ) {
   let [, , velocity] = message.data;
@@ -87,7 +86,7 @@ export function noteOff(channel: number, key: number, velocity = 64) {
 }
 
 export function isNoteOff(
-  message: MidiMessage,
+  message: MIDI.Message,
   options: { channel?: number } = {}
 ) {
   let [, , velocity] = message.data;
@@ -103,7 +102,7 @@ export function keyPressure(channel: number, key: number, pressure: number) {
 }
 
 export function isKeyPressure(
-  message: MidiMessage,
+  message: MIDI.Message,
   options: { channel?: number } = {}
 ) {
   return isChannelMessage(message, options) && isType(message, KEY_PRESSURE);
@@ -118,7 +117,7 @@ export function controlChange(
 }
 
 export function isControlChange(
-  message: MidiMessage,
+  message: MIDI.Message,
   options: { channel?: number; controller?: number } = {}
 ) {
   let [, controller] = message.data;
@@ -136,7 +135,7 @@ export function programChange(channel: number, program: number) {
 }
 
 export function isProgramChange(
-  message: MidiMessage,
+  message: MIDI.Message,
   options: { channel?: number } = {}
 ) {
   return isChannelMessage(message, options) && isType(message, PROGRAM_CHANGE);
@@ -147,7 +146,7 @@ export function channelPressure(channel: number, pressure: number) {
 }
 
 export function isChannelPressure(
-  message: MidiMessage,
+  message: MIDI.Message,
   options: { channel?: number } = {}
 ) {
   return (
@@ -161,7 +160,7 @@ export function pitchBend(channel: number, bend: number) {
 }
 
 export function isPitchBend(
-  message: MidiMessage,
+  message: MIDI.Message,
   options: { channel?: number } = {}
 ) {
   return isChannelMessage(message, options) && isType(message, PITCH_BEND);

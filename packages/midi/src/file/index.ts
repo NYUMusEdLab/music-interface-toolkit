@@ -1,4 +1,3 @@
-import { TimedMidiMessage, MidiData } from '../types';
 import {
   toBytes,
   fromBytes,
@@ -9,7 +8,7 @@ import {
 export function encodeMidiFile(
   format: 0 | 1 | 2,
   division: number | [24 | 25 | 29 | 30, number],
-  tracks: TimedMidiMessage[][]
+  tracks: MIDI.TimedMessage[][]
 ) {
   if (format === 0 && tracks.length !== 1) {
     throw new Error('Format 0 MIDI file must only have one track');
@@ -30,7 +29,7 @@ export function encodeMidiFile(
     ...divisionBytes
   ]);
 
-  let trackChunks: MidiData[] = [];
+  let trackChunks: MIDI.Data[] = [];
 
   for (let track of tracks) {
     let trackData = [];
@@ -78,9 +77,25 @@ export function encodeMidiFile(
 
     trackChunks.push(encodeChunk('MTrk', trackData));
   }
+
+  // Create an array large enough to hold the entire file
+  let dataLength =
+    headerChunk.length +
+    trackChunks.reduce<number>((sum, { length }) => sum + length, 0);
+  let data = new Uint8Array(dataLength);
+
+  // Copy file data into the new array
+  data.set(headerChunk);
+  let offset = headerChunk.length;
+  for (let trackChunk of trackChunks) {
+    data.set(trackChunk, offset);
+    offset += trackChunks.length;
+  }
+
+  return data;
 }
 
-function encodeChunk(chunkType: string, data: MidiData) {
+function encodeChunk(chunkType: string, data: MIDI.Data) {
   let chunkTypeBytes = new TextEncoder().encode(chunkType);
 
   const chunk = new Uint8Array(8 + data.length);
@@ -95,10 +110,10 @@ export interface MidiFile {
   format: 0 | 1 | 2;
   frameRate?: 24 | 25 | 29 | 30;
   division: number;
-  tracks: TimedMidiMessage[][];
+  tracks: MIDI.TimedMessage[][];
 }
 
-export function decodeMidiFile(data: MidiData): MidiFile {
+export function decodeMidiFile(data: MIDI.Data): MidiFile {
   // Convert to a Uint8Array, if it isn't already
   if (!(data instanceof Uint8Array)) {
     data = new Uint8Array(data);
@@ -178,7 +193,7 @@ function consumeChunk(data: Uint8Array): [string, Uint8Array, Uint8Array] {
 }
 
 function decodeTrack(bytes: Uint8Array) {
-  let track: TimedMidiMessage[] = [];
+  let track: MIDI.TimedMessage[] = [];
 
   let endOfTrackEncountered = false;
   let time = 0;

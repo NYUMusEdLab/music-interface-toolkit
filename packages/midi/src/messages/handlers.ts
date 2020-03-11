@@ -1,7 +1,6 @@
-import { MidiMessage } from '../types';
 import { isNoteOn, isNoteOff, isControlChange, getChannel } from './channel';
 
-export interface NoteMessage extends MidiMessage {
+export interface NoteMessage extends MIDI.Message {
   channel: number;
   key: number;
   velocity: number;
@@ -14,7 +13,7 @@ export function onNote(
 ) {
   let { channel } = options;
 
-  return (m: MidiMessage) => {
+  return (m: MIDI.Message) => {
     // Handle note events
     if (isNoteOn(m, { channel }) || isNoteOff(m, { channel })) {
       let message = {
@@ -43,7 +42,7 @@ export function onHeldNotes(
 
   let isSustaining = false;
 
-  return (m: MidiMessage) => {
+  return (m: MIDI.Message) => {
     // Handle note events
     if (isNoteOn(m, { channel }) || isNoteOff(m, { channel })) {
       let message = {

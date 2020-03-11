@@ -13,39 +13,37 @@ import {
   RESET
 } from './systemTypes';
 
-import { MidiData, MidiMessage } from '../types';
-
-export function systemExclusive(vendor: MidiData, data: MidiData) {
+export function systemExclusive(vendor: MIDI.Data, data: MIDI.Data) {
   return [SYSTEM_EXCLUSIVE, ...vendor, ...data, END_OF_EXCLUSIVE];
 }
 
-export function isSystemExclusive({ data: [status] }: MidiMessage) {
+export function isSystemExclusive({ data: [status] }: MIDI.Message) {
   return status === SYSTEM_EXCLUSIVE;
 }
 
-export function getSysExVendor(message: MidiMessage) {
+export function getSysExVendor(message: MIDI.Message) {
   let { data } = message;
   return data.slice(1, data[1] !== 0 ? 2 : 4);
 }
 
-export function getSysExData(message: MidiMessage) {
+export function getSysExData(message: MIDI.Message) {
   let { data } = message;
   return data.slice(data[1] !== 0 ? 2 : 4, data.indexOf(END_OF_EXCLUSIVE));
 }
 
-export function isTimecode({ data: [status] }: MidiMessage) {
+export function isTimecode({ data: [status] }: MIDI.Message) {
   return status === MIDI_TIMECODE;
 }
 
-export function isSongPosition({ data: [status] }: MidiMessage) {
+export function isSongPosition({ data: [status] }: MIDI.Message) {
   return status === SONG_POSITION;
 }
 
-export function isSongSelect({ data: [status] }: MidiMessage) {
+export function isSongSelect({ data: [status] }: MIDI.Message) {
   return status === SONG_SELECT;
 }
 
-export function isTuneRequest({ data: [status] }: MidiMessage) {
+export function isTuneRequest({ data: [status] }: MIDI.Message) {
   return status === TUNE_REQUEST;
 }
 
@@ -53,7 +51,7 @@ export function clock() {
   return [CLOCK];
 }
 
-export function isClock({ data: [status] }: MidiMessage) {
+export function isClock({ data: [status] }: MIDI.Message) {
   return status === CLOCK;
 }
 
@@ -61,7 +59,7 @@ export function startClock() {
   return [START_CLOCK];
 }
 
-export function isStartClock({ data: [status] }: MidiMessage) {
+export function isStartClock({ data: [status] }: MIDI.Message) {
   return status === START_CLOCK;
 }
 
@@ -69,7 +67,7 @@ export function continueClock() {
   return [CONTINUE_CLOCK];
 }
 
-export function isContinueClock({ data: [status] }: MidiMessage) {
+export function isContinueClock({ data: [status] }: MIDI.Message) {
   return status === CONTINUE_CLOCK;
 }
 
@@ -77,7 +75,7 @@ export function stopClock() {
   return [STOP_CLOCK];
 }
 
-export function isStopClock({ data: [status] }: MidiMessage) {
+export function isStopClock({ data: [status] }: MIDI.Message) {
   return status === STOP_CLOCK;
 }
 
@@ -85,7 +83,7 @@ export function activeSensing() {
   return [ACTIVE_SENSING];
 }
 
-export function isActiveSensing({ data: [status] }: MidiMessage) {
+export function isActiveSensing({ data: [status] }: MIDI.Message) {
   return status === ACTIVE_SENSING;
 }
 
@@ -93,6 +91,6 @@ export function reset() {
   return [RESET];
 }
 
-export function isReset({ data: [status] }: MidiMessage) {
+export function isReset({ data: [status] }: MIDI.Message) {
   return status === RESET;
 }
