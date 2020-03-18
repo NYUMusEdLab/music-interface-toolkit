@@ -1,3 +1,5 @@
+import { MIDIData, TimedMIDIMessage } from '../types';
+
 import {
   toBytes,
   fromBytes,
@@ -8,7 +10,7 @@ import {
 export function encodeMidiFile(
   format: 0 | 1 | 2,
   division: number | [24 | 25 | 29 | 30, number],
-  tracks: MIDI.TimedMessage[][]
+  tracks: TimedMIDIMessage[][]
 ) {
   if (format === 0 && tracks.length !== 1) {
     throw new Error('Format 0 MIDI file must only have one track');
@@ -29,7 +31,7 @@ export function encodeMidiFile(
     ...divisionBytes
   ]);
 
-  let trackChunks: MIDI.Data[] = [];
+  let trackChunks: MIDIData[] = [];
 
   for (let track of tracks) {
     let trackData = [];
@@ -95,7 +97,7 @@ export function encodeMidiFile(
   return data;
 }
 
-function encodeChunk(chunkType: string, data: MIDI.Data) {
+function encodeChunk(chunkType: string, data: MIDIData) {
   let chunkTypeBytes = new TextEncoder().encode(chunkType);
 
   const chunk = new Uint8Array(8 + data.length);
@@ -110,10 +112,10 @@ export interface MidiFile {
   format: 0 | 1 | 2;
   frameRate?: 24 | 25 | 29 | 30;
   division: number;
-  tracks: MIDI.TimedMessage[][];
+  tracks: TimedMIDIMessage[][];
 }
 
-export function decodeMidiFile(data: MIDI.Data): MidiFile {
+export function decodeMidiFile(data: MIDIData): MidiFile {
   // Convert to a Uint8Array, if it isn't already
   if (!(data instanceof Uint8Array)) {
     data = new Uint8Array(data);
@@ -193,7 +195,7 @@ function consumeChunk(data: Uint8Array): [string, Uint8Array, Uint8Array] {
 }
 
 function decodeTrack(bytes: Uint8Array) {
-  let track: MIDI.TimedMessage[] = [];
+  let track: TimedMIDIMessage[] = [];
 
   let endOfTrackEncountered = false;
   let time = 0;

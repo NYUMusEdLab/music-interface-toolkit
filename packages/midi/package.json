@@ -3,12 +3,16 @@
   "version": "0.0.3",
   "description": "Tools for working with midi data in Javascript",
   "type": "module",
+  "main": "./core/index.js",
   "exports": {
+    ".": "./core/index.js",
+    "./data": "./data/index.js",
     "./file": "./file/index.js",
     "./message": "./message/index.js",
     "./web": "./web/index.js"
   },
   "files": [
+    "core/*",
     "data/*",
     "file/*",
     "message/*",

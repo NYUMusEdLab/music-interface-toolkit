@@ -1,3 +1,4 @@
+import { TimedMIDIMessage } from '../types';
 export * from '../../third_party/webmidi';
 
 export function receiveMidiInputs(fn: (inputs: MIDIInput[]) => any) {
@@ -71,12 +72,12 @@ export function receiveMidiOutputs(fn: (inputs: MIDIOutput[]) => any) {
 }
 
 export function sendMIDI(
-  message: MIDI.TimedMessage | MIDI.TimedMessage[],
+  message: TimedMIDIMessage | TimedMIDIMessage[],
   outputId?: string
 ) {
   if (navigator.requestMIDIAccess) {
     navigator.requestMIDIAccess().then(access => {
-      let messages: MIDI.TimedMessage[] = Array.isArray(message)
+      let messages: TimedMIDIMessage[] = Array.isArray(message)
         ? message
         : [message];
 
@@ -96,7 +97,7 @@ function isInput(port: MIDIPort): port is MIDIInput {
 }
 
 export function receiveMIDI(
-  fn: (message: MIDI.TimedMessage) => any,
+  fn: (message: TimedMIDIMessage) => any,
   inputId?: string
 ) {
   let cancelled = false;

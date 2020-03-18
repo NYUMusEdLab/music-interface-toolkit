@@ -3,6 +3,7 @@ import ts from '@wessberg/rollup-plugin-ts';
 export default {
   plugins: [ts({ tsconfig: '../../tsconfig.json', include: ['src/**/*'] })],
   input: {
+    core: 'src/types.ts',
     data: 'src/data/index.ts',
     messages: 'src/messages/index.ts',
     file: 'src/file/index.ts',
