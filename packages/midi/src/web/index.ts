@@ -117,7 +117,7 @@ export function receiveMIDI(
         data,
         target: input
       }: MIDIMessageEvent) {
-        fn({ data, time });
+        fn({ data, time, port: input.id });
       }
 
       let inputs = new Set<MIDIInput>();
