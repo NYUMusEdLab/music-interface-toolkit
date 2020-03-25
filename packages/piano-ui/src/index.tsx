@@ -55,39 +55,3 @@ export const Piano = ({ low = 21, high = 108, keyClass }: PianoProps) => {
     </div>
   );
 };
-
-// function Key({}) {
-//   return (
-//     <div
-//       onContextMenu={event => {
-//         event.preventDefault();
-//       }}
-//       onPointerDown={() => {
-//         // console.log('pointer down');
-//         activate(note);
-//         setActive(true);
-//       }}
-//       onPointerOver={event => {
-//         // console.log('pointer over');
-//         // console.log(event.pointerType);
-//         activate(note);
-//         setActive(true);
-//       }}
-//       onPointerOut={() => {
-//         // console.log('pointer out');
-//         deactivate(note);
-//         setActive(false);
-//       }}
-//       onPointerCancel={() => {
-//         // console.log('pointer cancel');
-//         deactivate(note);
-//         setActive(false);
-//       }}
-//       onGotPointerCapture={event => {
-//         // console.log('pointer capture');
-//         event.target.releasePointerCapture(event.pointerId);
-//       }}>
-//       {note}
-//     </div>
-//   );
-// }

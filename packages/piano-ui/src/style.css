@@ -1,5 +1,6 @@
 .piano-ui {
   position: relative;
+  height: 100px;
 }
 
 .piano-ui div {

@@ -16,7 +16,7 @@ export default {
     })
   ],
   input: {
-    'piano/index': 'src/index.tsx'
+    'dist/index': 'src/index.tsx'
   },
   output: {
     dir: '.',
