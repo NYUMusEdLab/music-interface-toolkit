@@ -8,7 +8,7 @@ import {
   RadialLayout,
   SliceShape,
   SliceGroup,
-  RadialPolygon
+  RadialPolygon,
 } from '../radial-layout';
 
 import { PitchLabel } from '../labels';
@@ -25,7 +25,7 @@ const defaultPitchNames = [
   'G#/Ab',
   'A',
   'A#/Bb',
-  'B'
+  'B',
 ];
 
 // Constant values for representing pitch orders
@@ -36,19 +36,19 @@ export function ScaleWheel({
   scale = [],
   size = 100,
   pitchOrder = CHROMATIC,
-  activeNotes = []
+  activeNotes = [],
 }) {
   let wheelContents = [];
 
   let root = scale[0] || 'C';
   let rootChroma = note(root).chroma;
 
-  let scaleChromas = scale.map(pitch => note(pitch).chroma);
+  let scaleChromas = scale.map((pitch) => note(pitch).chroma);
 
   // Map active note names to pitch class chromas (eg, 'D' to 2)
   // Also, remove duplicate listings
   let activeNoteChromas = activeNotes
-    .map(pitch => note(pitch).chroma % 12)
+    .map((pitch) => note(pitch).chroma % 12)
     .filter((chroma, index, array) => array.indexOf(chroma) === index);
 
   for (let i = 0; i < 12; ++i) {
@@ -73,12 +73,15 @@ export function ScaleWheel({
 
   if (activeNotes.length > 0) {
     let activeNoteIndices = activeNoteChromas.map(
-      chroma => (chroma - rootChroma + 12) % 12
+      (chroma) =>
+        ((chroma - rootChroma + 12) *
+          (pitchOrder === CIRCLE_OF_FIFTHS ? 7 : 1)) %
+        12
     );
 
     wheelContents.push(
-      <g className="active-pitches">
-        {activeNoteIndices.map(index => (
+      <g className="active-pitches" key="active-pitches">
+        {activeNoteIndices.map((index) => (
           <SliceShape
             key={'active-shape-' + index}
             index={index}
@@ -164,7 +167,7 @@ function ScaleWheelSlice({ index, pitch, root, isInScale, isActive, size }) {
 }
 
 function getPitchInScale(chroma, scale) {
-  let scaleChromas = scale.map(pitch => note(pitch).chroma);
+  let scaleChromas = scale.map((pitch) => note(pitch).chroma);
 
   return scaleChromas.includes(chroma)
     ? scale[scaleChromas.indexOf(chroma)]
