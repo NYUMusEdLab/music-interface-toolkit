@@ -1,6 +1,6 @@
 {
   "name": "@musedlab/piano-ui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "React-based piano keyboard UI component",
   "main": "dist/index.js",
   "files": [
