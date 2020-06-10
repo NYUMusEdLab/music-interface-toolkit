@@ -2,7 +2,8 @@ import React from 'react';
 
 import './ScaleWheel.css';
 
-import { note, interval, distance } from '@tonaljs/tonal';
+import { note } from '@tonaljs/tonal';
+import { getPitchInScale, getIntervalQuality } from './theory';
 
 import {
   RadialLayout,
@@ -42,8 +43,6 @@ export function ScaleWheel({
 
   let root = scale[0] || 'C';
   let rootChroma = note(root).chroma;
-
-  let scaleChromas = scale.map((pitch) => note(pitch).chroma);
 
   // Map active note names to pitch class chromas (eg, 'D' to 2)
   // Also, remove duplicate listings
@@ -164,31 +163,4 @@ function ScaleWheelSlice({ index, pitch, root, isInScale, isActive, size }) {
       ) : null}
     </g>
   );
-}
-
-function getPitchInScale(chroma, scale) {
-  let scaleChromas = scale.map((pitch) => note(pitch).chroma);
-
-  return scaleChromas.includes(chroma)
-    ? scale[scaleChromas.indexOf(chroma)]
-    : null;
-}
-
-function getIntervalQuality(root, scalePitch) {
-  switch (interval(distance(root, scalePitch)).q) {
-    case 'dd':
-      return 'double-diminished';
-    case 'd':
-      return 'diminished';
-    case 'm':
-      return 'minor';
-    case 'P':
-      return 'perfect';
-    case 'M':
-      return 'major';
-    case 'A':
-      return 'augmented';
-    case 'AA':
-      return 'double-augmented';
-  }
 }
