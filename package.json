@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "clean": "lerna exec -- git clean -Xdf -e node_modules",
-    "dev": "trap 'exit 0' INT; lerna exec -- rollup -c -w",
+    "dev": "trap 'exit 0' INT; lerna exec --scope @musedlab/piano-ui -- rollup -c -w",
     "postdev": "npm run clean",
     "build": "lerna exec -- rollup -c",
     "prepublishOnly": "npm run build",
@@ -12,16 +12,16 @@
   "author": "NYU Music Experience Design Lab (MusEDLab)",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.10.2",
-    "@babel/preset-env": "^7.10.2",
+    "@babel/core": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
     "@babel/preset-react": "^7.10.1",
-    "@wessberg/rollup-plugin-ts": "^1.2.24",
-    "lerna": "^3.22.0",
+    "@wessberg/rollup-plugin-ts": "^1.2.26",
+    "lerna": "^3.22.1",
     "rollup": "^1.32.1",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-postcss": "^2.9.0",
-    "typescript": "^3.9.3"
+    "typescript": "^3.9.5"
   },
   "prettier": {
     "singleQuote": true,
@@ -32,6 +32,6 @@
     "@musedlab/midi-ui": "file:packages/midi-ui",
     "@musedlab/piano-ui": "file:packages/piano-ui",
     "@musedlab/toolkit": "file:packages/toolkit",
-    "@types/react": "^16.9.35"
+    "@types/react": "^16.9.41"
   }
 }

@@ -2,6 +2,8 @@ import resolve from 'rollup-plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
 import ts from '@wessberg/rollup-plugin-ts';
 
+import path from 'path';
+
 export default {
   external: ['react'],
   plugins: [
@@ -10,9 +12,10 @@ export default {
       extensions: ['.css']
     }),
     ts({
-      tsconfig: '../../tsconfig.json',
+      tsconfig: 'tsconfig.json',
       include: ['src/**/*'],
-      transpiler: 'babel'
+      transpiler: 'babel',
+      cwd: path.join(__dirname, '../..')
     })
   ],
   input: {
