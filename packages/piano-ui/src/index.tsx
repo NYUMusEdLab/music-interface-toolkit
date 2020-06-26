@@ -17,10 +17,10 @@ const isNatural = [
   true
 ];
 
-interface PianoProps {
+type PianoProps = {
   low?: number;
   high?: number;
-  keyClass?: (key: number) => string[];
+  keyClass?: (key: number) => undefined | string | string[];
   onPress?: any;
   onRelease?: any;
 }
@@ -35,9 +35,19 @@ export const Piano = ({ low = 21, high = 108, keyClass }: PianoProps) => {
     classNames.push(
       isNatural[i % 12] ? 'piano-ui-white-key' : 'piano-ui-black-key'
     );
+
     if (keyClass) {
-      classNames.push(...keyClass(i));
+      let customClasses = keyClass(i);
+
+      if (customClasses) {
+        if (typeof customClasses === 'string') {
+          classNames.push(customClasses);
+        } else {
+          classNames.push(...customClasses);
+        }
+      }
     }
+
     let key = <div className={classNames.join(' ')} key={i} />;
 
     if (isNatural[i % 12]) {
