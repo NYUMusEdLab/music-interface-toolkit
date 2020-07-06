@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "description": "Tools for working with Open Sound Control messages in Javascript",
   "type": "module",
-  "main": "./core/index.js",
+  "main": "./dist/index.js",
   "exports": {
-    ".": "./core/index.js"
+    ".": "./dist/index.js"
   },
   "files": [
     "core/*",

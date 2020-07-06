@@ -12,11 +12,23 @@ if (command) {
   let io = createInterface(process.stdin);
 
   console.log('Welcome to the OSC terminal. type "help" for help');
-  io.prompt();
+  io.question('', runCommand);
 }
 
 function runCommand(command: string) {
-  // If command doesn't exist: throw error
+  // Clean up command and extract first token
+  let [action, args] = command.trim().split(/\s+/, 1);
+
+  switch (action.toLowerCase()) {
+    case 'help':
+      break;
+    case 'send':
+      break;
+    case 'listen':
+      break;
+    case 'bridge':
+      break;
+  }
 
   return true;
 }
