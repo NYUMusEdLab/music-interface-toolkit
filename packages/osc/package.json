@@ -1,0 +1,32 @@
+{
+  "name": "@musedlab/osc",
+  "version": "0.0.1",
+  "description": "Tools for working with Open Sound Control messages in Javascript",
+  "type": "module",
+  "main": "./core/index.js",
+  "exports": {
+    ".": "./core/index.js"
+  },
+  "files": [
+    "core/*",
+    "data/*",
+    "file/*",
+    "message/*",
+    "web/*",
+    "shared/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NYUMusEdLab/music-interface-toolkit.git",
+    "directory": "packages/osc"
+  },
+  "bugs": {
+    "url": "https://github.com/NYUMusEdLab/music-interface-toolkit/issues"
+  },
+  "homepage": "https://github.com/NYUMusEdLab/music-interface-toolkit/tree/master/packages/osc#readme",
+  "author": "NYU Music Experience Design Lab (MusEDLab)",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
