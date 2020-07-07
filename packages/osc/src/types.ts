@@ -6,7 +6,6 @@ export interface OSCBundle {
 export interface OSCMessage {
   address: string;
   args: OSCArgument[];
-  // TODO: Arg Types
 }
 
 export const OSCTypeAnnotations = [
@@ -25,7 +24,7 @@ export const OSCTypeAnnotations = [
   'F',
   'N',
   'I',
-];
+] as const;
 
 export type OSCAnnotatedArgument =
   | { i: number } // int32

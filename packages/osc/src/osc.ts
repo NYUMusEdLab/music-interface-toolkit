@@ -5,7 +5,7 @@
  * Licensed under the MIT and GPL 3 licenses.
  */
 
-import { OSCArgument } from './types';
+import { OSCArgument, OSCTypeAnnotations, OSCAnnotatedArgument } from './types';
 
 export function message(address: string, ...args: OSCArgument[]) {
   // Basic address check
@@ -69,38 +69,47 @@ export function onMessage(
 export function onBundle() {}
 
 // ARGUMENTS
-function annotateArgument(arg: OSCArgument) {
-  if (typeof arg === 'number') {
-    // Save numbers as floats by default
+function validateArgument(arg: OSCArgument): OSCAnnotatedArgument {
+  // Int 32
+  if (isTagged(arg, 'i') && typeof arg.i === 'number') {
+    return { i: Math.round(arg.i) };
+  }
+  // Float 32
+  else if (typeof arg === 'number') {
     return { f: arg };
-  } else if (typeof arg === 'string') {
+  } else if (isTagged(arg, 'f') && typeof arg.f === 'number') {
+    return { f: arg.f };
+  }
+  // String
+  else if (typeof arg === 'string') {
     return { s: arg };
-  } else if (arg instanceof ArrayBuffer || ArrayBuffer.isView(arg)) {
+  }else if (arg instanceof ArrayBuffer || ArrayBuffer.isView(arg)) {
+    // Saved TypedArrays and ArrayBuffers as blobs
     return { b: arg };
   } else if (typeof arg === 'bigint') {
     // Save bigints as 64-bit integers
     return { h: arg };
+  } else if (arg instanceof Date) {
+    return { t: arg };
   } else if (typeof arg === 'boolean') {
+    return arg ? { T: null } : { F: null };
+  } else if (arg === undefined || arg === null) {
+    return { N: null };
+  } else if (typeof arg === 'object') {
+    return arg;
   }
-  //   if (typeof arg === 'object' && arg.type && arg.value !== undefined) {
-  //     // We've got an explicitly typed argument.
-  //     msgArg = arg;
-  //   } else if (osc.isArray(arg)) {
-  //     // We've got an array of arguments,
-  //     // so they each need to be inferred and expanded.
-  //     msgArg = osc.annotateArguments(arg);
-  //   } else {
-  //     var oscType = osc.inferTypeForArgument(arg);
-  //     msgArg = {
-  //       type: oscType,
-  //       value: arg,
-  //     };
-  //   }
+}
 
-  //   annotated.push(msgArg);
-  // }
-
-  // return annotated;
+function isTagged(
+  object: any,
+  type: typeof OSCTypeAnnotations[number]
+): object is { [k in typeof type]: any } {
+  return (
+    typeof object === 'object' &&
+    object !== null &&
+    Object.keys(object).length === 1 &&
+    Object.keys(object)[0] === type
+  );
 }
 
 // DATA TYPES
