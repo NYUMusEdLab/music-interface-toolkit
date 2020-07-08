@@ -9,7 +9,7 @@ export default {
   ],
   input: {
     index: 'src/osc.ts',
-    cli: 'src/cli/cli.ts',
+    cli: 'src/cli.ts',
   },
   output: {
     dir: 'dist',

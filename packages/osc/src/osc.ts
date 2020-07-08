@@ -5,21 +5,25 @@
  * Licensed under the MIT and GPL 3 licenses.
  */
 
-import { OSCArgument, OSCTypeAnnotations, OSCAnnotatedArgument } from './types';
+import {
+  OSCRawArgument,
+  OSCArgumentTag,
+  OSCArgumentTagList,
+  OSCTaggedArgument,
+  isOSCArgumentTag,
+} from './types';
 
-export function message(address: string, ...args: OSCArgument[]) {
+export function message(address: string, ...args: OSCRawArgument[]) {
   // Basic address check
   if (!(address.indexOf('/') === 0)) {
     throw Error(
       `An OSC message must contain a valid address. Address was: ${address}`
     );
   }
-
-  // var msgCollection = osc.collectMessageParts(msg, options);
-  // return osc.joinParts(msgCollection);
 }
 
 export function bundle(time: Date | number, ...packets: Uint8Array[]) {
+  // Calculate size of bundle
   let size = 8; // Bundle header
   size += 4; // Time tag
   for (let packet of packets) {
@@ -59,6 +63,26 @@ export function bundle(time: Date | number, ...packets: Uint8Array[]) {
   return bundle;
 }
 
+export function parse(rawData: Uint8Array) {
+  let data = new Uint8Array(rawData.buffer);
+
+  let address: string;
+  [address, data] = readOSCString(data);
+
+  let types: string;
+  [types, data] = readOSCString(data);
+
+  if (types === '') {
+    // Some implementations leave the type string off
+    return { address, args: [], argTypes: [] };
+  } else {
+    // Slice off the leading comma
+    types = types.slice(1);
+    let argTypes = parseTypeString(types);
+    return { address, args: [], argTypes };
+  }
+}
+
 // export function onMessage(callback: (data: any) => any): void;
 // export function onMessage(address: string, callback: (data: any) => any): void;
 export function onMessage(
@@ -69,7 +93,60 @@ export function onMessage(
 export function onBundle() {}
 
 // ARGUMENTS
-function validateArgument(arg: OSCArgument): OSCAnnotatedArgument {
+function parseTypeString(types: string) {
+  let output: OSCArgumentTagList = [];
+  let parseStack = [output];
+
+  const add = (type: OSCArgumentTag | OSCArgumentTagList) => {
+    parseStack[parseStack.length - 1].push(type);
+  };
+
+  for (let i = 0; i < types.length; ++i) {
+    let type = types[i];
+    if (isOSCArgumentTag(type)) {
+      // If current character is a recognized type
+      add(type);
+    } else {
+      // Check if the current character is the start of an array
+      if (type === '[') {
+        parseStack.push([]);
+      } else if (type === ']' && parseStack.length > 1) {
+        let array = parseStack.pop();
+        if (array) {
+          add(array);
+        }
+      } else {
+        throw Error(`Unrecognized argument type ${type}`);
+      }
+    }
+  }
+
+  if (parseStack.length > 1) {
+    throw Error('Type string has an array but is missing a close bracket');
+  }
+
+  return output;
+}
+
+function readArguments(
+  argTypes: OSCArgumentTagList,
+  data: Uint8Array
+): [OSCRawArgument[], Uint8Array] {
+  let args: OSCRawArgument[] = [];
+
+  for (let argType of argTypes) {
+    if (Array.isArray(argType)) {
+      let subArgs: OSCRawArgument[];
+      [subArgs, data] = readArguments(argType, data);
+      args.push(subArgs);
+    } else {
+    }
+  }
+
+  return [args, data];
+}
+
+function validateArgument(arg: OSCRawArgument): OSCTaggedArgument {
   // Int 32
   if (isTagged(arg, 'i') && typeof arg.i === 'number') {
     return { i: Math.round(arg.i) };
@@ -83,10 +160,10 @@ function validateArgument(arg: OSCArgument): OSCAnnotatedArgument {
   // String
   else if (typeof arg === 'string') {
     return { s: arg };
-  }else if (arg instanceof ArrayBuffer || ArrayBuffer.isView(arg)) {
+  } else if (arg instanceof ArrayBuffer || ArrayBuffer.isView(arg)) {
     // Saved TypedArrays and ArrayBuffers as blobs
     return { b: arg };
-  } else if (typeof arg === 'bigint') {
+  } else if (typeof arg === 'bigint' || arg instanceof BigInt) {
     // Save bigints as 64-bit integers
     return { h: arg };
   } else if (arg instanceof Date) {
@@ -96,13 +173,15 @@ function validateArgument(arg: OSCArgument): OSCAnnotatedArgument {
   } else if (arg === undefined || arg === null) {
     return { N: null };
   } else if (typeof arg === 'object') {
-    return arg;
+    //return arg;
   }
+
+  return { T: null };
 }
 
 function isTagged(
   object: any,
-  type: typeof OSCTypeAnnotations[number]
+  type: OSCArgumentTag
 ): object is { [k in typeof type]: any } {
   return (
     typeof object === 'object' &&
@@ -120,6 +199,23 @@ function toOSCString(str: string) {
   buffer.set(unterminatedBuffer);
 
   return buffer;
+}
+
+function readOSCString(data: Uint8Array): [string, Uint8Array] {
+  let length = 0;
+
+  // Look for the null terminating character
+  while (length < data.length && data[length] !== 0) {
+    length++;
+  }
+
+  // Decode this section of the data
+  let text = new TextDecoder().decode(data.subarray(0, length));
+
+  // Round the length up to the nearest 4-byte block.
+  length = (length + 3) & ~0x03;
+
+  return [text, data.subarray(length)];
 }
 
 // var osc = osc || {};
@@ -288,56 +384,6 @@ function toOSCString(str: string) {
 //    * @param {Object} offsetState an offsetState object used to store the current offset index
 //    * @return {String} the JavaScript String that was read
 //    */
-//   osc.readString = function (dv, offsetState) {
-//     var charCodes = [],
-//       idx = offsetState.idx;
-
-//     for (; idx < dv.byteLength; idx++) {
-//       var charCode = dv.getUint8(idx);
-//       if (charCode !== 0) {
-//         charCodes.push(charCode);
-//       } else {
-//         idx++;
-//         break;
-//       }
-//     }
-
-//     // Round to the nearest 4-byte block.
-//     idx = (idx + 3) & ~0x03;
-//     offsetState.idx = idx;
-
-//     var decoder = osc.isBufferEnv
-//       ? osc.readString.withBuffer
-//       : osc.TextDecoder
-//       ? osc.readString.withTextDecoder
-//       : osc.readString.raw;
-
-//     return decoder(charCodes);
-//   };
-
-//   osc.readString.raw = function (charCodes) {
-//     // If no Buffer or TextDecoder, resort to fromCharCode
-//     // This does not properly decode multi-byte Unicode characters.
-//     var str = '';
-//     var sliceSize = 10000;
-
-//     // Processing the array in chunks so as not to exceed argument
-//     // limit, see https://bugs.webkit.org/show_bug.cgi?id=80797
-//     for (var i = 0; i < charCodes.length; i += sliceSize) {
-//       str += String.fromCharCode.apply(null, charCodes.slice(i, i + sliceSize));
-//     }
-
-//     return str;
-//   };
-
-//   osc.readString.withTextDecoder = function (charCodes) {
-//     var data = new Int8Array(charCodes);
-//     return osc.TextDecoder.decode(data);
-//   };
-
-//   osc.readString.withBuffer = function (charCodes) {
-//     return Buffer.from(charCodes).toString('utf-8');
-//   };
 
 //   // Unsupported, non-API function.
 //   osc.readPrimitive = function (dv, readerName, numBytes, offsetState) {
