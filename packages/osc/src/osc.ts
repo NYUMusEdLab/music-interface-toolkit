@@ -6,20 +6,22 @@
  */
 
 import {
-  OSCRawArgument,
   OSCArgumentTag,
   OSCArgumentTagList,
   OSCTaggedArgument,
   isOSCArgumentTag,
+  OSCArgumentInputValue,
 } from './types';
 
-export function message(address: string, ...args: OSCRawArgument[]) {
+export function message(address: string, ...args: OSCArgumentInputValue[]) {
   // Basic address check
   if (!(address.indexOf('/') === 0)) {
     throw Error(
       `An OSC message must contain a valid address. Address was: ${address}`
     );
   }
+
+  return toOSCString(address);
 }
 
 export function bundle(time: Date | number, ...packets: Uint8Array[]) {
@@ -131,14 +133,14 @@ function parseTypeString(types: string) {
 function readArguments(
   argTypes: OSCArgumentTagList,
   data: Uint8Array
-): [OSCRawArgument[], Uint8Array] {
-  let args: OSCRawArgument[] = [];
+): [OSCArgumentInputValue[], Uint8Array] {
+  let args: OSCArgumentInputValue[] = [];
 
   for (let argType of argTypes) {
     if (Array.isArray(argType)) {
-      let subArgs: OSCRawArgument[];
+      let subArgs: OSCArgumentInputValue[];
       [subArgs, data] = readArguments(argType, data);
-      args.push(subArgs);
+      // args.push(subArgs);
     } else {
     }
   }
@@ -146,7 +148,7 @@ function readArguments(
   return [args, data];
 }
 
-function validateArgument(arg: OSCRawArgument): OSCTaggedArgument {
+function validateArgument(arg: OSCArgumentInputValue): OSCTaggedArgument {
   // Int 32
   if (isTagged(arg, 'i') && typeof arg.i === 'number') {
     return { i: Math.round(arg.i) };

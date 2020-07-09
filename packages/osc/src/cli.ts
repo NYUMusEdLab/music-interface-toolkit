@@ -1,6 +1,6 @@
 import { createSocket } from 'dgram';
 
-import { parse } from './osc';
+import { parse, message as oscMessage } from './osc';
 
 let command = process.argv.slice(2).join(' ');
 
@@ -14,7 +14,7 @@ if (command) {
 
 function runCommand(command: string) {
   // Clean up command and extract first token
-  let [action, args] = command.trim().split(/\s+/, 2);
+  let [action, args] = command.trim().split(/\s+(.*)/);
 
   switch (action.toLowerCase()) {
     case 'help':
@@ -39,7 +39,33 @@ function runCommand(command: string) {
 // Sub-programs
 function help() {}
 
-function send(args: string) {}
+function send(args: string) {
+  let { address, port, message } = extractAddress(args);
+
+  // Parse message
+  let [oscAddress, oscArgs] = message.trim().split(/\s+(.*)/);
+
+  let oscArgValues = [];
+
+  while (oscArgs.length > 0) {
+    let arg: string;
+    let match: RegExpMatchArray | null;
+
+    console.log(oscArgs);
+
+    if ((match = oscArgs.match(/^(\d+)(?:\s+(.*))?/))) {
+      [, arg, oscArgs = ''] = match;
+      oscArgValues.push({ i: parseInt(arg) });
+    } else {
+      throw Error(`Didn't recognize character "${oscArgs[0]}"`);
+    }
+  }
+
+  let socket = createSocket('udp4');
+  socket.send(oscMessage(oscAddress, ...oscArgValues), port, address, (err) => {
+    socket.close();
+  });
+}
 
 function listen(args: string) {
   let { address, port } = extractAddress(args);
@@ -77,6 +103,8 @@ function extractAddress(args: string) {
     .match(/^(?:(\d+\.\d+\.\d+\.\d+):)?(\d+)(?:([\s/].*))?$/);
 
   if (!match) throw Error('Please specify a port');
+
+  console.log(`"${args}"`);
 
   let [, address, portString, message] = match;
 
