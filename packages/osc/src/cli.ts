@@ -1,8 +1,10 @@
 import { createSocket } from 'dgram';
 
 import { parse, message as oscMessage } from './osc';
+import { OSCArgumentValueList } from './types';
 
 let command = process.argv.slice(2).join(' ');
+JSON.stringify(process.argv);
 
 if (command) {
   try {
@@ -43,7 +45,7 @@ function send(args: string) {
   let { address, port, message } = extractAddress(args);
 
   // Parse message
-  let [oscAddress, oscArgs] = message.trim().split(/\s+(.*)/);
+  let [oscAddress, oscArgs = ''] = message.trim().split(/\s+(.*)/);
 
   let oscArgValues = [];
 
@@ -51,15 +53,23 @@ function send(args: string) {
     let arg: string;
     let match: RegExpMatchArray | null;
 
-    console.log(oscArgs);
-
-    if ((match = oscArgs.match(/^(\d+)(?:\s+(.*))?/))) {
+    if ((match = oscArgs.match(/^([+-]?\d+)(?:$|\s+(.*)$)/))) {
       [, arg, oscArgs = ''] = match;
       oscArgValues.push({ i: parseInt(arg) });
+    } else if (
+      (match = oscArgs.match(/^([+-]?(?:\d+\.\d*|\.\d+|\d+f))(?:$|\s+(.*)$)/))
+    ) {
+      [, arg, oscArgs = ''] = match;
+      oscArgValues.push({ f: parseFloat(arg) });
+    } else if ((match = oscArgs.match(/^"([^"]*)"(?:$|\s+(.*)$)/))) {
+      [, arg, oscArgs = ''] = match;
+      oscArgValues.push({ s: arg });
     } else {
       throw Error(`Didn't recognize character "${oscArgs[0]}"`);
     }
   }
+
+  console.log(JSON.stringify(oscArgValues));
 
   let socket = createSocket('udp4');
   socket.send(oscMessage(oscAddress, ...oscArgValues), port, address, (err) => {
@@ -82,11 +92,13 @@ function listen(args: string) {
 
   socket.on('message', (message, rinfo) => {
     try {
-      let { address, argTypes } = parse(message);
+      let { address, args, argTypes } = parse(message);
       console.log(
-        `${rinfo.address}:${rinfo.port}> ${address} ${JSON.stringify(argTypes)}`
+        `${rinfo.address}:${rinfo.port}> ${address} ${serializeArgs(args)}`
       );
-    } catch (error) {}
+    } catch (error) {
+      console.log(error.message);
+    }
   });
 
   socket.bind(port, address);
@@ -109,4 +121,18 @@ function extractAddress(args: string) {
   let [, address, portString, message] = match;
 
   return { address, port: parseInt(portString), message };
+}
+
+function serializeArgs(args: OSCArgumentValueList) {
+  return args
+    .map((arg) => {
+      if (typeof arg === 'number') {
+        return arg.toString();
+      } else if (typeof arg === 'string') {
+        return `"${arg}"`;
+      } else if (arg instanceof Uint8Array) {
+        return `<Blob (${arg.length}B)>`;
+      }
+    })
+    .join(' ');
 }

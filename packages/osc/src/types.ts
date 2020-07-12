@@ -87,7 +87,20 @@ export type OSCArgumentInputValue =
   | ArrayBufferView
   | Date
   | { i: number }
-  | { f: number };
+  | { f: number }
+  | { s: string }
+  | { b: number | ArrayBuffer | ArrayBufferView }
+  | { h: bigint | BigInt }
+  | { t: number | [number | number] | Date }
+  | { d: number }
+  | { S: string }
+  | { c: string }
+  | { r: ArrayBuffer | ArrayBufferView }
+  | { m: number[] | ArrayBuffer | ArrayBufferView }
+  | { T: any }
+  | { F: any }
+  | { N: any }
+  | { I: any };
 
 export type OSCTaggedArgument = {
   [tag in OSCArgumentTag]?: OSCArgumentInputValue;
