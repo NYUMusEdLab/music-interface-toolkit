@@ -101,7 +101,3 @@ export type OSCArgumentInputValue =
   | { F: any }
   | { N: any }
   | { I: any };
-
-export type OSCTaggedArgument = {
-  [tag in OSCArgumentTag]?: OSCArgumentInputValue;
-};

@@ -8,11 +8,21 @@
 import {
   OSCArgumentTag,
   OSCArgumentTagList,
-  OSCTaggedArgument,
   OSCArgumentInputValue,
   OSCArgumentValue,
   OSCArgumentValueList,
 } from './types';
+
+import {
+  writeInt32,
+  readInt32,
+  writeFloat32,
+  readFloat32,
+  writeString,
+  readString,
+  writeBlob,
+  readBlob,
+} from './atoms';
 
 /**
  * Generate a binary OSC message with the given information
@@ -69,7 +79,7 @@ export function bundle(time: Date | number, ...packets: Uint8Array[]) {
 /**
  * Parse an OSC buffer
  *
- * @param rawData
+ * @param data -
  */
 export function parse(data: Uint8Array) {
   let address: string;
@@ -89,18 +99,17 @@ export function parse(data: Uint8Array) {
   }
 }
 
-// Utilities
 /**
- * All types in OSC are aligned to be a multiple of four bytes. This
- * convenience function takes a number and returns the next largest
- * multiple of 4.
+ * Concatenates a series of Uint8Arrays into a single array. This
+ * is equivalent to `Uint8Array.of(...elements)`, but necessary because
+ * that function currently doesn't exist in Safari. All data buffers
+ * in OSC must be an even multiple of four bytes long, so this function
+ * also checks the resulting size accordingly.
  *
- * @param numBytes - The number of bytes
+ * @param elements A series of arrays of binary data to be combined
+ * @returns A new array of data, combined from the inputs and guaranteed
+ * to have a length that's an even multiple of four
  */
-function chunkSize(bytes: number) {
-  return (bytes + 3) & ~0x03;
-}
-
 function mergeBuffers(...elements: Uint8Array[]) {
   let size = 0;
 
@@ -225,20 +234,6 @@ function writeArguments(args: OSCArgumentInputValue[]): [string, Uint8Array[]] {
   return [typeString, argData];
 }
 
-function validateArgument(arg: OSCArgumentInputValue): OSCTaggedArgument {
-  // String
-  if (typeof arg === 'string') {
-    return { s: arg };
-  } else if (typeof arg === 'bigint' || arg instanceof BigInt) {
-    // Save bigints as 64-bit integers
-    return { h: arg };
-  } else if (arg instanceof Date) {
-    return { t: arg };
-  }
-
-  return { T: null };
-}
-
 function isTagged(
   object: any,
   type: OSCArgumentTag
@@ -249,65 +244,4 @@ function isTagged(
     Object.keys(object).length === 1 &&
     Object.keys(object)[0] === type
   );
-}
-
-// DATA TYPES
-function writeInt32(value: number) {
-  let output = new Uint8Array(4);
-  new DataView(output.buffer).setInt32(0, value);
-  return output;
-}
-
-function readInt32(data: Uint8Array): [number, Uint8Array] {
-  let value = new DataView(data.buffer).getInt32(data.byteOffset);
-  return [value, data.subarray(4)];
-}
-
-function writeFloat32(value: number) {
-  let output = new Uint8Array(4);
-  new DataView(output.buffer).setFloat32(0, value);
-  return output;
-}
-
-function readFloat32(data: Uint8Array): [number, Uint8Array] {
-  let value = new DataView(data.buffer).getFloat32(data.byteOffset);
-  return [value, data.subarray(4)];
-}
-
-function writeString(str: string) {
-  let unterminatedBuffer = new TextEncoder().encode(str);
-  let terminatedLength = chunkSize(unterminatedBuffer.length + 1);
-  let buffer = new Uint8Array(terminatedLength);
-  buffer.set(unterminatedBuffer);
-
-  return buffer;
-}
-
-function readString(data: Uint8Array): [string, Uint8Array] {
-  let length = 0;
-
-  // Look for the null terminating character
-  while (length < data.length && data[length] !== 0) {
-    length++;
-  }
-
-  // Decode this section of the data
-  let text = new TextDecoder().decode(data.subarray(0, length));
-
-  return [text, data.subarray(chunkSize(length))];
-}
-
-function writeBlob(blob: Uint8Array) {
-  let output = new Uint8Array(chunkSize(4 + blob.length));
-
-  // Write size followed by data
-  new DataView(output.buffer).setInt32(0, blob.length);
-  output.set(blob, 4);
-  return output;
-}
-
-function readBlob(data: Uint8Array): [Uint8Array, Uint8Array] {
-  let size = new DataView(data.buffer).getInt32(data.byteOffset);
-  let blob = data.subarray(4, size + 4);
-  return [blob, data.subarray(chunkSize(size + 4))];
 }
