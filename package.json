@@ -7,11 +7,15 @@
     "postdev": "npm run clean",
     "build": "lerna exec -- rollup -c",
     "prepublishOnly": "npm run build",
-    "postpublish": "npm run clean"
+    "postpublish": "npm run clean",
+    "document": "eleventy --config=doc-gen/config.js",
+    "document-serve": "eleventy --serve --config=doc-gen/config.js"
   },
   "author": "NYU Music Experience Design Lab (MusEDLab)",
   "license": "MIT",
   "devDependencies": {
+    "@11ty/eleventy": "^0.11.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
@@ -22,10 +26,6 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-postcss": "^2.9.0",
     "typescript": "^3.9.3"
-  },
-  "prettier": {
-    "singleQuote": true,
-    "jsxBracketSameLine": true
   },
   "dependencies": {
     "@musedlab/midi": "file:packages/midi",
