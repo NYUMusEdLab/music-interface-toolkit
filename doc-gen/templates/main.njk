@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="{{ "/css/style.css" | url }}" rel="stylesheet">
+  </head>
+  <body>
+    <header>{{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}
+</header>
+    <main>
+      {{ content | safe }}
+    </main>
+  </body>
+</html>
