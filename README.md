@@ -1,6 +1,5 @@
 <!---
 title: Music Interface Toolkit
-permalink: index.html
 --->
 
 # Music Interface Toolkit
