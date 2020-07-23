@@ -2,6 +2,15 @@
   font-family: Roboto, sans-serif;
   font-size: 16px;
   line-height: 200%;
+
+  /* Colors */
+  /* https://gka.github.io/palettes/#/6|s|fbfafc,b6b1c7||1|1 */
+  --c-1: #fbfafc;
+  --c-2: #edebf1;
+  --c-3: #dfdce7;
+  --c-4: #d1cedc;
+  --c-5: #c4bfd1;
+  --c-6: #b6b1c7;
 }
 
 h1,
@@ -43,7 +52,7 @@ p {
 
 pre {
   width: auto;
-  background: #eee;
+  background: var(--c-2);
   padding: 0.5em;
   overflow-x: auto;
 }
@@ -51,4 +60,41 @@ pre {
 code * {
   font-family: Roboto Mono, monospace;
   line-height: 120%;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+thead tr {
+  background: var(--c-3);
+}
+
+tbody tr {
+  border-top: solid 1px var(--c-4);
+}
+
+tbody tr:nth-child(odd) {
+  background: var(--c-1);
+}
+
+tbody tr:nth-child(even) {
+  background: var(--c-2);
+}
+
+th,
+td {
+  padding: 0 0.5em;
+}
+
+th:not(:last-child),
+td:not(:last-child) {
+  border-right: solid 1px var(--c-4);
+}
+
+th {
+  font-weight: 500;
+  text-align: left;
 }
