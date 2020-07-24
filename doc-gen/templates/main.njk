@@ -7,8 +7,7 @@
     <link href="{{ "/css/style.css" | url }}" rel="stylesheet">
   </head>
   <body>
-    <header>{{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}
-</header>
+    <header><nav>{{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}</nav></header>
     <main>
       {{ content | safe }}
     </main>

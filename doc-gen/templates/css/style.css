@@ -1,7 +1,8 @@
 :root {
+  /* Font Size */
   font-family: Roboto, sans-serif;
   font-size: 16px;
-  line-height: 200%;
+  line-height: 24px;
 
   /* Colors */
   /* https://gka.github.io/palettes/#/6|s|fbfafc,b6b1c7||1|1 */
@@ -20,7 +21,17 @@ h4,
 h5,
 h6 {
   font-weight: 500;
-  margin: 0 0.5rem;
+  margin: 0 12px;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 48px;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 48px;
 }
 
 strong {
@@ -39,22 +50,40 @@ header {
   margin-right: 1.5em;
 }
 
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav li a {
+  display: block;
+  padding: 10px;
+  background: var(--c-2);
+}
+
 main {
   /* Accomodates 80 columns of Roboto Mono */
   max-width: 48.65em;
   min-width: 0;
   flex: 1;
+  margin-top: 24px;
+}
+
+main > * {
+  margin-bottom: 24px;
 }
 
 p {
-  padding: 0 0.5em;
+  padding: 0 12px;
 }
 
 pre {
   width: auto;
   background: var(--c-2);
-  padding: 0.5em;
   overflow-x: auto;
+  padding: 6px 12px;
+  margin-top: -6px;
+  margin-bottom: 18px;
 }
 
 code * {
@@ -73,7 +102,7 @@ thead tr {
 }
 
 tbody tr {
-  border-top: solid 1px var(--c-4);
+  box-shadow: inset 0 1px var(--c-5);
 }
 
 tbody tr:nth-child(odd) {
@@ -86,12 +115,12 @@ tbody tr:nth-child(even) {
 
 th,
 td {
-  padding: 0 0.5em;
+  padding: 6px 12px;
 }
 
 th:not(:last-child),
 td:not(:last-child) {
-  border-right: solid 1px var(--c-4);
+  border-right: solid 1px var(--c-5);
 }
 
 th {
