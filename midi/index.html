@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <header><nav><ul><li><a href="/midi-ui/">@musedlab/midi-ui (0.0.5)</a></li>
+<li><a href="/midi/">@musedlab/midi (0.0.5)</a><ul><li><a href="/midi/messages/">src/messages/README</a></li>
+<li><a href="/midi/web/">/web</a></li></ul></li></ul></nav></header>
+    <main>
+      <h1>@musedlab/midi</h1>
+<p>This package contains functions for working with MIDI data in javascript.</p>
+<h2>toBytes</h2>
+<pre><code>toBytes(value: number, length: number): Uint8Array
+</code></pre>
+<p>Encode a numeric value as a specified number of unsigned bytes. The value is
+assumed to be a non-negative integer small enough to be properly represented by
+the number of bytes specified.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>value</code></td>
+<td>number</td>
+<td>The value to encode</td>
+</tr>
+<tr>
+<td><code>length</code></td>
+<td>number</td>
+<td>The number of bytes to encode it in</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong> Uint8Array — An array of bytes, starting with the most
+significant byte</p>
+
+    </main>
+  </body>
+</html>
