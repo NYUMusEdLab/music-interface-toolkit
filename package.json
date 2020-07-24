@@ -8,7 +8,7 @@
     "build": "lerna exec -- rollup -c",
     "prepublishOnly": "npm run build",
     "postpublish": "npm run clean",
-    "document": "eleventy --config=doc-gen/config.js",
+    "document": "eleventy --config=doc-gen/config.js --pathprefix=/music-interface-toolkit/",
     "document-serve": "eleventy --serve --config=doc-gen/config.js"
   },
   "author": "NYU Music Experience Design Lab (MusEDLab)",
