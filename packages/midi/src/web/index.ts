@@ -8,7 +8,7 @@ export function receiveMidiInputs(fn: (inputs: MIDIInput[]) => any) {
   };
 
   if (navigator.requestMIDIAccess) {
-    navigator.requestMIDIAccess().then((access) => {
+    navigator.requestMIDIAccess().then(access => {
       // Check if the user has already cancelled the callback
       if (cancelled) {
         return;
@@ -43,7 +43,7 @@ export function receiveMidiOutputs(fn: (inputs: MIDIOutput[]) => any) {
   };
 
   if (navigator.requestMIDIAccess) {
-    navigator.requestMIDIAccess().then((access) => {
+    navigator.requestMIDIAccess().then(access => {
       // Check if the user has already cancelled the callback
       if (cancelled) {
         return;
@@ -76,7 +76,7 @@ export function sendMIDI(
   outputId?: string
 ) {
   if (navigator.requestMIDIAccess) {
-    navigator.requestMIDIAccess().then((access) => {
+    navigator.requestMIDIAccess().then(access => {
       let messages: TimedMIDIMessage[] = Array.isArray(message)
         ? message
         : [message];
@@ -106,7 +106,7 @@ export function receiveMIDI(
   };
 
   if (navigator.requestMIDIAccess) {
-    navigator.requestMIDIAccess().then((access) => {
+    navigator.requestMIDIAccess().then(access => {
       // Check if the user has already cancelled the callbacks
       if (cancelled) {
         return;
@@ -115,17 +115,9 @@ export function receiveMIDI(
       function dispatch({
         timeStamp: time,
         data,
-        target: input,
+        target: input
       }: MIDIMessageEvent) {
-        fn({
-          data,
-          time,
-          input: {
-            id: input.id,
-            name: input.name,
-            manufacturer: input.manufacturer,
-          },
-        });
+        fn({ data, time, port: input.id });
       }
 
       let inputs = new Set<MIDIInput>();
