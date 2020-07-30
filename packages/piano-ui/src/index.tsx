@@ -14,7 +14,7 @@ const isNatural = [
   false,
   true,
   false,
-  true
+  true,
 ];
 
 type PianoProps = {
@@ -23,7 +23,7 @@ type PianoProps = {
   keyClass?: (key: number) => undefined | string | string[];
   onPress?: any;
   onRelease?: any;
-}
+};
 
 export const Piano = ({ low = 21, high = 108, keyClass }: PianoProps) => {
   let blackKeys = [];
@@ -48,7 +48,30 @@ export const Piano = ({ low = 21, high = 108, keyClass }: PianoProps) => {
       }
     }
 
-    let key = <div className={classNames.join(' ')} key={i} />;
+    let key = (
+      <div
+        className={classNames.join(' ')}
+        key={i}
+        onContextMenu={(event) => {
+          event.preventDefault();
+        }}
+        onPointerDown={() => {
+          console.log('pointer down');
+        }}
+        onPointerOver={(event) => {
+          console.log('pointer over');
+        }}
+        onPointerOut={() => {
+          console.log('pointer out');
+        }}
+        onPointerCancel={() => {
+          console.log('pointer cancel');
+        }}
+        onGotPointerCapture={(event) => {
+          console.log('pointer capture');
+        }}
+      />
+    );
 
     if (isNatural[i % 12]) {
       whiteKeys.push(key);
