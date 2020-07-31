@@ -17,60 +17,33 @@ const isNatural = [
   true,
 ];
 
+type KeyClass = { [className: string]: boolean | ((key: number) => boolean) };
+
 type PianoProps = {
   low?: number;
   high?: number;
-  keyClass?: (key: number) => undefined | string | string[];
+  keyLabel?: (key: number) => React.ReactNode;
+  keyClass?: KeyClass;
+  onClick?: any;
   onPress?: any;
   onRelease?: any;
 };
 
-export const Piano = ({ low = 21, high = 108, keyClass }: PianoProps) => {
+export const Piano = ({
+  low = 21,
+  high = 108,
+  keyLabel,
+  keyClass,
+  onClick,
+  onPress,
+  onRelease,
+}: PianoProps) => {
   let blackKeys = [];
   let whiteKeys = [];
 
   for (let i = low; i <= high; ++i) {
-    let classNames = [];
-    classNames.push('piano-ui-key');
-    classNames.push(
-      isNatural[i % 12] ? 'piano-ui-white-key' : 'piano-ui-black-key'
-    );
-
-    if (keyClass) {
-      let customClasses = keyClass(i);
-
-      if (customClasses) {
-        if (typeof customClasses === 'string') {
-          classNames.push(customClasses);
-        } else {
-          classNames.push(...customClasses);
-        }
-      }
-    }
-
     let key = (
-      <div
-        className={classNames.join(' ')}
-        key={i}
-        onContextMenu={(event) => {
-          event.preventDefault();
-        }}
-        onPointerDown={() => {
-          console.log('pointer down');
-        }}
-        onPointerOver={(event) => {
-          console.log('pointer over');
-        }}
-        onPointerOut={() => {
-          console.log('pointer out');
-        }}
-        onPointerCancel={() => {
-          console.log('pointer cancel');
-        }}
-        onGotPointerCapture={(event) => {
-          console.log('pointer capture');
-        }}
-      />
+      <PianoKey key={i} value={i} keyClass={keyClass} keyLabel={keyLabel} />
     );
 
     if (isNatural[i % 12]) {
@@ -88,3 +61,26 @@ export const Piano = ({ low = 21, high = 108, keyClass }: PianoProps) => {
     </div>
   );
 };
+
+const defaultClasses: KeyClass = {
+  'piano-ui-key': true,
+  'piano-ui-white-key': (key) => isNatural[key % 12],
+  'piano-ui-black-key': (key) => !isNatural[key % 12],
+};
+
+type PianoKeyProps = {
+  value: number;
+  keyClass: PianoProps['keyClass'];
+  keyLabel: PianoProps['keyLabel'];
+};
+
+function PianoKey({ value, keyClass = {}, keyLabel }: PianoKeyProps) {
+  keyClass = { ...keyClass, ...defaultClasses };
+
+  let className = Object.entries(keyClass)
+    .filter(([, test]) => (typeof test === 'function' && test(value)) || test)
+    .map(([name]) => name)
+    .join(' ');
+
+  return <div className={className}>{keyLabel ? keyLabel(value) : null}</div>;
+}
