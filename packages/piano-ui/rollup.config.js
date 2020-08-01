@@ -9,21 +9,21 @@ export default {
   plugins: [
     resolve(),
     postcss({
-      extensions: ['.css']
+      extensions: ['.css'],
     }),
     ts({
       tsconfig: 'tsconfig.json',
       include: ['src/**/*'],
       transpiler: 'babel',
-      cwd: path.join(__dirname, '../..')
-    })
+      cwd: path.join(__dirname, '../..'),
+    }),
   ],
   input: {
-    'dist/index': 'src/index.tsx'
+    'dist/index': 'src/index.ts',
   },
   output: {
     dir: '.',
     format: 'esm',
-    chunkFileNames: 'shared/[name]-[hash].js'
-  }
+    chunkFileNames: 'shared/[name]-[hash].js',
+  },
 };

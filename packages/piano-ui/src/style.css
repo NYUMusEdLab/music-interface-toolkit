@@ -3,8 +3,9 @@
   height: 100px;
 }
 
-.piano-ui div {
+.piano-ui > div {
   display: flex;
+  pointer-events: none;
 }
 
 .piano-ui > div:first-child {
@@ -19,6 +20,7 @@
 
 .piano-ui .piano-ui-key {
   flex: 1;
+  pointer-events: auto;
 }
 
 .piano-ui > div:first-child .piano-ui-gap {
