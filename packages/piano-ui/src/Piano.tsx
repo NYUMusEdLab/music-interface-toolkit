@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { ButtonGroup, useButtonHandlers } from './ButtonGroup';
+
 import './style.css';
 
 const isNatural = [
@@ -69,8 +71,10 @@ export const Piano = ({
 
   return (
     <div className="piano-ui">
-      <div>{blackKeys}</div>
-      <div>{whiteKeys}</div>
+      <ButtonGroup>
+        <div>{blackKeys}</div>
+        <div>{whiteKeys}</div>
+      </ButtonGroup>
     </div>
   );
 };
@@ -107,17 +111,32 @@ function PianoKey({
     .join(' ');
 
   // Add event handlers
-  let eventHandlers: { onClick?: (event: React.MouseEvent) => any } = {};
 
   // On Click
+  let handleClick;
   if (onClick) {
-    eventHandlers.onClick = (event) => {
+    handleClick = (event: React.MouseEvent) => {
       onClick({ key: value, event });
     };
   }
 
+  // On Press
+  let pointerHandlers = useButtonHandlers(
+    (event) => {
+      if (onPress) {
+        onPress({ key: value, event });
+      }
+    },
+    (event) => {
+      if (onRelease) {
+        onRelease({ key: value, event });
+      }
+    },
+    [onPress, onRelease, value]
+  );
+
   return (
-    <div className={className} {...eventHandlers}>
+    <div className={className} onClick={handleClick} {...pointerHandlers}>
       {keyLabel ? keyLabel(value) : null}
     </div>
   );
