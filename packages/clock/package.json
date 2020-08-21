@@ -1,0 +1,29 @@
+{
+  "name": "@musedlab/clock",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Mechanism for scheduling events",
+  "type": "module",
+  "exports": {
+    "./file": "./file/index.js",
+    "./message": "./message/index.js",
+    "./web": "./web/index.js"
+  },
+  "files": [
+    "dist/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NYUMusEdLab/music-interface-toolkit.git",
+    "directory": "packages/clock"
+  },
+  "bugs": {
+    "url": "https://github.com/NYUMusEdLab/music-interface-toolkit/issues"
+  },
+  "homepage": "https://github.com/NYUMusEdLab/music-interface-toolkit/tree/master/packages/clock",
+  "author": "NYU Music Experience Design Lab (MusEDLab)",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
