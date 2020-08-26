@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{52:function(o){o.exports=JSON.parse('{"docsSidebars":{"docs":[{"collapsed":true,"type":"category","label":"Documentation","items":[{"type":"link","label":"Piano Component","href":"/music-interface-toolkit/piano-ui/"}]}]},"permalinkToSidebar":{"/music-interface-toolkit/piano-ui/":"docs"},"version":null}')}}]);
