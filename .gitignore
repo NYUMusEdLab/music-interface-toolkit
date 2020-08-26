@@ -2,3 +2,4 @@ node_modules
 shared
 dist
 .docusaurus
+/docs
