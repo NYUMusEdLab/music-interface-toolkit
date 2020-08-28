@@ -34,6 +34,10 @@ module.exports = {
       ],
     },
     sidebarCollapsible: false,
+    prism: {
+      theme: require('prism-react-renderer/themes/nightOwlLight'),
+      darkTheme: require('prism-react-renderer/themes/dracula'),
+    },
   },
   plugins: [
     [
@@ -47,8 +51,10 @@ module.exports = {
       {
         path: 'packages/piano-ui/docs',
         routeBasePath: 'piano-ui',
-        homePageId: 'piano',
         sidebarPath: 'packages/piano-ui/docs/sidebar.js',
+        versions: {
+          current: { label: '0.0.1' },
+        },
         editUrl:
           'https://github.com/NYUMusEdLab/music-interface-toolkit/edit/master/packages/piano-ui/',
       },

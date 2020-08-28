@@ -9,7 +9,7 @@
     "prepublishOnly": "npm run build",
     "postpublish": "npm run clean",
     "document-dev": "docusaurus start",
-    "document": "lerna exec --scope @musedlab/piano-ui -- docusaurus start"
+    "document": "docusaurus build --out-dir=generated-docs"
   },
   "author": "NYU Music Experience Design Lab (MusEDLab)",
   "license": "MIT",
