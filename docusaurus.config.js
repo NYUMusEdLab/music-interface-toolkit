@@ -8,7 +8,7 @@ module.exports = {
     [
       '@docusaurus/theme-classic',
       {
-        customCss: require.resolve('./docs-shared/css/custom.css'),
+        customCss: require.resolve('./docs/css/custom.css'),
       },
     ],
   ],
@@ -24,7 +24,10 @@ module.exports = {
         {
           label: 'Packages',
           position: 'left',
-          items: [{ label: 'Piano', to: 'piano-ui/' }],
+          items: [
+            { label: 'Toolkit', to: 'toolkit/' },
+            { label: 'Piano', to: 'piano-ui/' },
+          ],
         },
         {
           href: 'https://github.com/NYUMusEdLab/music-interface-toolkit/',
@@ -43,17 +46,36 @@ module.exports = {
     [
       '@docusaurus/plugin-content-pages',
       {
-        path: 'docs-shared/pages',
+        path: 'docs/pages',
       },
     ],
     [
       '@docusaurus/plugin-content-docs',
       {
+        id: 'toolkit-docs',
+        path: 'packages/toolkit/docs',
+        routeBasePath: 'toolkit',
+        sidebarPath: 'packages/toolkit/docs/sidebar.js',
+        versions: {
+          current: {
+            label: require('./packages/toolkit/package.json').version,
+          },
+        },
+        editUrl:
+          'https://github.com/NYUMusEdLab/music-interface-toolkit/edit/master/packages/piano-ui/',
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'piano-ui-docs',
         path: 'packages/piano-ui/docs',
         routeBasePath: 'piano-ui',
         sidebarPath: 'packages/piano-ui/docs/sidebar.js',
         versions: {
-          current: { label: '0.0.1' },
+          current: {
+            label: require('./packages/piano-ui/package.json').version,
+          },
         },
         editUrl:
           'https://github.com/NYUMusEdLab/music-interface-toolkit/edit/master/packages/piano-ui/',
