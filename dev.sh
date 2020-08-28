@@ -5,9 +5,6 @@
 if [ -z $1 ]
 then lerna exec -- rollup -c -w
 else
-  # Build all other packages
-  lerna --ignore @musedlab/$1 exec -- rollup -c
-  
   # Check for documentation flag
   if [ "$2" = "doc" ] && [ -f "packages/$1/docusaurus.config.js" ]
   then

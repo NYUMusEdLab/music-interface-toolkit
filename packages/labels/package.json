@@ -1,0 +1,29 @@
+{
+  "name": "@musedlab/labels",
+  "version": "0.0.1",
+  "private": true,
+  "description": "React components for rendering musical symbols",
+  "type": "module",
+  "exports": {
+    "./accidental": "./file/index.js",
+    "./pitch": "./pitch/index.js"
+  },
+  "files": [
+    "accidental/*",
+    "pitch/*"
+  ],
+  "scripts": {
+    "make-fonts": "node ./scripts/makeFonts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NYUMusEdLab/music-interface-toolkit.git",
+    "directory": "packages/midi-ui"
+  },
+  "homepage": "https://NYUMusEdLab.github.io/music-interface-toolkit/labels",
+  "author": "NYU Music Experience Design Lab (MusEDLab)",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
