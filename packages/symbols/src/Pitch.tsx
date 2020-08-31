@@ -1,43 +1,119 @@
 import React from 'react';
 
+import { note } from '@tonaljs/tonal';
+import { midiToNoteName } from '@tonaljs/midi';
+
 import { Accidental } from './Accidental';
 
-const PitchExpression = /^([A-Ga-g])(?:(#{1,3})|(b{1,3}))?(-?\d+)?$/;
+type Enharmonic = 'sharp' | 'flat' | 'both';
 
-type PitchProps = { children: string };
+type PitchProps =
+  | { children: string }
+  | { midi: number; scale?: string[]; enharmonic?: Enharmonic }
+  | { pitchClass: number; scale?: string[]; enharmonic?: Enharmonic };
 
 export function Pitch(props: PitchProps) {
-  let step, accidental, octave;
-
   if ('children' in props) {
     if (typeof props.children !== 'string') {
       throw new Error(`Child of pitch label should be a pitch string`);
     }
 
-    let { children } = props;
-    let match = children.match(PitchExpression);
+    let parsed = note(props.children);
 
-    if (match) {
-      let sharps, flats, octaveString;
-      [, step, sharps = '', flats = '', octaveString = ''] = match;
+    if (!parsed.empty) {
+      let { pc, oct } = parsed;
 
-      if (sharps.length > 0 || flats.length > 0) {
-        accidental = <Accidental alter={sharps.length - flats.length} />;
-      } else {
-        accidental = null;
-      }
-
-      octave = octaveString === '' ? null : parseInt(octaveString);
+      return (
+        <span>
+          <PC>{pc}</PC>
+          {oct}
+        </span>
+      );
     } else {
-      throw new Error(`Unrecognized pitch string: ${children}`);
+      throw new Error(`Unrecognized pitch string: ${props.children}`);
     }
+  } else if ('midi' in props || 'pitchClass' in props) {
+    let { scale = [], enharmonic = 'sharp' } = props;
+
+    let pitchClass = ('midi' in props ? props.midi : props.pitchClass) % 12;
+    let oct = 'midi' in props ? Math.floor(props.midi / 12) : null;
+
+    for (let scalePitch of scale) {
+      let parsed = note(scalePitch);
+
+      if (!parsed.empty && parsed.chroma === pitchClass) {
+        let { pc } = parsed;
+
+        return (
+          <span>
+            <PC>{pc}</PC>
+            {oct}
+          </span>
+        );
+      }
+    }
+
+    if (enharmonic === 'sharp' || enharmonic === 'flat') {
+      let pc = midiToNoteName(pitchClass, {
+        sharps: enharmonic === 'sharp',
+        pitchClass: true,
+      });
+
+      return (
+        <span>
+          <PC>{pc}</PC>
+          {oct}
+        </span>
+      );
+    } else {
+      let pc1 = midiToNoteName(pitchClass, {
+        sharps: true,
+        pitchClass: true,
+      });
+
+      let pc2 = midiToNoteName(pitchClass, {
+        sharps: true,
+        pitchClass: true,
+      });
+
+      return (
+        <>
+          <span>
+            <PC>{pc1}</PC>
+            {oct}
+          </span>
+          {pc1 !== pc2 ? (
+            <span>
+              <PC>{pc2}</PC>
+              {oct}
+            </span>
+          ) : null}
+        </>
+      );
+    }
+  } else {
+    throw new Error();
+  }
+}
+
+function PC({ children }: { children: string }) {
+  let pitch = note(children);
+
+  if (pitch.empty) {
+    throw new Error(); // This shouldn't ever happen
+  }
+
+  let { letter, alt } = pitch;
+
+  if (alt < -3 || alt > 3) {
+    let pitchName = letter + (alt > 0 ? '#'.repeat(alt) : 'b'.repeat(-alt));
+    throw new Error(`Pitch ${pitchName} has too many accidentals`);
   }
 
   return (
     <>
-      {step}
-      {accidental}
-      {octave}
+      {letter}
+      {alt !== 0 ? <Accidental alter={alt} /> : null}
     </>
   );
 }

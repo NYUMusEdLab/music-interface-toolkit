@@ -11,7 +11,7 @@ import { Pitch } from '@musedlab/symbols/pitch';
 ## Basic Use
 
 In its simplest use, the Pitch component can be used to wrap the name of a pitch
-and replace pseudo accidental symbols (# and b) with the correct musical
+and replace pseudo accidental symbols ("#" and "b") with the correct musical
 symbols. It supports upper and lower-case pitch letters, accidentals from triple
 flat to triple sharp, and an optional octave number. If you try some other text,
 it will throw an error.
@@ -23,3 +23,40 @@ A few examples:
 - `<Pitch>Gb4</Pitch>` &rarr; <Pitch>Gb4</Pitch>
 - `<Pitch>bbb6</Pitch>` &rarr; <Pitch>bbb6</Pitch>
 - `<Pitch>D###</Pitch>` &rarr; <Pitch>D###</Pitch>
+
+## Use With Numeric Pitches
+
+- `<Pitch midi={7} />` &rarr; <Pitch midi={7} />
+- `<Pitch pitchClass={7} />` &rarr; <Pitch pitchClass={7} />
+
+### Enharmonics
+
+Non-natural notes are written using sharps by default, but you can use the
+optional `enharmonic` prop to specify which spelling of the note name to use:
+
+- `<Pitch midi={66}` /> &rarr; <Pitch midi={66} />
+- `<Pitch midi={66} enharmonic="sharp" />` &rarr;
+  <Pitch midi={66} enharmonic="sharp" />
+- `<Pitch midi={66} enharmonic="flat" />` &rarr;
+  <Pitch midi={66} enharmonic="flat" />
+
+### Ambiguous Enharmonics
+
+You can also set `enharmonic="both"` to render both enharmonics
+
+### Scales
+
+Another way to control spelling is to pass an array of pitches to the `scale`
+prop. For example, if you've defined the following scale:
+
+```js
+// Lydian Dominant in C
+const lydianDom = ['C', 'D', 'E', 'F#', 'G', 'A', 'Bb'];
+```
+
+export const lydianDom = ['C', 'D', 'E', 'F#', 'G', 'A', 'Bb'];
+
+`<Pitch midi={66} scale={lydianDom} />` will render
+"<Pitch midi={66} scale={lydianDom} />", while
+`<Pitch midi={70} scale={lydianDom} />` will render
+"<Pitch midi={70} scale={lydianDom} />"
