@@ -62,6 +62,7 @@ export function ScaleWheel({
         key={i}
         index={i}
         pitch={pitch}
+        chroma={chroma}
         root={root}
         isInScale={!!pitchInScale}
         isActive={!!getPitchInScale(chroma, activeNotes)}
@@ -116,7 +117,15 @@ export function ScaleWheel({
   );
 }
 
-function ScaleWheelSlice({ index, pitch, root, isInScale, isActive, size }) {
+function ScaleWheelSlice({
+  index,
+  pitch,
+  chroma,
+  root,
+  isInScale,
+  isActive,
+  size,
+}) {
   let classList = ['pitch-slice'];
 
   if (isInScale) {
@@ -139,7 +148,7 @@ function ScaleWheelSlice({ index, pitch, root, isInScale, isActive, size }) {
       />
       <SliceGroup index={index} radius={0.39 * size} scale={(size * 0.13) / 20}>
         <foreignObject width={24} height={20} x={-12} y={-10}>
-          <Pitch>{pitch}</Pitch>
+          <Pitch midi={chroma} pitchClass />
         </foreignObject>
       </SliceGroup>
       {isInScale ? (

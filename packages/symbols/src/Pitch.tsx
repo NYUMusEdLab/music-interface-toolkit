@@ -9,8 +9,12 @@ type Enharmonic = 'sharp' | 'flat' | 'both';
 
 type PitchProps =
   | { children: string }
-  | { midi: number; scale?: string[]; enharmonic?: Enharmonic }
-  | { pitchClass: number; scale?: string[]; enharmonic?: Enharmonic };
+  | {
+      midi: number;
+      pitchClass?: boolean;
+      scale?: string[];
+      enharmonic?: Enharmonic;
+    };
 
 export function Pitch(props: PitchProps) {
   if ('children' in props) {
@@ -32,16 +36,15 @@ export function Pitch(props: PitchProps) {
     } else {
       throw new Error(`Unrecognized pitch string: ${props.children}`);
     }
-  } else if ('midi' in props || 'pitchClass' in props) {
-    let { scale = [], enharmonic = 'sharp' } = props;
+  } else if ('midi' in props) {
+    let { midi, pitchClass = false, scale = [], enharmonic = 'sharp' } = props;
 
-    let pitchClass = ('midi' in props ? props.midi : props.pitchClass) % 12;
-    let oct = 'midi' in props ? Math.floor(props.midi / 12) : null;
+    let oct = pitchClass ? null : Math.floor(props.midi / 12);
 
     for (let scalePitch of scale) {
       let parsed = note(scalePitch);
 
-      if (!parsed.empty && parsed.chroma === pitchClass) {
+      if (!parsed.empty && parsed.chroma === midi % 12) {
         let { pc } = parsed;
 
         return (
@@ -54,7 +57,7 @@ export function Pitch(props: PitchProps) {
     }
 
     if (enharmonic === 'sharp' || enharmonic === 'flat') {
-      let pc = midiToNoteName(pitchClass, {
+      let pc = midiToNoteName(midi, {
         sharps: enharmonic === 'sharp',
         pitchClass: true,
       });
@@ -66,13 +69,13 @@ export function Pitch(props: PitchProps) {
         </span>
       );
     } else {
-      let pc1 = midiToNoteName(pitchClass, {
+      let pc1 = midiToNoteName(midi, {
         sharps: true,
         pitchClass: true,
       });
 
-      let pc2 = midiToNoteName(pitchClass, {
-        sharps: true,
+      let pc2 = midiToNoteName(midi, {
+        sharps: false,
         pitchClass: true,
       });
 
