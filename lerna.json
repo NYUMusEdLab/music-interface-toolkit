@@ -1,9 +1,15 @@
 {
-  "packages": ["packages/*"],
+  "packages": [
+    "packages/*"
+  ],
   "version": "independent",
   "command": {
     "publish": {
-      "ignoreChanges": ["**/*.md", "**/docs/**/*", "**/docusaurus.config.js"]
+      "ignoreChanges": [
+        "**/*.md",
+        "**/docs/**/*",
+        "**/docusaurus.config.js"
+      ]
     }
   }
 }

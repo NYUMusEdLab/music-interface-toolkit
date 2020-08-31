@@ -12,7 +12,7 @@ import {
   RadialPolygon,
 } from '../radial-layout';
 
-import { PitchLabel } from '../labels';
+import { Pitch } from '@musedlab/symbols/pitch';
 
 const defaultPitchNames = [
   'C',
@@ -139,7 +139,7 @@ function ScaleWheelSlice({ index, pitch, root, isInScale, isActive, size }) {
       />
       <SliceGroup index={index} radius={0.39 * size} scale={(size * 0.13) / 20}>
         <foreignObject width={24} height={20} x={-12} y={-10}>
-          <PitchLabel>{pitch}</PitchLabel>
+          <Pitch>{pitch}</Pitch>
         </foreignObject>
       </SliceGroup>
       {isInScale ? (
@@ -156,7 +156,7 @@ function ScaleWheelSlice({ index, pitch, root, isInScale, isActive, size }) {
             radius={0.25 * size}
             scale={(size * 0.13) / 20}>
             <foreignObject width={24} height={20} x={-12} y={-10}>
-              {/* <PitchLabel>{pitch}</PitchLabel> */}
+              {/* <Pitch>{pitch}</Pitch> */}
             </foreignObject>
           </SliceGroup>
         </>

@@ -1,5 +1,5 @@
 {
-  "name": "@musedlab/labels",
+  "name": "@musedlab/symbols",
   "version": "0.0.1",
   "private": true,
   "description": "React components for rendering musical symbols",

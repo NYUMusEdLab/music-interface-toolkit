@@ -27,6 +27,7 @@ module.exports = {
           items: [
             { label: 'Toolkit', to: 'toolkit/' },
             { label: 'Piano', to: 'piano-ui/' },
+            { label: 'Symbols', to: 'symbols/' },
           ],
         },
         {
@@ -38,6 +39,7 @@ module.exports = {
     },
     sidebarCollapsible: false,
     prism: {
+      defaultLanguage: 'jsx',
       theme: require('prism-react-renderer/themes/nightOwlLight'),
       darkTheme: require('prism-react-renderer/themes/dracula'),
     },
@@ -62,7 +64,24 @@ module.exports = {
           },
         },
         editUrl:
-          'https://github.com/NYUMusEdLab/music-interface-toolkit/edit/master/packages/piano-ui/',
+          'https://github.com/NYUMusEdLab/music-interface-toolkit/edit/master/packages/toolkit/',
+      },
+    ],
+
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'symbols-docs',
+        path: 'packages/symbols/docs',
+        routeBasePath: 'symbols',
+        sidebarPath: 'packages/symbols/docs/sidebar.json',
+        versions: {
+          current: {
+            label: require('./packages/symbols/package.json').version,
+          },
+        },
+        editUrl:
+          'https://github.com/NYUMusEdLab/music-interface-toolkit/edit/master/packages/symbols/',
       },
     ],
     [

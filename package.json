@@ -35,6 +35,7 @@
     "@musedlab/midi": "file:packages/midi",
     "@musedlab/midi-ui": "file:packages/midi-ui",
     "@musedlab/piano-ui": "file:packages/piano-ui",
+    "@musedlab/symbols": "file:packages/symbols",
     "@musedlab/toolkit": "file:packages/toolkit",
     "@types/react": "^16.9.43"
   }

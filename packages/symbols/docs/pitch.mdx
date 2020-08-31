@@ -1,0 +1,25 @@
+---
+title: Pitch
+---
+
+import { Pitch } from '../src/Pitch';
+
+```js
+import { Pitch } from '@musedlab/symbols/pitch';
+```
+
+## Basic Use
+
+In its simplest use, the Pitch component can be used to wrap the name of a pitch
+and replace pseudo accidental symbols (# and b) with the correct musical
+symbols. It supports upper and lower-case pitch letters, accidentals from triple
+flat to triple sharp, and an optional octave number. If you try some other text,
+it will throw an error.
+
+A few examples:
+
+- `<Pitch>d6</Pitch>` &rarr; <Pitch>d6</Pitch>
+- `<Pitch>C#</Pitch>` &rarr; <Pitch>C#</Pitch>
+- `<Pitch>Gb4</Pitch>` &rarr; <Pitch>Gb4</Pitch>
+- `<Pitch>bbb6</Pitch>` &rarr; <Pitch>bbb6</Pitch>
+- `<Pitch>D###</Pitch>` &rarr; <Pitch>D###</Pitch>

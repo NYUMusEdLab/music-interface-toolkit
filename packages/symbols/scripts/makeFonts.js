@@ -2,7 +2,7 @@ import { execSync } from 'child_process';
 import { readFile, writeFile, unlink } from 'fs/promises';
 
 const unicodeRanges = {
-  Accidentals: 'U+266D-266F, U+1D12A-1D12B',
+  Accidentals: 'U+ED60-ED66',
 };
 
 for (let [name, codepoints] of Object.entries(unicodeRanges)) {
