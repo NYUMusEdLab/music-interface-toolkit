@@ -13,7 +13,7 @@
     "dist/*"
   ],
   "dependencies": {
-    "@musedlab/midi": "^0.0.5"
+    "@musedlab/midi": "file:../midi"
   },
   "repository": {
     "type": "git",

@@ -13,7 +13,6 @@ export default {
       tsconfig: '../../tsconfig.json',
       include: ['src/**/*'],
       transpiler: 'babel',
-      babelConfig: '../../babel.config.js',
     }),
   ],
   input: {

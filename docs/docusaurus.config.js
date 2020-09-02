@@ -72,12 +72,12 @@ module.exports = {
       '@docusaurus/plugin-content-docs',
       {
         id: 'symbols-docs',
-        path: 'packages/symbols/docs',
+        path: '../packages/symbols/docs',
         routeBasePath: 'symbols',
-        sidebarPath: 'packages/symbols/docs/sidebar.json',
+        sidebarPath: '../packages/symbols/docs/sidebar.json',
         versions: {
           current: {
-            label: require('./packages/symbols/package.json').version,
+            label: require('../packages/symbols/package.json').version,
           },
         },
         editUrl:

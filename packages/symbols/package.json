@@ -27,7 +27,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@tonaljs/midi": "^3.5.4",
-    "@tonaljs/tonal": "^4.2.1"
+    "@tonaljs/core": "^3.5.4",
+    "@tonaljs/midi": "^3.5.4"
   }
 }

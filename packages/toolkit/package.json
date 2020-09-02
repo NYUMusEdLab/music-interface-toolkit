@@ -16,7 +16,7 @@
   "author": "NYU Music Experience Design Lab (MusEDLab)",
   "license": "MIT",
   "dependencies": {
-    "@musedlab/symbols": "^0.0.1",
+    "@musedlab/symbols": "file:../symbols",
     "@tonaljs/tonal": "^3.2.1"
   },
   "peerDependencies": {
