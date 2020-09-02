@@ -100,5 +100,21 @@ module.exports = {
           'https://github.com/NYUMusEdLab/music-interface-toolkit/edit/master/packages/piano-ui/',
       },
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'radial-ui-docs',
+        path: '../packages/radial-ui/docs',
+        routeBasePath: 'radial-ui',
+        sidebarPath: '../packages/radial-ui/docs/sidebar.json',
+        versions: {
+          current: {
+            label: require('../packages/radial-ui/package.json').version,
+          },
+        },
+        editUrl:
+          'https://github.com/NYUMusEdLab/music-interface-toolkit/edit/master/packages/radial-ui/',
+      },
+    ],
   ],
 };

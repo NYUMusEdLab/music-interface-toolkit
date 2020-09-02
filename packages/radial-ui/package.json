@@ -1,0 +1,19 @@
+{
+  "name": "@musedlab/radial-ui",
+  "version": "0.0.1",
+  "description": "Components for developing circular interfaces",
+  "files": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NYUMusEdLab/music-interface-toolkit.git",
+    "directory": "packages/radial-ui"
+  },
+  "author": "NYU Music Experience Design Lab (MusEDLab)",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.8.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
