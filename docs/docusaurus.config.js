@@ -8,7 +8,7 @@ module.exports = {
     [
       '@docusaurus/theme-classic',
       {
-        customCss: require.resolve('./docs/css/custom.css'),
+        customCss: require.resolve('./css/custom.css'),
       },
     ],
   ],
@@ -46,19 +46,19 @@ module.exports = {
     [
       '@docusaurus/plugin-content-pages',
       {
-        path: 'docs/pages',
+        path: 'pages',
       },
     ],
     [
       '@docusaurus/plugin-content-docs',
       {
         id: 'toolkit-docs',
-        path: 'packages/toolkit/docs',
+        path: '../packages/toolkit/docs',
         routeBasePath: 'toolkit',
-        sidebarPath: 'packages/toolkit/docs/sidebar.js',
+        sidebarPath: '../packages/toolkit/docs/sidebar.js',
         versions: {
           current: {
-            label: require('./packages/toolkit/package.json').version,
+            label: require('../packages/toolkit/package.json').version,
           },
         },
         editUrl:
@@ -69,12 +69,12 @@ module.exports = {
       '@docusaurus/plugin-content-docs',
       {
         id: 'piano-ui-docs',
-        path: 'packages/piano-ui/docs',
+        path: '../packages/piano-ui/docs',
         routeBasePath: 'piano-ui',
-        sidebarPath: 'packages/piano-ui/docs/sidebar.js',
+        sidebarPath: '../packages/piano-ui/docs/sidebar.js',
         versions: {
           current: {
-            label: require('./packages/piano-ui/package.json').version,
+            label: require('../packages/piano-ui/package.json').version,
           },
         },
         editUrl:
