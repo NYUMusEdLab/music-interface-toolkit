@@ -57,7 +57,7 @@ module.exports = {
         id: 'toolkit-docs',
         path: '../packages/toolkit/docs',
         routeBasePath: 'toolkit',
-        sidebarPath: '../packages/toolkit/docs/sidebar.js',
+        sidebarPath: '../packages/toolkit/docs/sidebar.json',
         versions: {
           current: {
             label: require('../packages/toolkit/package.json').version,

@@ -1,0 +1,12 @@
+.label > span {
+  cursor: default;
+  text-align: center;
+  display: block;
+  font-size: 10px;
+  line-height: 10px;
+}
+
+.label > span:first-child:last-child {
+  font-size: 16px;
+  line-height: 20px;
+}

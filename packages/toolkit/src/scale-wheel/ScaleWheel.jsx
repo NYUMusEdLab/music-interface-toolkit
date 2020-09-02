@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './ScaleWheel.css';
-
 import { note } from '@tonaljs/tonal';
 import { getPitchInScale, getIntervalQuality } from './theory';
 
@@ -13,6 +11,8 @@ import {
 } from '../radial-layout';
 
 import { Pitch } from '@musedlab/symbols/pitch';
+
+import Classes from './ScaleWheel.module.css';
 
 const defaultPitchNames = [
   'C',
@@ -147,8 +147,13 @@ function ScaleWheelSlice({
         className="pitch-shape"
       />
       <SliceGroup index={index} radius={0.39 * size} scale={(size * 0.13) / 20}>
-        <foreignObject width={24} height={20} x={-12} y={-10}>
-          <Pitch midi={chroma} pitchClass />
+        <foreignObject
+          className={Classes.label}
+          width={24}
+          height={20}
+          x={-12}
+          y={-10}>
+          <Pitch midi={chroma} pitchClass enharmonic="both" />
         </foreignObject>
       </SliceGroup>
       {isInScale ? (
@@ -163,8 +168,13 @@ function ScaleWheelSlice({
           <SliceGroup
             index={index}
             radius={0.25 * size}
-            scale={(size * 0.13) / 20}>
-            <foreignObject width={24} height={20} x={-12} y={-10}>
+            scale={(size * 0.1) / 20}>
+            <foreignObject
+              className={Classes.label}
+              width={24}
+              height={20}
+              x={-12}
+              y={-10}>
               {/* <Pitch>{pitch}</Pitch> */}
             </foreignObject>
           </SliceGroup>
