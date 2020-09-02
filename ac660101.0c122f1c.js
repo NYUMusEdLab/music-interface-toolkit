@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{61:function(e){e.exports=JSON.parse('{"version":"current","label":"0.0.8","docsSidebars":{"docs":[{"collapsed":true,"type":"category","label":"Components","items":[{"type":"link","label":"Scale Wheel","href":"/music-interface-toolkit/toolkit/"}]}]},"permalinkToSidebar":{"/music-interface-toolkit/toolkit/":"docs"}}')}}]);

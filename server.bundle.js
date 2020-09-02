@@ -233,21 +233,21 @@ __webpack_require__.d(__webpack_exports__, "o", function() { return /* binding *
 
 // UNUSED EXPORTS: __HistoryContext
 
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js
+// EXTERNAL MODULE: ../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js
 var inheritsLoose = __webpack_require__(16);
 
-// EXTERNAL MODULE: ./node_modules/react/index.js
+// EXTERNAL MODULE: ../node_modules/react/index.js
 var react = __webpack_require__(0);
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
 
-// EXTERNAL MODULE: ./node_modules/prop-types/index.js
+// EXTERNAL MODULE: ../node_modules/prop-types/index.js
 var prop_types = __webpack_require__(3);
 var prop_types_default = /*#__PURE__*/__webpack_require__.n(prop_types);
 
-// EXTERNAL MODULE: ./node_modules/history/esm/history.js + 2 modules
+// EXTERNAL MODULE: ../node_modules/history/esm/history.js + 2 modules
 var esm_history = __webpack_require__(19);
 
-// CONCATENATED MODULE: ./node_modules/mini-create-react-context/dist/esm/index.js
+// CONCATENATED MODULE: ../node_modules/mini-create-react-context/dist/esm/index.js
 
 
 
@@ -423,27 +423,27 @@ var index = react_default.a.createContext || createReactContext;
 
 /* harmony default export */ var esm = (index);
 
-// EXTERNAL MODULE: ./node_modules/tiny-invariant/dist/tiny-invariant.esm.js
+// EXTERNAL MODULE: ../node_modules/tiny-invariant/dist/tiny-invariant.esm.js
 var tiny_invariant_esm = __webpack_require__(17);
 
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
+// EXTERNAL MODULE: ../node_modules/@babel/runtime/helpers/esm/extends.js
 var esm_extends = __webpack_require__(1);
 
-// EXTERNAL MODULE: ./node_modules/react-router/node_modules/path-to-regexp/index.js
+// EXTERNAL MODULE: ../node_modules/react-router/node_modules/path-to-regexp/index.js
 var path_to_regexp = __webpack_require__(90);
 var path_to_regexp_default = /*#__PURE__*/__webpack_require__.n(path_to_regexp);
 
-// EXTERNAL MODULE: ./node_modules/react-is/index.js
-var react_is = __webpack_require__(124);
+// EXTERNAL MODULE: ../node_modules/react-is/index.js
+var react_is = __webpack_require__(125);
 
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
+// EXTERNAL MODULE: ../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
 var objectWithoutPropertiesLoose = __webpack_require__(30);
 
-// EXTERNAL MODULE: ./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js
+// EXTERNAL MODULE: ../node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js
 var hoist_non_react_statics_cjs = __webpack_require__(140);
 var hoist_non_react_statics_cjs_default = /*#__PURE__*/__webpack_require__.n(hoist_non_react_statics_cjs);
 
-// CONCATENATED MODULE: ./node_modules/react-router/esm/react-router.js
+// CONCATENATED MODULE: ../node_modules/react-router/esm/react-router.js
 
 
 
@@ -1968,10 +1968,10 @@ __webpack_require__.d(__webpack_exports__, "e", function() { return /* binding *
 
 // UNUSED EXPORTS: parsePath
 
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
+// EXTERNAL MODULE: ../node_modules/@babel/runtime/helpers/esm/extends.js
 var esm_extends = __webpack_require__(1);
 
-// CONCATENATED MODULE: ./node_modules/resolve-pathname/esm/resolve-pathname.js
+// CONCATENATED MODULE: ../node_modules/resolve-pathname/esm/resolve-pathname.js
 function isAbsolute(pathname) {
   return pathname.charAt(0) === '/';
 }
@@ -2048,7 +2048,7 @@ function resolvePathname(to, from) {
 
 /* harmony default export */ var resolve_pathname = (resolvePathname);
 
-// CONCATENATED MODULE: ./node_modules/value-equal/esm/value-equal.js
+// CONCATENATED MODULE: ../node_modules/value-equal/esm/value-equal.js
 function value_equal_valueOf(obj) {
   return obj.valueOf ? obj.valueOf() : Object.prototype.valueOf.call(obj);
 }
@@ -2086,10 +2086,10 @@ function valueEqual(a, b) {
 
 /* harmony default export */ var value_equal = (valueEqual);
 
-// EXTERNAL MODULE: ./node_modules/tiny-invariant/dist/tiny-invariant.esm.js
+// EXTERNAL MODULE: ../node_modules/tiny-invariant/dist/tiny-invariant.esm.js
 var tiny_invariant_esm = __webpack_require__(17);
 
-// CONCATENATED MODULE: ./node_modules/history/esm/history.js
+// CONCATENATED MODULE: ../node_modules/history/esm/history.js
 
 
 
@@ -3017,14 +3017,14 @@ function createMemoryHistory(props) {
 
 // Exports
 module.exports = {
-	"sidebar": "sidebar_2urC",
-	"sidebarWithHideableNavbar": "sidebarWithHideableNavbar_2IoJ",
-	"sidebarLogo": "sidebarLogo_Snse",
-	"menu": "menu_5FrY",
-	"menuLinkText": "menuLinkText_2zSB",
-	"menuWithAnnouncementBar": "menuWithAnnouncementBar_18ic",
-	"sidebarMenuIcon": "sidebarMenuIcon_Dm3K",
-	"sidebarMenuCloseIcon": "sidebarMenuCloseIcon_hir9"
+	"sidebar": "sidebar_MSwm",
+	"sidebarWithHideableNavbar": "sidebarWithHideableNavbar_2tAs",
+	"sidebarLogo": "sidebarLogo_2vaM",
+	"menu": "menu_2hiu",
+	"menuLinkText": "menuLinkText_2vz-",
+	"menuWithAnnouncementBar": "menuWithAnnouncementBar_1-_6",
+	"sidebarMenuIcon": "sidebarMenuIcon_37TU",
+	"sidebarMenuCloseIcon": "sidebarMenuCloseIcon_dxsO"
 };
 
 
@@ -3314,12 +3314,12 @@ module.exports = {
 
 // Exports
 module.exports = {
-	"codeBlockContent": "codeBlockContent_1u-d",
-	"codeBlockTitle": "codeBlockTitle_3nn1",
-	"codeBlock": "codeBlock_3iAC",
-	"codeBlockWithTitle": "codeBlockWithTitle_3QsD",
-	"copyButton": "copyButton_10dd",
-	"codeBlockLines": "codeBlockLines_b7E3"
+	"codeBlockContent": "codeBlockContent_rlEb",
+	"codeBlockTitle": "codeBlockTitle_1Hm_",
+	"codeBlock": "codeBlock_1AP7",
+	"codeBlockWithTitle": "codeBlockWithTitle_1ZjX",
+	"copyButton": "copyButton_kOW4",
+	"codeBlockLines": "codeBlockLines_1boI"
 };
 
 
@@ -8220,23 +8220,23 @@ Prism.languages.yml = Prism.languages.yaml;
 
 "use strict";
 
-// EXTERNAL MODULE: ./node_modules/react/index.js
+// EXTERNAL MODULE: ../node_modules/react/index.js
 var react = __webpack_require__(0);
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/Head.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/core/lib/client/exports/Head.js
 var Head = __webpack_require__(59);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/useDocusaurusContext.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/core/lib/client/exports/useDocusaurusContext.js
 var useDocusaurusContext = __webpack_require__(2);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/useBaseUrl.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/core/lib/client/exports/useBaseUrl.js
 var useBaseUrl = __webpack_require__(10);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/ExecutionEnvironment.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/core/lib/client/exports/ExecutionEnvironment.js
 var ExecutionEnvironment = __webpack_require__(22);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/hooks/useTheme.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/hooks/useTheme.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -8245,24 +8245,24 @@ var ExecutionEnvironment = __webpack_require__(22);
  */const themes={light:'light',dark:'dark'};// Ensure to always return a valid theme even if input is invalid
 const coerceToTheme=theme=>{return theme===themes.dark?themes.dark:themes.light;};const getInitialTheme=()=>{if(!ExecutionEnvironment["a" /* default */].canUseDOM){return themes.light;// SSR: we don't care
 }return coerceToTheme(document.documentElement.getAttribute('data-theme'));};const storeTheme=newTheme=>{try{localStorage.setItem('theme',coerceToTheme(newTheme));}catch(err){console.error(err);}};const useTheme=()=>{const{siteConfig:{themeConfig:{colorMode:{disableSwitch=false}={}}={}}={}}=Object(useDocusaurusContext["a" /* default */])();const[theme,setTheme]=Object(react["useState"])(getInitialTheme);const setLightTheme=Object(react["useCallback"])(()=>{setTheme(themes.light);storeTheme(themes.light);},[]);const setDarkTheme=Object(react["useCallback"])(()=>{setTheme(themes.dark);storeTheme(themes.dark);},[]);Object(react["useEffect"])(()=>{document.documentElement.setAttribute('data-theme',coerceToTheme(theme));},[theme]);Object(react["useEffect"])(()=>{if(disableSwitch){return;}try{const localStorageTheme=localStorage.getItem('theme');if(localStorageTheme!==null){setTheme(coerceToTheme(localStorageTheme));}}catch(err){console.error(err);}},[setTheme]);Object(react["useEffect"])(()=>{if(disableSwitch){return;}window.matchMedia('(prefers-color-scheme: dark)').addListener(({matches})=>{setTheme(matches?themes.dark:themes.light);});},[]);return{isDarkTheme:theme===themes.dark,setLightTheme,setDarkTheme};};/* harmony default export */ var hooks_useTheme = (useTheme);
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/ThemeContext.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/ThemeContext.js
 var ThemeContext = __webpack_require__(63);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/ThemeProvider/index.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/ThemeProvider/index.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */function ThemeProvider(props){const{isDarkTheme,setLightTheme,setDarkTheme}=hooks_useTheme();return/*#__PURE__*/react_default.a.createElement(ThemeContext["a" /* default */].Provider,{value:{isDarkTheme,setLightTheme,setDarkTheme}},props.children);}/* harmony default export */ var theme_ThemeProvider = (ThemeProvider);
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/hooks/useTabGroupChoice.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/hooks/useTabGroupChoice.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */const TAB_CHOICE_PREFIX='docusaurus.tab.';const useTabGroupChoice=()=>{const[tabGroupChoices,setChoices]=Object(react["useState"])({});const setChoiceSyncWithLocalStorage=Object(react["useCallback"])((groupId,newChoice)=>{try{localStorage.setItem(`${TAB_CHOICE_PREFIX}${groupId}`,newChoice);}catch(err){console.error(err);}},[]);Object(react["useEffect"])(()=>{try{const localStorageChoices={};for(let i=0;i<localStorage.length;i+=1){const storageKey=localStorage.key(i);if(storageKey.startsWith(TAB_CHOICE_PREFIX)){const groupId=storageKey.substring(TAB_CHOICE_PREFIX.length);localStorageChoices[groupId]=localStorage.getItem(storageKey);}}setChoices(localStorageChoices);}catch(err){console.error(err);}},[]);return{tabGroupChoices,setTabGroupChoices:(groupId,newChoice)=>{setChoices(oldChoices=>({...oldChoices,[groupId]:newChoice}));setChoiceSyncWithLocalStorage(groupId,newChoice);}};};/* harmony default export */ var hooks_useTabGroupChoice = (useTabGroupChoice);
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/hooks/useAnnouncementBar.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/hooks/useAnnouncementBar.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -8271,24 +8271,24 @@ var ThemeContext = __webpack_require__(63);
  */const STORAGE_DISMISS_KEY='docusaurus.announcement.dismiss';const STORAGE_ID_KEY='docusaurus.announcement.id';const useAnnouncementBar=()=>{const{announcementBar}=Object(useDocusaurusContext["a" /* default */])().siteConfig.themeConfig;const[isClosed,setClosed]=Object(react["useState"])(true);const handleClose=Object(react["useCallback"])(()=>{localStorage.setItem(STORAGE_DISMISS_KEY,'true');setClosed(true);},[]);Object(react["useEffect"])(()=>{if(!announcementBar){return;}const{id}=announcementBar;let viewedId=localStorage.getItem(STORAGE_ID_KEY);// retrocompatibility due to spelling mistake of default id
 // see https://github.com/facebook/docusaurus/issues/3338
 if(viewedId==='annoucement-bar'){viewedId='announcement-bar';}const isNewAnnouncement=id!==viewedId;localStorage.setItem(STORAGE_ID_KEY,id);if(isNewAnnouncement){localStorage.setItem(STORAGE_DISMISS_KEY,'false');}if(isNewAnnouncement||localStorage.getItem(STORAGE_DISMISS_KEY)==='false'){setClosed(false);}},[]);return{isAnnouncementBarClosed:isClosed,closeAnnouncementBar:handleClose};};/* harmony default export */ var hooks_useAnnouncementBar = (useAnnouncementBar);
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/UserPreferencesContext.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/UserPreferencesContext.js
 var UserPreferencesContext = __webpack_require__(64);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/UserPreferencesProvider/index.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/UserPreferencesProvider/index.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */function UserPreferencesProvider(props){const{tabGroupChoices,setTabGroupChoices}=hooks_useTabGroupChoice();const{isAnnouncementBarClosed,closeAnnouncementBar}=hooks_useAnnouncementBar();return/*#__PURE__*/react_default.a.createElement(UserPreferencesContext["a" /* default */].Provider,{value:{tabGroupChoices,setTabGroupChoices,isAnnouncementBarClosed,closeAnnouncementBar}},props.children);}/* harmony default export */ var theme_UserPreferencesProvider = (UserPreferencesProvider);
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/hooks/useUserPreferencesContext.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/hooks/useUserPreferencesContext.js
 var useUserPreferencesContext = __webpack_require__(65);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/AnnouncementBar/styles.module.css
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/AnnouncementBar/styles.module.css
 var styles_module = __webpack_require__(71);
 var styles_module_default = /*#__PURE__*/__webpack_require__.n(styles_module);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/AnnouncementBar/index.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/AnnouncementBar/index.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -8297,81 +8297,81 @@ var styles_module_default = /*#__PURE__*/__webpack_require__.n(styles_module);
  */function AnnouncementBar(){const{siteConfig:{themeConfig:{announcementBar={}}={}}={}}=Object(useDocusaurusContext["a" /* default */])();const{content,backgroundColor,textColor}=announcementBar;const{isAnnouncementBarClosed,closeAnnouncementBar}=Object(useUserPreferencesContext["a" /* default */])();if(!content||isAnnouncementBarClosed){return null;}return/*#__PURE__*/react_default.a.createElement("div",{className:styles_module_default.a.announcementBar,style:{backgroundColor,color:textColor},role:"banner"},/*#__PURE__*/react_default.a.createElement("div",{className:styles_module_default.a.announcementBarContent// Developer provided the HTML, so assume it's safe.
 // eslint-disable-next-line react/no-danger
 ,dangerouslySetInnerHTML:{__html:content}}),/*#__PURE__*/react_default.a.createElement("button",{type:"button",className:styles_module_default.a.announcementBarClose,onClick:closeAnnouncementBar,"aria-label":"Close"},/*#__PURE__*/react_default.a.createElement("span",{"aria-hidden":"true"},"\xD7")));}/* harmony default export */ var theme_AnnouncementBar = (AnnouncementBar);
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
+// EXTERNAL MODULE: ../node_modules/@babel/runtime/helpers/esm/extends.js
 var esm_extends = __webpack_require__(1);
 
-// EXTERNAL MODULE: ./node_modules/clsx/dist/clsx.m.js
+// EXTERNAL MODULE: ../node_modules/clsx/dist/clsx.m.js
 var clsx_m = __webpack_require__(5);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/Link.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/core/lib/client/exports/Link.js
 var Link = __webpack_require__(11);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/core/lib/client/exports/Noop.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/core/lib/client/exports/Noop.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  *//* harmony default export */ var Noop = (()=>null);
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/SearchBar.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/SearchBar.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-// EXTERNAL MODULE: ./node_modules/react-toggle/dist/component/index.js
+// EXTERNAL MODULE: ../node_modules/react-toggle/dist/component/index.js
 var component = __webpack_require__(142);
 var component_default = /*#__PURE__*/__webpack_require__.n(component);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/Toggle/styles.module.css
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/Toggle/styles.module.css
 var Toggle_styles_module = __webpack_require__(45);
 var Toggle_styles_module_default = /*#__PURE__*/__webpack_require__.n(Toggle_styles_module);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/Toggle/index.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/Toggle/index.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */const Dark=({icon,style})=>/*#__PURE__*/react_default.a.createElement("span",{className:Object(clsx_m["a" /* default */])(Toggle_styles_module_default.a.toggle,Toggle_styles_module_default.a.dark),style:style},icon);const Light=({icon,style})=>/*#__PURE__*/react_default.a.createElement("span",{className:Object(clsx_m["a" /* default */])(Toggle_styles_module_default.a.toggle,Toggle_styles_module_default.a.light),style:style},icon);/* harmony default export */ var Toggle = (function(props){const{siteConfig:{themeConfig:{colorMode:{switchConfig:{darkIcon,darkIconStyle,lightIcon,lightIconStyle}}}},isClient}=Object(useDocusaurusContext["a" /* default */])();return/*#__PURE__*/react_default.a.createElement(component_default.a,Object(esm_extends["a" /* default */])({disabled:!isClient,icons:{checked:/*#__PURE__*/react_default.a.createElement(Dark,{icon:darkIcon,style:darkIconStyle}),unchecked:/*#__PURE__*/react_default.a.createElement(Light,{icon:lightIcon,style:lightIconStyle})}},props));});
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/hooks/useThemeContext.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/hooks/useThemeContext.js
 var useThemeContext = __webpack_require__(35);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/router.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/core/lib/client/exports/router.js
 var router = __webpack_require__(33);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/hooks/useLocationHash.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/hooks/useLocationHash.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */function useLocationHash(initialHash){const[hash,setHash]=Object(react["useState"])(initialHash);Object(react["useEffect"])(()=>{const handleHashChange=()=>setHash(window.location.hash);window.addEventListener('hashchange',handleHashChange);return()=>window.removeEventListener('hashchange',handleHashChange);},[]);return[hash,setHash];}/* harmony default export */ var hooks_useLocationHash = (useLocationHash);
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/hooks/useScrollPosition.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/hooks/useScrollPosition.js
 var useScrollPosition = __webpack_require__(66);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/hooks/useHideableNavbar.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/hooks/useHideableNavbar.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */const useHideableNavbar=hideOnScroll=>{const[isNavbarVisible,setIsNavbarVisible]=Object(react["useState"])(true);const[isFocusedAnchor,setIsFocusedAnchor]=Object(react["useState"])(false);const[lastScrollTop,setLastScrollTop]=Object(react["useState"])(0);const[navbarHeight,setNavbarHeight]=Object(react["useState"])(0);const navbarRef=Object(react["useCallback"])(node=>{if(node!==null){setNavbarHeight(node.getBoundingClientRect().height);}},[]);const location=Object(router["useLocation"])();const[hash,setHash]=hooks_useLocationHash(location.hash);Object(useScrollPosition["a" /* default */])(({scrollY:scrollTop})=>{if(!hideOnScroll){return;}if(scrollTop===0){setIsNavbarVisible(true);}if(scrollTop<navbarHeight){return;}if(isFocusedAnchor){setIsFocusedAnchor(false);setIsNavbarVisible(false);setLastScrollTop(scrollTop);return;}const documentHeight=document.documentElement.scrollHeight-navbarHeight;const windowHeight=window.innerHeight;if(lastScrollTop&&scrollTop>=lastScrollTop){setIsNavbarVisible(false);}else if(scrollTop+windowHeight<documentHeight){setIsNavbarVisible(true);}setLastScrollTop(scrollTop);},[lastScrollTop,navbarHeight]);Object(react["useEffect"])(()=>{if(!hideOnScroll){return;}setIsNavbarVisible(true);setHash(location.hash);},[location]);Object(react["useEffect"])(()=>{if(!hideOnScroll){return;}if(!hash){return;}setIsFocusedAnchor(true);},[hash]);return{navbarRef,isNavbarVisible};};/* harmony default export */ var hooks_useHideableNavbar = (useHideableNavbar);
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/hooks/useLockBodyScroll.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/hooks/useLockBodyScroll.js
 var useLockBodyScroll = __webpack_require__(67);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/hooks/useWindowSize.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/hooks/useWindowSize.js
 var useWindowSize = __webpack_require__(37);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/hooks/useLogo.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/hooks/useLogo.js
 var useLogo = __webpack_require__(68);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/Navbar/styles.module.css
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/Navbar/styles.module.css
 var Navbar_styles_module = __webpack_require__(46);
 var Navbar_styles_module_default = /*#__PURE__*/__webpack_require__.n(Navbar_styles_module);
 
-// CONCATENATED MODULE: ./node_modules/are-passive-events-supported/dist/are-passive-events-supported.esm.js
+// CONCATENATED MODULE: ../node_modules/are-passive-events-supported/dist/are-passive-events-supported.esm.js
 var isBrowser = typeof document !== 'undefined';
 
 var supportsPassiveEvents;
@@ -8404,14 +8404,14 @@ function arePassiveEventsSupported() {
 
 /* harmony default export */ var are_passive_events_supported_esm = (arePassiveEventsSupported);
 
-// CONCATENATED MODULE: ./node_modules/use-isomorphic-layout-effect/dist/use-isomorphic-layout-effect.esm.js
+// CONCATENATED MODULE: ../node_modules/use-isomorphic-layout-effect/dist/use-isomorphic-layout-effect.esm.js
 
 
 var index = typeof document !== 'undefined' ? react["useLayoutEffect"] : react["useEffect"];
 
 /* harmony default export */ var use_isomorphic_layout_effect_esm = (index);
 
-// CONCATENATED MODULE: ./node_modules/use-latest/dist/use-latest.esm.js
+// CONCATENATED MODULE: ../node_modules/use-latest/dist/use-latest.esm.js
 
 
 
@@ -8425,7 +8425,7 @@ var use_latest_esm_useLatest = function useLatest(value) {
 
 /* harmony default export */ var use_latest_esm = (use_latest_esm_useLatest);
 
-// CONCATENATED MODULE: ./node_modules/use-onclickoutside/dist/use-onclickoutside.esm.js
+// CONCATENATED MODULE: ../node_modules/use-onclickoutside/dist/use-onclickoutside.esm.js
 
 
 
@@ -8480,7 +8480,7 @@ function useOnClickOutside(ref, handler) {
 
 /* harmony default export */ var use_onclickoutside_esm = (useOnClickOutside);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/NavbarItem/DefaultNavbarItem.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/NavbarItem/DefaultNavbarItem.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -8490,17 +8490,17 @@ function useOnClickOutside(ref, handler) {
 // {to: 'version'} should probably be forbidden, in favor of {to: '/version'}
 const toUrl=Object(useBaseUrl["a" /* default */])(to);const activeBaseUrl=Object(useBaseUrl["a" /* default */])(activeBasePath);const normalizedHref=Object(useBaseUrl["a" /* default */])(href,{forcePrependBaseUrl:true});return/*#__PURE__*/react_default.a.createElement(Link["a" /* default */],Object(esm_extends["a" /* default */])({},href?{target:'_blank',rel:'noopener noreferrer',href:prependBaseUrlToHref?normalizedHref:href}:{isNavLink:true,activeClassName,to:toUrl,...(activeBasePath||activeBaseRegex?{isActive:(_match,location)=>activeBaseRegex?new RegExp(activeBaseRegex).test(location.pathname):location.pathname.startsWith(activeBaseUrl)}:null)},props),label);}function NavItemDesktop({items,position,className,...props}){const dropDownRef=react_default.a.useRef(null);const dropDownMenuRef=react_default.a.useRef(null);const[showDropDown,setShowDropDown]=Object(react["useState"])(false);use_onclickoutside_esm(dropDownRef,()=>toggle(false));function toggle(state){if(state){var _dropDownMenuRef$curr,_dropDownMenuRef$curr2;const firstNavLinkOfULElement=dropDownMenuRef===null||dropDownMenuRef===void 0?void 0:(_dropDownMenuRef$curr=dropDownMenuRef.current)===null||_dropDownMenuRef$curr===void 0?void 0:(_dropDownMenuRef$curr2=_dropDownMenuRef$curr.firstChild)===null||_dropDownMenuRef$curr2===void 0?void 0:_dropDownMenuRef$curr2.firstChild;if(firstNavLinkOfULElement){firstNavLinkOfULElement.focus();}}setShowDropDown(state);}const navLinkClassNames=(extraClassName,isDropdownItem=false)=>Object(clsx_m["a" /* default */])({'navbar__item navbar__link':!isDropdownItem,dropdown__link:isDropdownItem},extraClassName);if(!items){return/*#__PURE__*/react_default.a.createElement(NavLink,Object(esm_extends["a" /* default */])({className:navLinkClassNames(className)},props));}return/*#__PURE__*/react_default.a.createElement("div",{ref:dropDownRef,className:Object(clsx_m["a" /* default */])('navbar__item','dropdown','dropdown--hoverable',{'dropdown--left':position==='left','dropdown--right':position==='right','dropdown--show':showDropDown})},/*#__PURE__*/react_default.a.createElement(NavLink,Object(esm_extends["a" /* default */])({className:navLinkClassNames(className)},props,{onClick:props.to?undefined:e=>e.preventDefault(),onKeyDown:e=>{if(e.key==='Enter'&&!props.to||e.key==='Tab'){e.preventDefault();toggle(true);}}}),props.label),/*#__PURE__*/react_default.a.createElement("ul",{ref:dropDownMenuRef,className:"dropdown__menu"},items.map(({className:childItemClassName,...childItemProps},i)=>/*#__PURE__*/react_default.a.createElement("li",{key:i},/*#__PURE__*/react_default.a.createElement(NavLink,Object(esm_extends["a" /* default */])({onKeyDown:e=>{if(i===items.length-1&&e.key==='Tab'){e.preventDefault();toggle(false);}},activeClassName:"dropdown__link--active",className:navLinkClassNames(childItemClassName,true)},childItemProps))))));}function NavItemMobile({items,position:_position,className,...props}){// Need to destructure position from props so that it doesn't get passed on.
 const navLinkClassNames=(extraClassName,isSubList=false)=>Object(clsx_m["a" /* default */])('menu__link',{'menu__link--sublist':isSubList},extraClassName);if(!items){return/*#__PURE__*/react_default.a.createElement("li",{className:"menu__list-item"},/*#__PURE__*/react_default.a.createElement(NavLink,Object(esm_extends["a" /* default */])({className:navLinkClassNames(className)},props)));}return/*#__PURE__*/react_default.a.createElement("li",{className:"menu__list-item"},/*#__PURE__*/react_default.a.createElement(NavLink,Object(esm_extends["a" /* default */])({className:navLinkClassNames(className,true)},props),props.label),/*#__PURE__*/react_default.a.createElement("ul",{className:"menu__list"},items.map(({className:childItemClassName,...childItemProps},i)=>/*#__PURE__*/react_default.a.createElement("li",{className:"menu__list-item",key:i},/*#__PURE__*/react_default.a.createElement(NavLink,Object(esm_extends["a" /* default */])({activeClassName:"menu__link--active",className:navLinkClassNames(childItemClassName)},childItemProps,{onClick:props.onClick}))))));}function DefaultNavbarItem({mobile=false,...props}){const Comp=mobile?NavItemMobile:NavItemDesktop;return/*#__PURE__*/react_default.a.createElement(Comp,props);}/* harmony default export */ var NavbarItem_DefaultNavbarItem = (DefaultNavbarItem);
-// EXTERNAL MODULE: ./node_modules/@docusaurus/plugin-content-docs/lib/theme/hooks/useDocs.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/plugin-content-docs/lib/theme/hooks/useDocs.js
 var useDocs = __webpack_require__(14);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/NavbarItem/DocsVersionNavbarItem.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/NavbarItem/DocsVersionNavbarItem.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */const getVersionMainDoc=version=>version.docs.find(doc=>doc.id===version.mainDocId);function DocsVersionNavbarItem({label:staticLabel,to:staticTo,docsPluginId,...props}){const activeVersion=Object(useDocs["useActiveVersion"])(docsPluginId);const latestVersion=Object(useDocs["useLatestVersion"])(docsPluginId);const version=activeVersion!==null&&activeVersion!==void 0?activeVersion:latestVersion;const label=staticLabel!==null&&staticLabel!==void 0?staticLabel:version.label;const path=staticTo!==null&&staticTo!==void 0?staticTo:getVersionMainDoc(version).path;return/*#__PURE__*/react_default.a.createElement(NavbarItem_DefaultNavbarItem,Object(esm_extends["a" /* default */])({},props,{label:label,to:path}));}
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/NavbarItem/DocsVersionDropdownNavbarItem.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/NavbarItem/DocsVersionDropdownNavbarItem.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -8510,14 +8510,14 @@ var useDocs = __webpack_require__(14);
 // When not possible, fallback to the "main doc" of the version
 const versionDoc=(activeDocContext===null||activeDocContext===void 0?void 0:activeDocContext.alternateDocVersions[version.name])||DocsVersionDropdownNavbarItem_getVersionMainDoc(version);return{isNavLink:true,label:version.label,to:versionDoc.path,isActive:()=>version===(activeDocContext===null||activeDocContext===void 0?void 0:activeDocContext.activeVersion)};});const dropdownVersion=(_activeDocContext$act=activeDocContext.activeVersion)!==null&&_activeDocContext$act!==void 0?_activeDocContext$act:latestVersion;// Mobile is handled a bit differently
 const dropdownLabel=mobile?'Versions':dropdownVersion.label;const dropdownTo=mobile?undefined:DocsVersionDropdownNavbarItem_getVersionMainDoc(dropdownVersion).path;return/*#__PURE__*/react_default.a.createElement(NavbarItem_DefaultNavbarItem,Object(esm_extends["a" /* default */])({},props,{mobile:mobile,label:dropdownLabel,to:dropdownTo,items:items}));}
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/NavbarItem/index.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/NavbarItem/index.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */const NavbarItemComponents={default:NavbarItem_DefaultNavbarItem,docsVersion:DocsVersionNavbarItem,docsVersionDropdown:DocsVersionDropdownNavbarItem};const getNavbarItemComponent=(type='default')=>{const NavbarItemComponent=NavbarItemComponents[type];if(!NavbarItemComponent){throw new Error(`No NavbarItem component found for type=${type}.`);}return NavbarItemComponent;};function NavbarItem({type,...props}){const NavbarItemComponent=getNavbarItemComponent(type);return/*#__PURE__*/react_default.a.createElement(NavbarItemComponent,props);}
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/Navbar/index.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/Navbar/index.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -8527,11 +8527,11 @@ const dropdownLabel=mobile?'Versions':dropdownVersion.label;const dropdownTo=mob
 const DefaultNavItemPosition='right';// If split links by left/right
 // if position is unspecified, fallback to right (as v1)
 function splitNavItemsByPosition(items){const leftItems=items.filter(item=>{var _item$position;return((_item$position=item.position)!==null&&_item$position!==void 0?_item$position:DefaultNavItemPosition)==='left';});const rightItems=items.filter(item=>{var _item$position2;return((_item$position2=item.position)!==null&&_item$position2!==void 0?_item$position2:DefaultNavItemPosition)==='right';});return{leftItems,rightItems};}function Navbar(){const{siteConfig:{themeConfig:{navbar:{title='',items=[],hideOnScroll=false}={},colorMode:{disableSwitch:disableColorModeSwitch=false}={}}},isClient}=Object(useDocusaurusContext["a" /* default */])();const[sidebarShown,setSidebarShown]=Object(react["useState"])(false);const[isSearchBarExpanded,setIsSearchBarExpanded]=Object(react["useState"])(false);const{isDarkTheme,setLightTheme,setDarkTheme}=Object(useThemeContext["a" /* default */])();const{navbarRef,isNavbarVisible}=hooks_useHideableNavbar(hideOnScroll);const{logoLink,logoLinkProps,logoImageUrl,logoAlt}=Object(useLogo["a" /* default */])();Object(useLockBodyScroll["a" /* default */])(sidebarShown);const showSidebar=Object(react["useCallback"])(()=>{setSidebarShown(true);},[setSidebarShown]);const hideSidebar=Object(react["useCallback"])(()=>{setSidebarShown(false);},[setSidebarShown]);const onToggleChange=Object(react["useCallback"])(e=>e.target.checked?setDarkTheme():setLightTheme(),[setLightTheme,setDarkTheme]);const windowSize=Object(useWindowSize["a" /* default */])();Object(react["useEffect"])(()=>{if(windowSize===useWindowSize["b" /* windowSizes */].desktop){setSidebarShown(false);}},[windowSize]);const{leftItems,rightItems}=splitNavItemsByPosition(items);return/*#__PURE__*/react_default.a.createElement("nav",{ref:navbarRef,className:Object(clsx_m["a" /* default */])('navbar','navbar--light','navbar--fixed-top',{'navbar-sidebar--show':sidebarShown,[Navbar_styles_module_default.a.navbarHideable]:hideOnScroll,[Navbar_styles_module_default.a.navbarHidden]:!isNavbarVisible})},/*#__PURE__*/react_default.a.createElement("div",{className:"navbar__inner"},/*#__PURE__*/react_default.a.createElement("div",{className:"navbar__items"},items!=null&&items.length!==0&&/*#__PURE__*/react_default.a.createElement("div",{"aria-label":"Navigation bar toggle",className:"navbar__toggle",role:"button",tabIndex:0,onClick:showSidebar,onKeyDown:showSidebar},/*#__PURE__*/react_default.a.createElement("svg",{xmlns:"http://www.w3.org/2000/svg",width:"30",height:"30",viewBox:"0 0 30 30",role:"img",focusable:"false"},/*#__PURE__*/react_default.a.createElement("title",null,"Menu"),/*#__PURE__*/react_default.a.createElement("path",{stroke:"currentColor",strokeLinecap:"round",strokeMiterlimit:"10",strokeWidth:"2",d:"M4 7h22M4 15h22M4 23h22"}))),/*#__PURE__*/react_default.a.createElement(Link["a" /* default */],Object(esm_extends["a" /* default */])({className:"navbar__brand",to:logoLink},logoLinkProps),logoImageUrl!=null&&/*#__PURE__*/react_default.a.createElement("img",{key:isClient,className:"navbar__logo",src:logoImageUrl,alt:logoAlt}),title!=null&&/*#__PURE__*/react_default.a.createElement("strong",{className:Object(clsx_m["a" /* default */])('navbar__title',{[Navbar_styles_module_default.a.hideLogoText]:isSearchBarExpanded})},title)),leftItems.map((item,i)=>/*#__PURE__*/react_default.a.createElement(NavbarItem,Object(esm_extends["a" /* default */])({},item,{key:i})))),/*#__PURE__*/react_default.a.createElement("div",{className:"navbar__items navbar__items--right"},rightItems.map((item,i)=>/*#__PURE__*/react_default.a.createElement(NavbarItem,Object(esm_extends["a" /* default */])({},item,{key:i}))),!disableColorModeSwitch&&/*#__PURE__*/react_default.a.createElement(Toggle,{className:Navbar_styles_module_default.a.displayOnlyInLargeViewport,"aria-label":"Dark mode toggle",checked:isDarkTheme,onChange:onToggleChange}),/*#__PURE__*/react_default.a.createElement(Noop,{handleSearchBarToggle:setIsSearchBarExpanded,isSearchBarExpanded:isSearchBarExpanded}))),/*#__PURE__*/react_default.a.createElement("div",{role:"presentation",className:"navbar-sidebar__backdrop",onClick:hideSidebar}),/*#__PURE__*/react_default.a.createElement("div",{className:"navbar-sidebar"},/*#__PURE__*/react_default.a.createElement("div",{className:"navbar-sidebar__brand"},/*#__PURE__*/react_default.a.createElement(Link["a" /* default */],Object(esm_extends["a" /* default */])({className:"navbar__brand",onClick:hideSidebar,to:logoLink},logoLinkProps),logoImageUrl!=null&&/*#__PURE__*/react_default.a.createElement("img",{key:isClient,className:"navbar__logo",src:logoImageUrl,alt:logoAlt}),title!=null&&/*#__PURE__*/react_default.a.createElement("strong",{className:"navbar__title"},title)),!disableColorModeSwitch&&sidebarShown&&/*#__PURE__*/react_default.a.createElement(Toggle,{"aria-label":"Dark mode toggle in sidebar",checked:isDarkTheme,onChange:onToggleChange})),/*#__PURE__*/react_default.a.createElement("div",{className:"navbar-sidebar__items"},/*#__PURE__*/react_default.a.createElement("div",{className:"menu"},/*#__PURE__*/react_default.a.createElement("ul",{className:"menu__list"},items.map((item,i)=>/*#__PURE__*/react_default.a.createElement(NavbarItem,Object(esm_extends["a" /* default */])({mobile:true},item,{onClick:hideSidebar,key:i}))))))));}/* harmony default export */ var theme_Navbar = (Navbar);
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/Footer/styles.module.css
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/Footer/styles.module.css
 var Footer_styles_module = __webpack_require__(143);
 var Footer_styles_module_default = /*#__PURE__*/__webpack_require__.n(Footer_styles_module);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/Footer/index.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/Footer/index.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -8542,10 +8542,10 @@ var Footer_styles_module_default = /*#__PURE__*/__webpack_require__.n(Footer_sty
 ,dangerouslySetInnerHTML:{__html:item.html}}):/*#__PURE__*/react_default.a.createElement("li",{key:item.href||item.to,className:"footer__item"},/*#__PURE__*/react_default.a.createElement(FooterLink,item)))):null))),(logo||copyright)&&/*#__PURE__*/react_default.a.createElement("div",{className:"text--center"},logo&&logo.src&&/*#__PURE__*/react_default.a.createElement("div",{className:"margin-bottom--sm"},logo.href?/*#__PURE__*/react_default.a.createElement("a",{href:logo.href,target:"_blank",rel:"noopener noreferrer",className:Footer_styles_module_default.a.footerLogoLink},/*#__PURE__*/react_default.a.createElement(FooterLogo,{alt:logo.alt,url:logoUrl})):/*#__PURE__*/react_default.a.createElement(FooterLogo,{alt:logo.alt,url:logoUrl})),/*#__PURE__*/react_default.a.createElement("div",{// Developer provided the HTML, so assume it's safe.
 // eslint-disable-next-line react/no-danger
 dangerouslySetInnerHTML:{__html:copyright}}))));}/* harmony default export */ var theme_Footer = (Footer);
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/Layout/styles.css
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/Layout/styles.css
 var styles = __webpack_require__(291);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/Layout/index.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/Layout/index.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -8574,11 +8574,11 @@ var styles = __webpack_require__(291);
 
 // Exports
 module.exports = {
-	"docTitle": "docTitle_1Lrw",
-	"docItemContainer": "docItemContainer_3QWW",
-	"docItemCol": "docItemCol_2ASc",
-	"docItemWrapper": "docItemWrapper_1EkI",
-	"docLastUpdatedAt": "docLastUpdatedAt_217_"
+	"docTitle": "docTitle_N1jF",
+	"docItemContainer": "docItemContainer_2ApQ",
+	"docItemCol": "docItemCol_xWqS",
+	"docItemWrapper": "docItemWrapper_3NEy",
+	"docLastUpdatedAt": "docLastUpdatedAt_3LuF"
 };
 
 
@@ -10023,7 +10023,7 @@ const allLinks=new Set();return{collectLink:link=>{allLinks.add(link);},getColle
 
 // Exports
 module.exports = {
-	"toggle": "toggle_BsTx"
+	"toggle": "toggle_gnXW"
 };
 
 
@@ -10033,10 +10033,10 @@ module.exports = {
 
 // Exports
 module.exports = {
-	"displayOnlyInLargeViewport": "displayOnlyInLargeViewport_2aTZ",
-	"hideLogoText": "hideLogoText_GP-Q",
-	"navbarHideable": "navbarHideable_3046",
-	"navbarHidden": "navbarHidden_1Uo_"
+	"displayOnlyInLargeViewport": "displayOnlyInLargeViewport_3lWe",
+	"hideLogoText": "hideLogoText_ZF8R",
+	"navbarHideable": "navbarHideable_37RC",
+	"navbarHidden": "navbarHidden_209X"
 };
 
 
@@ -12170,7 +12170,7 @@ passive:true});},deps);return scrollPosition;};/* harmony default export */ __we
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony default export */ __webpack_exports__["a"] = ({"title":"Music Interface Toolkit","url":"https://nyumusedlab.github.io","baseUrl":"/music-interface-toolkit/","onBrokenLinks":"throw","favicon":"img/favicon.ico","themes":[["@docusaurus/theme-classic",{"customCss":"/home/runner/work/music-interface-toolkit/music-interface-toolkit/docs/css/custom.css"}]],"themeConfig":{"colorMode":{"defaultMode":"light","disableSwitch":true,"respectPrefersColorScheme":true,"switchConfig":{"darkIcon":"🌜","darkIconStyle":{},"lightIcon":"🌞","lightIconStyle":{}}},"navbar":{"title":"Music Interface Toolkit","items":[{"label":"Packages","position":"left","items":[{"label":"Toolkit","to":"toolkit/","position":"left"},{"label":"Piano","to":"piano-ui/","position":"left"}]},{"href":"https://github.com/NYUMusEdLab/music-interface-toolkit/","label":"GitHub","position":"right"}],"hideOnScroll":false},"sidebarCollapsible":false,"prism":{"theme":{"plain":{"color":"#403f53","backgroundColor":"#FBFBFB"},"styles":[{"types":["changed"],"style":{"color":"rgb(162, 191, 252)","fontStyle":"italic"}},{"types":["deleted"],"style":{"color":"rgba(239, 83, 80, 0.56)","fontStyle":"italic"}},{"types":["inserted","attr-name"],"style":{"color":"rgb(72, 118, 214)","fontStyle":"italic"}},{"types":["comment"],"style":{"color":"rgb(152, 159, 177)","fontStyle":"italic"}},{"types":["string","builtin","char","constant","url"],"style":{"color":"rgb(72, 118, 214)"}},{"types":["variable"],"style":{"color":"rgb(201, 103, 101)"}},{"types":["number"],"style":{"color":"rgb(170, 9, 130)"}},{"types":["punctuation"],"style":{"color":"rgb(153, 76, 195)"}},{"types":["function","selector","doctype"],"style":{"color":"rgb(153, 76, 195)","fontStyle":"italic"}},{"types":["class-name"],"style":{"color":"rgb(17, 17, 17)"}},{"types":["tag"],"style":{"color":"rgb(153, 76, 195)"}},{"types":["operator","property","keyword","namespace"],"style":{"color":"rgb(12, 150, 155)"}},{"types":["boolean"],"style":{"color":"rgb(188, 84, 84)"}}]},"darkTheme":{"plain":{"color":"#F8F8F2","backgroundColor":"#282A36"},"styles":[{"types":["prolog","constant","builtin"],"style":{"color":"rgb(189, 147, 249)"}},{"types":["inserted","function"],"style":{"color":"rgb(80, 250, 123)"}},{"types":["deleted"],"style":{"color":"rgb(255, 85, 85)"}},{"types":["changed"],"style":{"color":"rgb(255, 184, 108)"}},{"types":["punctuation","symbol"],"style":{"color":"rgb(248, 248, 242)"}},{"types":["string","char","tag","selector"],"style":{"color":"rgb(255, 121, 198)"}},{"types":["keyword","variable"],"style":{"color":"rgb(189, 147, 249)","fontStyle":"italic"}},{"types":["comment"],"style":{"color":"rgb(98, 114, 164)"}},{"types":["attr-name"],"style":{"color":"rgb(241, 250, 140)"}}]}}},"plugins":[["@docusaurus/plugin-content-pages",{"path":"docs/pages"}],["@docusaurus/plugin-content-docs",{"id":"toolkit-docs","path":"packages/toolkit/docs","routeBasePath":"toolkit","sidebarPath":"packages/toolkit/docs/sidebar.js","versions":{"current":{"label":"0.0.8"}},"editUrl":"https://github.com/NYUMusEdLab/music-interface-toolkit/edit/master/packages/piano-ui/"}],["@docusaurus/plugin-content-docs",{"id":"piano-ui-docs","path":"packages/piano-ui/docs","routeBasePath":"piano-ui","sidebarPath":"packages/piano-ui/docs/sidebar.js","versions":{"current":{"label":"0.0.4"}},"editUrl":"https://github.com/NYUMusEdLab/music-interface-toolkit/edit/master/packages/piano-ui/"}]],"onDuplicateRoutes":"warn","customFields":{},"presets":[]});
+/* harmony default export */ __webpack_exports__["a"] = ({"title":"Music Interface Toolkit","url":"https://nyumusedlab.github.io","baseUrl":"/music-interface-toolkit/","onBrokenLinks":"throw","favicon":"img/favicon.ico","themes":[["@docusaurus/theme-classic",{"customCss":"/home/runner/work/music-interface-toolkit/music-interface-toolkit/docs/css/custom.css"}]],"themeConfig":{"colorMode":{"defaultMode":"light","disableSwitch":true,"respectPrefersColorScheme":true,"switchConfig":{"darkIcon":"🌜","darkIconStyle":{},"lightIcon":"🌞","lightIconStyle":{}}},"navbar":{"title":"Music Interface Toolkit","items":[{"label":"Packages","position":"left","items":[{"label":"Toolkit","to":"toolkit/","position":"left"},{"label":"Piano","to":"piano-ui/","position":"left"}]},{"href":"https://github.com/NYUMusEdLab/music-interface-toolkit/","label":"GitHub","position":"right"}],"hideOnScroll":false},"sidebarCollapsible":false,"prism":{"theme":{"plain":{"color":"#403f53","backgroundColor":"#FBFBFB"},"styles":[{"types":["changed"],"style":{"color":"rgb(162, 191, 252)","fontStyle":"italic"}},{"types":["deleted"],"style":{"color":"rgba(239, 83, 80, 0.56)","fontStyle":"italic"}},{"types":["inserted","attr-name"],"style":{"color":"rgb(72, 118, 214)","fontStyle":"italic"}},{"types":["comment"],"style":{"color":"rgb(152, 159, 177)","fontStyle":"italic"}},{"types":["string","builtin","char","constant","url"],"style":{"color":"rgb(72, 118, 214)"}},{"types":["variable"],"style":{"color":"rgb(201, 103, 101)"}},{"types":["number"],"style":{"color":"rgb(170, 9, 130)"}},{"types":["punctuation"],"style":{"color":"rgb(153, 76, 195)"}},{"types":["function","selector","doctype"],"style":{"color":"rgb(153, 76, 195)","fontStyle":"italic"}},{"types":["class-name"],"style":{"color":"rgb(17, 17, 17)"}},{"types":["tag"],"style":{"color":"rgb(153, 76, 195)"}},{"types":["operator","property","keyword","namespace"],"style":{"color":"rgb(12, 150, 155)"}},{"types":["boolean"],"style":{"color":"rgb(188, 84, 84)"}}]},"darkTheme":{"plain":{"color":"#F8F8F2","backgroundColor":"#282A36"},"styles":[{"types":["prolog","constant","builtin"],"style":{"color":"rgb(189, 147, 249)"}},{"types":["inserted","function"],"style":{"color":"rgb(80, 250, 123)"}},{"types":["deleted"],"style":{"color":"rgb(255, 85, 85)"}},{"types":["changed"],"style":{"color":"rgb(255, 184, 108)"}},{"types":["punctuation","symbol"],"style":{"color":"rgb(248, 248, 242)"}},{"types":["string","char","tag","selector"],"style":{"color":"rgb(255, 121, 198)"}},{"types":["keyword","variable"],"style":{"color":"rgb(189, 147, 249)","fontStyle":"italic"}},{"types":["comment"],"style":{"color":"rgb(98, 114, 164)"}},{"types":["attr-name"],"style":{"color":"rgb(241, 250, 140)"}}]}}},"plugins":[["@docusaurus/plugin-content-pages",{"path":"pages"}],["@docusaurus/plugin-content-docs",{"id":"toolkit-docs","path":"../packages/toolkit/docs","routeBasePath":"toolkit","sidebarPath":"../packages/toolkit/docs/sidebar.js","versions":{"current":{"label":"0.0.8"}},"editUrl":"https://github.com/NYUMusEdLab/music-interface-toolkit/edit/master/packages/piano-ui/"}],["@docusaurus/plugin-content-docs",{"id":"piano-ui-docs","path":"../packages/piano-ui/docs","routeBasePath":"piano-ui","sidebarPath":"../packages/piano-ui/docs/sidebar.js","versions":{"current":{"label":"0.0.4"}},"editUrl":"https://github.com/NYUMusEdLab/music-interface-toolkit/edit/master/packages/piano-ui/"}]],"onDuplicateRoutes":"warn","customFields":{},"presets":[]});
 
 /***/ }),
 /* 70 */
@@ -12178,23 +12178,23 @@ passive:true});},deps);return scrollPosition;};/* harmony default export */ __we
 
 "use strict";
 
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
+// EXTERNAL MODULE: ../node_modules/@babel/runtime/helpers/esm/extends.js
 var esm_extends = __webpack_require__(1);
 
-// EXTERNAL MODULE: ./node_modules/react/index.js
+// EXTERNAL MODULE: ../node_modules/react/index.js
 var react = __webpack_require__(0);
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/Link.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/core/lib/client/exports/Link.js
 var Link = __webpack_require__(11);
 
-// EXTERNAL MODULE: ./node_modules/clsx/dist/clsx.m.js
+// EXTERNAL MODULE: ../node_modules/clsx/dist/clsx.m.js
 var clsx_m = __webpack_require__(5);
 
-// EXTERNAL MODULE: ./node_modules/prism-react-renderer/prism/index.js
+// EXTERNAL MODULE: ../node_modules/prism-react-renderer/prism/index.js
 var prism_react_renderer_prism = __webpack_require__(34);
 
-// CONCATENATED MODULE: ./node_modules/prism-react-renderer/themes/duotoneDark/index.js
+// CONCATENATED MODULE: ../node_modules/prism-react-renderer/themes/duotoneDark/index.js
 // Duotone Dark
 // Author: Simurai, adapted from DuoTone themes for Atom (http://simurai.com/projects/2016/01/01/duotone-themes)
 // Conversion: Bram de Haan (http://atelierbram.github.io/Base2Tone-prism/output/prism/prism-base2tone-evening-dark.css)
@@ -12269,7 +12269,7 @@ var theme = {
 
 /* harmony default export */ var duotoneDark = (theme);
 
-// CONCATENATED MODULE: ./node_modules/prism-react-renderer/dist/index.js
+// CONCATENATED MODULE: ../node_modules/prism-react-renderer/dist/index.js
 
 
 
@@ -12594,18 +12594,18 @@ function (Component) {
 /* harmony default export */ var dist = (Highlight);
 
 
-// EXTERNAL MODULE: ./node_modules/copy-text-to-clipboard/index.js
+// EXTERNAL MODULE: ../node_modules/copy-text-to-clipboard/index.js
 var copy_text_to_clipboard = __webpack_require__(144);
 var copy_text_to_clipboard_default = /*#__PURE__*/__webpack_require__.n(copy_text_to_clipboard);
 
-// EXTERNAL MODULE: ./node_modules/parse-numeric-range/index.js
+// EXTERNAL MODULE: ../node_modules/parse-numeric-range/index.js
 var parse_numeric_range = __webpack_require__(91);
 var parse_numeric_range_default = /*#__PURE__*/__webpack_require__.n(parse_numeric_range);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/useDocusaurusContext.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/core/lib/client/exports/useDocusaurusContext.js
 var useDocusaurusContext = __webpack_require__(2);
 
-// CONCATENATED MODULE: ./node_modules/prism-react-renderer/themes/palenight/index.js
+// CONCATENATED MODULE: ../node_modules/prism-react-renderer/themes/palenight/index.js
 // Converted automatically using ./tools/themeFromVsCode
 var palenight_theme = {
   plain: {
@@ -12689,21 +12689,21 @@ var palenight_theme = {
 
 /* harmony default export */ var palenight = (palenight_theme);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/hooks/useThemeContext.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/hooks/useThemeContext.js
 var useThemeContext = __webpack_require__(35);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/hooks/usePrismTheme.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/hooks/usePrismTheme.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */const usePrismTheme=()=>{const{siteConfig:{themeConfig:{prism={}}}}=Object(useDocusaurusContext["a" /* default */])();const{isDarkTheme}=Object(useThemeContext["a" /* default */])();const lightModeTheme=prism.theme||palenight;const darkModeTheme=prism.darkTheme||lightModeTheme;const prismTheme=isDarkTheme?darkModeTheme:lightModeTheme;return prismTheme;};/* harmony default export */ var hooks_usePrismTheme = (usePrismTheme);
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/CodeBlock/styles.module.css
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/CodeBlock/styles.module.css
 var styles_module = __webpack_require__(26);
 var styles_module_default = /*#__PURE__*/__webpack_require__.n(styles_module);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/CodeBlock/index.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/CodeBlock/index.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -12734,25 +12734,25 @@ const lineNumber=index+1;const match=line.match(directiveRegex);if(match!==null)
 index+=1;}}highlightLines=parse_numeric_range_default.a.parse(range);code=lines.join('\n');}const handleCopyCode=()=>{copy_text_to_clipboard_default()(code);setShowCopied(true);setTimeout(()=>setShowCopied(false),2000);};return/*#__PURE__*/react_default.a.createElement(dist,Object(esm_extends["a" /* default */])({},defaultProps,{key:String(mounted),theme:prismTheme,code:code// @ts-expect-error: prism-react-renderer doesn't export Language type
 ,language:language}),({className,style,tokens,getLineProps,getTokenProps})=>/*#__PURE__*/react_default.a.createElement(react_default.a.Fragment,null,codeBlockTitle&&/*#__PURE__*/react_default.a.createElement("div",{style:style,className:styles_module_default.a.codeBlockTitle},codeBlockTitle),/*#__PURE__*/react_default.a.createElement("div",{className:styles_module_default.a.codeBlockContent},/*#__PURE__*/react_default.a.createElement("button",{ref:button,type:"button","aria-label":"Copy code to clipboard",className:Object(clsx_m["a" /* default */])(styles_module_default.a.copyButton,{[styles_module_default.a.copyButtonWithTitle]:codeBlockTitle}),onClick:handleCopyCode},showCopied?'Copied':'Copy'),/*#__PURE__*/react_default.a.createElement("div",{tabIndex:0,className:Object(clsx_m["a" /* default */])(className,styles_module_default.a.codeBlock,{[styles_module_default.a.codeBlockWithTitle]:codeBlockTitle})},/*#__PURE__*/react_default.a.createElement("div",{className:styles_module_default.a.codeBlockLines,style:style},tokens.map((line,i)=>{if(line.length===1&&line[0].content===''){line[0].content='\n';// eslint-disable-line no-param-reassign
 }const lineProps=getLineProps({line,key:i});if(highlightLines.includes(i+1)){lineProps.className=`${lineProps.className} docusaurus-highlight-code-line`;}return/*#__PURE__*/react_default.a.createElement("div",Object(esm_extends["a" /* default */])({key:i},lineProps),line.map((token,key)=>/*#__PURE__*/react_default.a.createElement("span",Object(esm_extends["a" /* default */])({key:key},getTokenProps({token,key})))));}))))));});
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/Heading/styles.css
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/Heading/styles.css
 var styles = __webpack_require__(292);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/Heading/styles.module.css
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/Heading/styles.module.css
 var Heading_styles_module = __webpack_require__(145);
 var Heading_styles_module_default = /*#__PURE__*/__webpack_require__.n(Heading_styles_module);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/Heading/index.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/Heading/index.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */ /* eslint-disable jsx-a11y/anchor-has-content, jsx-a11y/anchor-is-valid */const Heading=Tag=>function TargetComponent({id,...props}){const{siteConfig:{themeConfig:{navbar:{hideOnScroll=false}={}}={}}={}}=Object(useDocusaurusContext["a" /* default */])();if(!id){return/*#__PURE__*/react_default.a.createElement(Tag,props);}return/*#__PURE__*/react_default.a.createElement(Tag,props,/*#__PURE__*/react_default.a.createElement("a",{"aria-hidden":"true",tabIndex:-1,className:Object(clsx_m["a" /* default */])('anchor',{[Heading_styles_module_default.a.enhancedAnchor]:!hideOnScroll}),id:id}),props.children,/*#__PURE__*/react_default.a.createElement("a",{"aria-hidden":"true",tabIndex:-1,className:"hash-link",href:`#${id}`,title:"Direct link to heading"},"#"));};/* harmony default export */ var theme_Heading = (Heading);
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/MDXComponents/styles.module.css
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/MDXComponents/styles.module.css
 var MDXComponents_styles_module = __webpack_require__(146);
 var MDXComponents_styles_module_default = /*#__PURE__*/__webpack_require__.n(MDXComponents_styles_module);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/MDXComponents/index.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/MDXComponents/index.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -12766,9 +12766,9 @@ var MDXComponents_styles_module_default = /*#__PURE__*/__webpack_require__.n(MDX
 
 // Exports
 module.exports = {
-	"announcementBar": "announcementBar_1l0Z",
-	"announcementBarClose": "announcementBarClose_21wD",
-	"announcementBarContent": "announcementBarContent_1xni"
+	"announcementBar": "announcementBar_CY9g",
+	"announcementBarClose": "announcementBarClose_1OVy",
+	"announcementBarContent": "announcementBarContent_3qPI"
 };
 
 
@@ -12778,9 +12778,9 @@ module.exports = {
 
 // Exports
 module.exports = {
-	"docPage": "docPage_2gpo",
-	"docSidebarContainer": "docSidebarContainer_3_JD",
-	"docMainContainer": "docMainContainer_3EyW"
+	"docPage": "docPage_2UBv",
+	"docSidebarContainer": "docSidebarContainer_1hqR",
+	"docMainContainer": "docMainContainer_1rYT"
 };
 
 
@@ -16918,6 +16918,23 @@ module.exports = {
 
 /***/ }),
 /* 124 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "frontMatter", function() { return frontMatter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "metadata", function() { return metadata; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rightToc", function() { return rightToc; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MDXContent; });
+/* harmony import */ var _home_runner_work_music_interface_toolkit_music_interface_toolkit_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
+const frontMatter={};const metadata={"type":"mdx","permalink":"/music-interface-toolkit/","source":"@site/pages/index.md"};/* @jsx mdx */const rightToc=[];const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_music_interface_toolkit_music_interface_toolkit_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Interface components (and other utilities) for building interactive music
+applications for the web.`));};MDXContent.isMDXComponent=true;
+
+/***/ }),
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16929,7 +16946,7 @@ if (true) {
 
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16947,27 +16964,10 @@ __webpack_require__.r(__webpack_exports__);
  */function MDXPage(props){const{content:MDXPageContent}=props;const{frontMatter,metadata}=MDXPageContent;const{title,description}=frontMatter;const{permalink}=metadata;return/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_theme_Layout__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"],{title:title,description:description,permalink:permalink},/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main",null,/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div",{className:"container margin-vert--lg padding-vert--lg"},/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* MDXProvider */ "a"],{components:_theme_MDXComponents__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"]},/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MDXPageContent,null)))));}/* harmony default export */ __webpack_exports__["default"] = (MDXPage);
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ (function(module) {
 
 module.exports = JSON.parse("{\"version\":\"current\",\"label\":\"0.0.8\",\"docsSidebars\":{\"docs\":[{\"collapsed\":true,\"type\":\"category\",\"label\":\"Components\",\"items\":[{\"type\":\"link\",\"label\":\"Scale Wheel\",\"href\":\"/music-interface-toolkit/toolkit/\"}]}]},\"permalinkToSidebar\":{\"/music-interface-toolkit/toolkit/\":\"docs\"}}");
-
-/***/ }),
-/* 127 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "frontMatter", function() { return frontMatter; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "metadata", function() { return metadata; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rightToc", function() { return rightToc; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MDXContent; });
-/* harmony import */ var _home_runner_work_music_interface_toolkit_music_interface_toolkit_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
-const frontMatter={};const metadata={"type":"mdx","permalink":"/music-interface-toolkit/","source":"@site/docs/pages/index.md"};/* @jsx mdx */const rightToc=[];const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_music_interface_toolkit_music_interface_toolkit_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Interface components (and other utilities) for building interactive music
-applications for the web.`));};MDXContent.isMDXComponent=true;
 
 /***/ }),
 /* 128 */
@@ -16989,20 +16989,20 @@ __webpack_require__.d(__webpack_exports__, "metadata", function() { return /* bi
 __webpack_require__.d(__webpack_exports__, "rightToc", function() { return /* binding */ rightToc; });
 __webpack_require__.d(__webpack_exports__, "default", function() { return /* binding */ MDXContent; });
 
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
+// EXTERNAL MODULE: ../node_modules/@babel/runtime/helpers/esm/extends.js
 var esm_extends = __webpack_require__(1);
 
-// EXTERNAL MODULE: ./node_modules/react/index.js
+// EXTERNAL MODULE: ../node_modules/react/index.js
 var react = __webpack_require__(0);
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
 
-// EXTERNAL MODULE: ./node_modules/@mdx-js/react/dist/esm.js
+// EXTERNAL MODULE: ../node_modules/@mdx-js/react/dist/esm.js
 var esm = __webpack_require__(13);
 
-// EXTERNAL MODULE: ./packages/toolkit/src/scale-wheel/ScaleWheel.css
+// EXTERNAL MODULE: ../packages/toolkit/src/scale-wheel/ScaleWheel.css
 var ScaleWheel = __webpack_require__(294);
 
-// CONCATENATED MODULE: ./node_modules/@tonaljs/tonal/dist/index.esnext.js
+// CONCATENATED MODULE: ../node_modules/@tonaljs/tonal/dist/index.esnext.js
 function isNamed(src) {
     return typeof src === "object" && typeof src.name === "string";
 }
@@ -17314,11 +17314,11 @@ function distance(fromNote, toNote) {
 
 //# sourceMappingURL=index.esnext.js.map
 
-// CONCATENATED MODULE: ./packages/toolkit/src/scale-wheel/theory.js
+// CONCATENATED MODULE: ../packages/toolkit/src/scale-wheel/theory.js
 function getPitchInScale(chroma,scale){let scaleChromas=scale.map(pitch=>note(pitch).chroma);return scaleChromas.includes(chroma)?scale[scaleChromas.indexOf(chroma)]:null;}function getIntervalQuality(root,scalePitch){switch(interval(distance(root,scalePitch)).q){case'dd':return'double-diminished';case'd':return'diminished';case'm':return'minor';case'P':return'perfect';case'M':return'major';case'A':return'augmented';case'AA':return'double-augmented';}}
-// CONCATENATED MODULE: ./packages/toolkit/src/radial-layout/RadialLayout.jsx
+// CONCATENATED MODULE: ../packages/toolkit/src/radial-layout/RadialLayout.jsx
 const RadialLayoutContext=/*#__PURE__*/Object(react["createContext"])(null);function RadialLayout({divisions,children}){let segmentAngle=Math.PI*2/divisions;let angles=[];for(let i=0;i<divisions;++i){angles.push({start:(i-0.5)*segmentAngle,mid:i*segmentAngle,end:(i+0.5)*segmentAngle});}return/*#__PURE__*/react_default.a.createElement(RadialLayoutContext.Provider,{value:{angles}},children);}
-// CONCATENATED MODULE: ./packages/toolkit/src/radial-layout/SliceShape.jsx
+// CONCATENATED MODULE: ../packages/toolkit/src/radial-layout/SliceShape.jsx
 function SliceShape({index,outerRadius:r1,innerRadius:r2,...pathProps}){let context=Object(react["useContext"])(RadialLayoutContext);let{start:a1,end:a2}=context.angles[index];/*
   a1 & a2: starting and ending angles for the shape
   r1 & r2: outer and inner radii for the shape
@@ -17332,34 +17332,34 @@ function SliceShape({index,outerRadius:r1,innerRadius:r2,...pathProps}){let cont
               A ${r2} ${r2} 0 0 0 ${Math.sin(a1)*r2} ${-Math.cos(a1)*r2}
               Z`;// Clean up excess white space
 data=data.replace(/\s+/g,' ');return/*#__PURE__*/react_default.a.createElement("path",Object(esm_extends["a" /* default */])({},pathProps,{d:data}));}
-// CONCATENATED MODULE: ./packages/toolkit/src/radial-layout/SliceGroup.jsx
+// CONCATENATED MODULE: ../packages/toolkit/src/radial-layout/SliceGroup.jsx
 function SliceGroup({index,radius,scale=1,children}){let context=Object(react["useContext"])(RadialLayoutContext);let{mid}=context.angles[index];let transform=`translate(${Math.sin(mid)*radius},
                              ${-Math.cos(mid)*radius})
                    scale(${scale})`;return/*#__PURE__*/react_default.a.createElement("g",{transform:transform},children);}
-// CONCATENATED MODULE: ./packages/toolkit/src/radial-layout/RadialPolygon.jsx
+// CONCATENATED MODULE: ../packages/toolkit/src/radial-layout/RadialPolygon.jsx
 function RadialPolygon({indices,radius,...pathProps}){let context=Object(react["useContext"])(RadialLayoutContext);indices=indices.filter((pointIndex,index,array)=>array.indexOf(pointIndex)===index).sort((a,b)=>a-b);if(indices.length>0){let dataParts=indices.map((pointIndex,index)=>`${index===0?'M':'L'}
          ${Math.sin(context.angles[pointIndex].mid)*radius}
          ${-Math.cos(context.angles[pointIndex].mid)*radius}`);let data=dataParts.join(' ')+' Z';return/*#__PURE__*/react_default.a.createElement("path",Object(esm_extends["a" /* default */])({},pathProps,{d:data}));}else{return null;}}
-// CONCATENATED MODULE: ./packages/toolkit/src/radial-layout/index.js
+// CONCATENATED MODULE: ../packages/toolkit/src/radial-layout/index.js
 
-// EXTERNAL MODULE: ./packages/toolkit/src/labels/PitchLabel.css
+// EXTERNAL MODULE: ../packages/toolkit/src/labels/PitchLabel.css
 var PitchLabel = __webpack_require__(295);
 
-// CONCATENATED MODULE: ./packages/toolkit/src/labels/PitchLabel.jsx
+// CONCATENATED MODULE: ../packages/toolkit/src/labels/PitchLabel.jsx
 function PitchLabel_PitchLabel({children}){let pitchNames=children.split('/');let className='pitch-label'+(pitchNames.length>1?' ambiguous':'');return/*#__PURE__*/react_default.a.createElement("span",{className:className},pitchNames.map((name,index)=>/*#__PURE__*/react_default.a.createElement(SinglePitchLabel,{key:index},name)));}function SinglePitchLabel({children}){let parse=note(children);let accidental=null;if(parse.acc==='bb'){accidental=/*#__PURE__*/react_default.a.createElement("span",{className:"accidental double-flat"},"\uD834\uDD2B");}else if(parse.acc==='b'){accidental=/*#__PURE__*/react_default.a.createElement("span",{className:"accidental flat"},"\u266D");}else if(parse.acc==='#'){accidental=/*#__PURE__*/react_default.a.createElement("span",{className:"accidental sharp"},"\u266F");}else if(parse.acc==='##'){accidental=/*#__PURE__*/react_default.a.createElement("span",{className:"accidental double-sharp"},"\uD834\uDD2A");}return/*#__PURE__*/react_default.a.createElement("span",{className:"pitch-enharmonic"},parse.letter,accidental,parse.oct);}
-// CONCATENATED MODULE: ./packages/toolkit/src/labels/index.js
+// CONCATENATED MODULE: ../packages/toolkit/src/labels/index.js
 
-// CONCATENATED MODULE: ./packages/toolkit/src/scale-wheel/ScaleWheel.jsx
+// CONCATENATED MODULE: ../packages/toolkit/src/scale-wheel/ScaleWheel.jsx
 const defaultPitchNames=['C','C#/Db','D','D#/Eb','E','F','F#/Gb','G','G#/Ab','A','A#/Bb','B'];// Constant values for representing pitch orders
 const CHROMATIC=Symbol();const CIRCLE_OF_FIFTHS=Symbol();function ScaleWheel_ScaleWheel({scale=[],size=100,pitchOrder=CHROMATIC,activeNotes=[]}){let wheelContents=[];let root=scale[0]||'C';let rootChroma=note(root).chroma;// Map active note names to pitch class chromas (eg, 'D' to 2)
 // Also, remove duplicate listings
 let activeNoteChromas=activeNotes.map(pitch=>note(pitch).chroma%12).filter((chroma,index,array)=>array.indexOf(chroma)===index);for(let i=0;i<12;++i){let step=pitchOrder===CIRCLE_OF_FIFTHS?7:1;let chroma=(i*step+rootChroma)%12;let pitchInScale=getPitchInScale(chroma,scale);let pitch=pitchInScale||defaultPitchNames[chroma];wheelContents.push(/*#__PURE__*/react_default.a.createElement(ScaleWheelSlice,{key:i,index:i,pitch:pitch,root:root,isInScale:!!pitchInScale,isActive:!!getPitchInScale(chroma,activeNotes),size:size}));}if(activeNotes.length>0){let activeNoteIndices=activeNoteChromas.map(chroma=>(chroma-rootChroma+12)*(pitchOrder===CIRCLE_OF_FIFTHS?7:1)%12);wheelContents.push(/*#__PURE__*/react_default.a.createElement("g",{className:"active-pitches",key:"active-pitches"},activeNoteIndices.map(index=>/*#__PURE__*/react_default.a.createElement(SliceShape,{key:'active-shape-'+index,index:index,innerRadius:0.3*size,outerRadius:0.475*size,className:"slice",stroke:"#000",strokeWidth:3,fill:"none"})),/*#__PURE__*/react_default.a.createElement(RadialPolygon,{key:'active-polygon',className:"polygon",indices:activeNoteIndices,radius:0.25*size,stroke:"#000",strokeWidth:3,fill:"none"})));}return/*#__PURE__*/react_default.a.createElement("svg",{className:"scale-wheel",width:size,height:size,viewBox:`${-size/2} ${-size/2} ${size} ${size}`},/*#__PURE__*/react_default.a.createElement(RadialLayout,{divisions:12},wheelContents));}function ScaleWheelSlice({index,pitch,root,isInScale,isActive,size}){let classList=['pitch-slice'];if(isInScale){classList.push(getIntervalQuality(root,pitch));}if(isActive){classList.push('active');}return/*#__PURE__*/react_default.a.createElement("g",{className:classList.join(' ')},/*#__PURE__*/react_default.a.createElement(SliceShape,{index:index,innerRadius:0.3*size,outerRadius:0.475*size,stroke:"#000",fill:"#fff",className:"pitch-shape"}),/*#__PURE__*/react_default.a.createElement(SliceGroup,{index:index,radius:0.39*size,scale:size*0.13/20},/*#__PURE__*/react_default.a.createElement("foreignObject",{width:24,height:20,x:-12,y:-10},/*#__PURE__*/react_default.a.createElement(PitchLabel_PitchLabel,null,pitch))),isInScale?/*#__PURE__*/react_default.a.createElement(react_default.a.Fragment,null,/*#__PURE__*/react_default.a.createElement(SliceShape,{index:index,innerRadius:0.2*size,outerRadius:0.3*size,stroke:"#000",fill:"#fff"}),/*#__PURE__*/react_default.a.createElement(SliceGroup,{index:index,radius:0.25*size,scale:size*0.13/20},/*#__PURE__*/react_default.a.createElement("foreignObject",{width:24,height:20,x:-12,y:-10}))):null);}
-// CONCATENATED MODULE: ./packages/toolkit/src/scale-wheel/ScaleIcon.jsx
+// CONCATENATED MODULE: ../packages/toolkit/src/scale-wheel/ScaleIcon.jsx
 function ScaleIcon({scale}){let segments=[];let root=scale[0]||'C';let scaleDegrees=scale.map(pitch=>note(pitch).chroma);for(let i=0;i<12;++i){let chroma=(i+note(root).chroma)%12;let pitchInScale=getPitchInScale(chroma,scale);let className='pitch-slice';if(!!pitchInScale){className+=` ${getIntervalQuality(root,pitchInScale)}`;}segments.push(/*#__PURE__*/react_default.a.createElement("g",{key:i,className:className},/*#__PURE__*/react_default.a.createElement(SliceShape,{index:i,innerRadius:scaleDegrees.includes(i)?20:35,outerRadius:49})));}return/*#__PURE__*/react_default.a.createElement("svg",{className:"scale-wheel scale-icon",width:100,height:100,viewBox:"-50 -50 100 100"},/*#__PURE__*/react_default.a.createElement(RadialLayout,{divisions:12},segments));}
-// CONCATENATED MODULE: ./packages/toolkit/src/scale-wheel/index.js
+// CONCATENATED MODULE: ../packages/toolkit/src/scale-wheel/index.js
 
-// CONCATENATED MODULE: ./packages/toolkit/docs/scale-wheel.mdx
-const frontMatter={title:'Scale Wheel',slug:'/'};const metadata={"unversionedId":"scale-wheel","id":"scale-wheel","isDocsHomePage":false,"title":"Scale Wheel","source":"@site/packages/toolkit/docs/scale-wheel.mdx","slug":"/","permalink":"/music-interface-toolkit/toolkit/","editUrl":"https://github.com/NYUMusEdLab/music-interface-toolkit/edit/master/packages/piano-ui/packages/toolkit/docs/scale-wheel.mdx","version":"current","sidebar":"docs"};/* @jsx mdx */const rightToc=[];const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(esm["b" /* mdx */])(MDXLayout,Object(esm_extends["a" /* default */])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(esm["b" /* mdx */])(ScaleWheel_ScaleWheel,{size:300,scale:['C','D','E','F','G','A','B'],mdxType:"ScaleWheel"}));};MDXContent.isMDXComponent=true;
+// CONCATENATED MODULE: ../packages/toolkit/docs/scale-wheel.mdx
+const frontMatter={title:'Scale Wheel',slug:'/'};const metadata={"unversionedId":"scale-wheel","id":"scale-wheel","isDocsHomePage":false,"title":"Scale Wheel","source":"@site/../packages/toolkit/docs/scale-wheel.mdx","slug":"/","permalink":"/music-interface-toolkit/toolkit/","editUrl":"https://github.com/NYUMusEdLab/music-interface-toolkit/edit/master/packages/piano-ui/../packages/toolkit/docs/scale-wheel.mdx","version":"current","sidebar":"docs"};/* @jsx mdx */const rightToc=[];const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(esm["b" /* mdx */])(MDXLayout,Object(esm_extends["a" /* default */])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(esm["b" /* mdx */])(ScaleWheel_ScaleWheel,{size:300,scale:['C','D','E','F','G','A','B'],mdxType:"ScaleWheel"}));};MDXContent.isMDXComponent=true;
 
 /***/ }),
 /* 130 */
@@ -17369,33 +17369,33 @@ const frontMatter={title:'Scale Wheel',slug:'/'};const metadata={"unversionedId"
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// EXTERNAL MODULE: ./node_modules/react/index.js
+// EXTERNAL MODULE: ../node_modules/react/index.js
 var react = __webpack_require__(0);
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/Head.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/core/lib/client/exports/Head.js
 var Head = __webpack_require__(59);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/useDocusaurusContext.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/core/lib/client/exports/useDocusaurusContext.js
 var useDocusaurusContext = __webpack_require__(2);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/useBaseUrl.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/core/lib/client/exports/useBaseUrl.js
 var useBaseUrl = __webpack_require__(10);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/Link.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/core/lib/client/exports/Link.js
 var Link = __webpack_require__(11);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/DocPaginator/index.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/DocPaginator/index.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */function DocPaginator(props){const{metadata}=props;return/*#__PURE__*/react_default.a.createElement("nav",{className:"pagination-nav","aria-label":"Blog list page navigation"},/*#__PURE__*/react_default.a.createElement("div",{className:"pagination-nav__item"},metadata.previous&&/*#__PURE__*/react_default.a.createElement(Link["a" /* default */],{className:"pagination-nav__link",to:metadata.previous.permalink},/*#__PURE__*/react_default.a.createElement("div",{className:"pagination-nav__sublabel"},"Previous"),/*#__PURE__*/react_default.a.createElement("div",{className:"pagination-nav__label"},"\xAB ",metadata.previous.title))),/*#__PURE__*/react_default.a.createElement("div",{className:"pagination-nav__item pagination-nav__item--next"},metadata.next&&/*#__PURE__*/react_default.a.createElement(Link["a" /* default */],{className:"pagination-nav__link",to:metadata.next.permalink},/*#__PURE__*/react_default.a.createElement("div",{className:"pagination-nav__sublabel"},"Next"),/*#__PURE__*/react_default.a.createElement("div",{className:"pagination-nav__label"},metadata.next.title," \xBB"))));}/* harmony default export */ var theme_DocPaginator = (DocPaginator);
-// EXTERNAL MODULE: ./node_modules/@docusaurus/plugin-content-docs/lib/theme/hooks/useDocs.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/plugin-content-docs/lib/theme/hooks/useDocs.js
 var useDocs = __webpack_require__(14);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/DocVersionSuggestions/index.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/DocVersionSuggestions/index.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -17406,7 +17406,7 @@ if(!latestVersionSuggestion){return/*#__PURE__*/react_default.a.createElement(re
 // fallback to main doc of latest version
 const suggestedDoc=latestDocSuggestion!==null&&latestDocSuggestion!==void 0?latestDocSuggestion:getVersionMainDoc(latestVersionSuggestion);return/*#__PURE__*/react_default.a.createElement("div",{className:"alert alert--warning margin-bottom--md",role:"alert"},// TODO need refactoring
 activeVersion.name==='current'?/*#__PURE__*/react_default.a.createElement("div",null,"This is unreleased documentation for ",siteTitle,' ',/*#__PURE__*/react_default.a.createElement("strong",null,activeVersion.label)," version."):/*#__PURE__*/react_default.a.createElement("div",null,"This is documentation for ",siteTitle,' ',/*#__PURE__*/react_default.a.createElement("strong",null,activeVersion.label),", which is no longer actively maintained."),/*#__PURE__*/react_default.a.createElement("div",{className:"margin-top--md"},"For up-to-date documentation, see the",' ',/*#__PURE__*/react_default.a.createElement("strong",null,/*#__PURE__*/react_default.a.createElement(Link["a" /* default */],{to:suggestedDoc.path},"latest version")),' ',"(",latestVersionSuggestion.label,")."));}/* harmony default export */ var theme_DocVersionSuggestions = (DocVersionSuggestions);
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/hooks/useTOCHighlight.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/hooks/useTOCHighlight.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -17414,11 +17414,11 @@ activeVersion.name==='current'?/*#__PURE__*/react_default.a.createElement("div",
  * LICENSE file in the root directory of this source tree.
  */function useTOCHighlight(linkClassName,linkActiveClassName,topOffset){const[lastActiveLink,setLastActiveLink]=Object(react["useState"])(undefined);Object(react["useEffect"])(()=>{let headersAnchors;let links;function setActiveLink(){function getActiveHeaderAnchor(){let index=0;let activeHeaderAnchor=null;headersAnchors=document.getElementsByClassName('anchor');while(index<headersAnchors.length&&!activeHeaderAnchor){const headerAnchor=headersAnchors[index];const{top}=headerAnchor.getBoundingClientRect();if(top>=0&&top<=topOffset){activeHeaderAnchor=headerAnchor;}index+=1;}return activeHeaderAnchor;}const activeHeaderAnchor=getActiveHeaderAnchor();if(activeHeaderAnchor){let index=0;let itemHighlighted=false;// @ts-expect-error: Must be <a> tags.
 links=document.getElementsByClassName(linkClassName);while(index<links.length&&!itemHighlighted){const link=links[index];const{href}=link;const anchorValue=decodeURIComponent(href.substring(href.indexOf('#')+1));if(activeHeaderAnchor.id===anchorValue){if(lastActiveLink){lastActiveLink.classList.remove(linkActiveClassName);}link.classList.add(linkActiveClassName);setLastActiveLink(link);itemHighlighted=true;}index+=1;}}}document.addEventListener('scroll',setActiveLink);document.addEventListener('resize',setActiveLink);setActiveLink();return()=>{document.removeEventListener('scroll',setActiveLink);document.removeEventListener('resize',setActiveLink);};});}/* harmony default export */ var hooks_useTOCHighlight = (useTOCHighlight);
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/TOC/styles.module.css
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/TOC/styles.module.css
 var styles_module = __webpack_require__(141);
 var styles_module_default = /*#__PURE__*/__webpack_require__.n(styles_module);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/TOC/index.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/TOC/index.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -17427,14 +17427,14 @@ var styles_module_default = /*#__PURE__*/__webpack_require__.n(styles_module);
  */const LINK_CLASS_NAME='table-of-contents__link';const ACTIVE_LINK_CLASS_NAME='table-of-contents__link--active';const TOP_OFFSET=100;/* eslint-disable jsx-a11y/control-has-associated-label */function Headings({headings,isChild}){if(!headings.length){return null;}return/*#__PURE__*/react_default.a.createElement("ul",{className:isChild?'':'table-of-contents table-of-contents__left-border'},headings.map(heading=>/*#__PURE__*/react_default.a.createElement("li",{key:heading.id},/*#__PURE__*/react_default.a.createElement("a",{href:`#${heading.id}`,className:LINK_CLASS_NAME// Developer provided the HTML, so assume it's safe.
 // eslint-disable-next-line react/no-danger
 ,dangerouslySetInnerHTML:{__html:heading.value}}),/*#__PURE__*/react_default.a.createElement(Headings,{isChild:true,headings:heading.children}))));}function TOC({headings}){hooks_useTOCHighlight(LINK_CLASS_NAME,ACTIVE_LINK_CLASS_NAME,TOP_OFFSET);return/*#__PURE__*/react_default.a.createElement("div",{className:styles_module_default.a.tableOfContents},/*#__PURE__*/react_default.a.createElement(Headings,{headings:headings}));}/* harmony default export */ var theme_TOC = (TOC);
-// EXTERNAL MODULE: ./node_modules/clsx/dist/clsx.m.js
+// EXTERNAL MODULE: ../node_modules/clsx/dist/clsx.m.js
 var clsx_m = __webpack_require__(5);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/DocItem/styles.module.css
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/DocItem/styles.module.css
 var DocItem_styles_module = __webpack_require__(38);
 var DocItem_styles_module_default = /*#__PURE__*/__webpack_require__.n(DocItem_styles_module);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/DocItem/index.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/DocItem/index.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -17452,54 +17452,54 @@ const useDocVersion=()=>{const version=Object(useDocs["useActiveVersion"])(Objec
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// EXTERNAL MODULE: ./node_modules/react/index.js
+// EXTERNAL MODULE: ../node_modules/react/index.js
 var react = __webpack_require__(0);
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
 
-// EXTERNAL MODULE: ./node_modules/@mdx-js/react/dist/esm.js
+// EXTERNAL MODULE: ../node_modules/@mdx-js/react/dist/esm.js
 var esm = __webpack_require__(13);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/useDocusaurusContext.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/core/lib/client/exports/useDocusaurusContext.js
 var useDocusaurusContext = __webpack_require__(2);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/renderRoutes.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/core/lib/client/exports/renderRoutes.js
 var renderRoutes = __webpack_require__(61);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/Layout/index.js + 21 modules
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/Layout/index.js + 21 modules
 var Layout = __webpack_require__(36);
 
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
+// EXTERNAL MODULE: ../node_modules/@babel/runtime/helpers/esm/extends.js
 var esm_extends = __webpack_require__(1);
 
-// EXTERNAL MODULE: ./node_modules/clsx/dist/clsx.m.js
+// EXTERNAL MODULE: ../node_modules/clsx/dist/clsx.m.js
 var clsx_m = __webpack_require__(5);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/hooks/useUserPreferencesContext.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/hooks/useUserPreferencesContext.js
 var useUserPreferencesContext = __webpack_require__(65);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/hooks/useLockBodyScroll.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/hooks/useLockBodyScroll.js
 var useLockBodyScroll = __webpack_require__(67);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/hooks/useWindowSize.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/hooks/useWindowSize.js
 var useWindowSize = __webpack_require__(37);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/hooks/useLogo.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/hooks/useLogo.js
 var useLogo = __webpack_require__(68);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/hooks/useScrollPosition.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/hooks/useScrollPosition.js
 var useScrollPosition = __webpack_require__(66);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/Link.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/core/lib/client/exports/Link.js
 var Link = __webpack_require__(11);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/isInternalUrl.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/core/lib/client/exports/isInternalUrl.js
 var isInternalUrl = __webpack_require__(25);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/DocSidebar/styles.module.css
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/DocSidebar/styles.module.css
 var styles_module = __webpack_require__(20);
 var styles_module_default = /*#__PURE__*/__webpack_require__.n(styles_module);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/DocSidebar/index.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/DocSidebar/index.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -17510,20 +17510,20 @@ const isSamePath=(path1,path2)=>{const normalize=str=>str.endsWith('/')?str:`${s
 // the default (item.collapsed) is only used for non-active categories
 const[collapsed,setCollapsed]=Object(react["useState"])(()=>{if(!collapsible){return false;}return isActive?false:item.collapsed;});// If we navigate to a category, it should automatically expand itself
 Object(react["useEffect"])(()=>{const justBecameActive=isActive&&!wasActive;if(justBecameActive&&collapsed){setCollapsed(false);}},[isActive,wasActive,collapsed]);const handleItemClick=Object(react["useCallback"])(e=>{e.preventDefault();setCollapsed(state=>!state);},[setCollapsed]);if(items.length===0){return null;}return/*#__PURE__*/react_default.a.createElement("li",{className:Object(clsx_m["a" /* default */])('menu__list-item',{'menu__list-item--collapsed':collapsed}),key:label},/*#__PURE__*/react_default.a.createElement("a",Object(esm_extends["a" /* default */])({className:Object(clsx_m["a" /* default */])('menu__link',{'menu__link--sublist':collapsible,'menu__link--active':collapsible&&isActive,[styles_module_default.a.menuLinkText]:!collapsible}),onClick:collapsible?handleItemClick:undefined,href:collapsible?'#!':undefined},props),label),/*#__PURE__*/react_default.a.createElement("ul",{className:"menu__list"},items.map(childItem=>/*#__PURE__*/react_default.a.createElement(DocSidebarItem,{tabIndex:collapsed?'-1':'0',key:childItem.label,item:childItem,onItemClick:onItemClick,collapsible:collapsible,activePath:activePath}))));}function DocSidebarItemLink({item,onItemClick,activePath,collapsible:_collapsible,...props}){const{href,label}=item;const isActive=isActiveSidebarItem(item,activePath);return/*#__PURE__*/react_default.a.createElement("li",{className:"menu__list-item",key:label},/*#__PURE__*/react_default.a.createElement(Link["a" /* default */],Object(esm_extends["a" /* default */])({className:Object(clsx_m["a" /* default */])('menu__link',{'menu__link--active':isActive}),to:href},Object(isInternalUrl["a" /* default */])(href)?{isNavLink:true,exact:true,onClick:onItemClick}:{target:'_blank',rel:'noreferrer noopener'},props),label));}function DocSidebarItem(props){switch(props.item.type){case'category':return/*#__PURE__*/react_default.a.createElement(DocSidebarItemCategory,props);case'link':default:return/*#__PURE__*/react_default.a.createElement(DocSidebarItemLink,props);}}function DocSidebar({path,sidebar,sidebarCollapsible=true}){const[showResponsiveSidebar,setShowResponsiveSidebar]=Object(react["useState"])(false);const{siteConfig:{themeConfig:{navbar:{title='',hideOnScroll=false}={}}={}}={},isClient}=Object(useDocusaurusContext["a" /* default */])();const{logoLink,logoLinkProps,logoImageUrl,logoAlt}=Object(useLogo["a" /* default */])();const{isAnnouncementBarClosed}=Object(useUserPreferencesContext["a" /* default */])();const{scrollY}=Object(useScrollPosition["a" /* default */])();Object(useLockBodyScroll["a" /* default */])(showResponsiveSidebar);const windowSize=Object(useWindowSize["a" /* default */])();Object(react["useEffect"])(()=>{if(windowSize===useWindowSize["b" /* windowSizes */].desktop){setShowResponsiveSidebar(false);}},[windowSize]);return/*#__PURE__*/react_default.a.createElement("div",{className:Object(clsx_m["a" /* default */])(styles_module_default.a.sidebar,{[styles_module_default.a.sidebarWithHideableNavbar]:hideOnScroll})},hideOnScroll&&/*#__PURE__*/react_default.a.createElement(Link["a" /* default */],Object(esm_extends["a" /* default */])({tabIndex:-1,className:styles_module_default.a.sidebarLogo,to:logoLink},logoLinkProps),logoImageUrl!=null&&/*#__PURE__*/react_default.a.createElement("img",{key:isClient,src:logoImageUrl,alt:logoAlt}),title!=null&&/*#__PURE__*/react_default.a.createElement("strong",null,title)),/*#__PURE__*/react_default.a.createElement("div",{className:Object(clsx_m["a" /* default */])('menu','menu--responsive',styles_module_default.a.menu,{'menu--show':showResponsiveSidebar,[styles_module_default.a.menuWithAnnouncementBar]:!isAnnouncementBarClosed&&scrollY===0})},/*#__PURE__*/react_default.a.createElement("button",{"aria-label":showResponsiveSidebar?'Close Menu':'Open Menu',"aria-haspopup":"true",className:"button button--secondary button--sm menu__button",type:"button",onClick:()=>{setShowResponsiveSidebar(!showResponsiveSidebar);}},showResponsiveSidebar?/*#__PURE__*/react_default.a.createElement("span",{className:Object(clsx_m["a" /* default */])(styles_module_default.a.sidebarMenuIcon,styles_module_default.a.sidebarMenuCloseIcon)},"\xD7"):/*#__PURE__*/react_default.a.createElement("svg",{"aria-label":"Menu",className:styles_module_default.a.sidebarMenuIcon,xmlns:"http://www.w3.org/2000/svg",height:MOBILE_TOGGLE_SIZE,width:MOBILE_TOGGLE_SIZE,viewBox:"0 0 32 32",role:"img",focusable:"false"},/*#__PURE__*/react_default.a.createElement("title",null,"Menu"),/*#__PURE__*/react_default.a.createElement("path",{stroke:"currentColor",strokeLinecap:"round",strokeMiterlimit:"10",strokeWidth:"2",d:"M4 7h22M4 15h22M4 23h22"}))),/*#__PURE__*/react_default.a.createElement("ul",{className:"menu__list"},sidebar.map(item=>/*#__PURE__*/react_default.a.createElement(DocSidebarItem,{key:item.label,item:item,onItemClick:e=>{e.target.blur();setShowResponsiveSidebar(false);},collapsible:sidebarCollapsible,activePath:path})))));}/* harmony default export */ var theme_DocSidebar = (DocSidebar);
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/MDXComponents/index.js + 6 modules
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/MDXComponents/index.js + 6 modules
 var MDXComponents = __webpack_require__(70);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/NotFound.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/NotFound.js
 var NotFound = __webpack_require__(89);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/router.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/core/lib/client/exports/router.js
 var router = __webpack_require__(33);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/DocPage/styles.module.css
+// EXTERNAL MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/DocPage/styles.module.css
 var DocPage_styles_module = __webpack_require__(72);
 var DocPage_styles_module_default = /*#__PURE__*/__webpack_require__.n(DocPage_styles_module);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/DocPage/index.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/DocPage/index.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -17545,23 +17545,23 @@ __webpack_require__.d(__webpack_exports__, "metadata", function() { return /* bi
 __webpack_require__.d(__webpack_exports__, "rightToc", function() { return /* binding */ rightToc; });
 __webpack_require__.d(__webpack_exports__, "default", function() { return /* binding */ MDXContent; });
 
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
+// EXTERNAL MODULE: ../node_modules/@babel/runtime/helpers/esm/extends.js
 var esm_extends = __webpack_require__(1);
 
-// EXTERNAL MODULE: ./node_modules/react/index.js
+// EXTERNAL MODULE: ../node_modules/react/index.js
 var react = __webpack_require__(0);
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
 
-// EXTERNAL MODULE: ./node_modules/@mdx-js/react/dist/esm.js
+// EXTERNAL MODULE: ../node_modules/@mdx-js/react/dist/esm.js
 var esm = __webpack_require__(13);
 
-// EXTERNAL MODULE: ./packages/piano-ui/src/style.css
+// EXTERNAL MODULE: ../packages/piano-ui/src/style.css
 var style = __webpack_require__(293);
 
-// CONCATENATED MODULE: ./packages/piano-ui/src/index.tsx
+// CONCATENATED MODULE: ../packages/piano-ui/src/index.tsx
 const isNatural=[true,false,true,false,true,true,false,true,false,true,false,true];const Piano=({low=21,high=108,keyClass})=>{let blackKeys=[];let whiteKeys=[];for(let i=low;i<=high;++i){let classNames=[];classNames.push('piano-ui-key');classNames.push(isNatural[i%12]?'piano-ui-white-key':'piano-ui-black-key');if(keyClass){classNames.push(...keyClass(i));}let key=/*#__PURE__*/react_default.a.createElement("div",{className:classNames.join(' '),key:i});if(isNatural[i%12]){whiteKeys.push(key);blackKeys.push(/*#__PURE__*/react_default.a.createElement("div",{className:"piano-ui-gap",key:i}));}else{blackKeys.push(key);}}return/*#__PURE__*/react_default.a.createElement("div",{className:"piano-ui"},/*#__PURE__*/react_default.a.createElement("div",null,blackKeys),/*#__PURE__*/react_default.a.createElement("div",null,whiteKeys));};
-// CONCATENATED MODULE: ./packages/piano-ui/docs/piano.mdx
-const frontMatter={title:'Piano Component',slug:'/'};const metadata={"unversionedId":"piano","id":"piano","isDocsHomePage":false,"title":"Piano Component","description":"`jsx","source":"@site/packages/piano-ui/docs/piano.mdx","slug":"/","permalink":"/music-interface-toolkit/piano-ui/","editUrl":"https://github.com/NYUMusEdLab/music-interface-toolkit/edit/master/packages/piano-ui/packages/piano-ui/docs/piano.mdx","version":"current","sidebar":"docs"};/* @jsx mdx */const rightToc=[];const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(esm["b" /* mdx */])(MDXLayout,Object(esm_extends["a" /* default */])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(esm["b" /* mdx */])("pre",null,Object(esm["b" /* mdx */])("code",Object(esm_extends["a" /* default */])({parentName:"pre"},{"className":"language-jsx"}),`// Specify a range of two octaves
+// CONCATENATED MODULE: ../packages/piano-ui/docs/piano.mdx
+const frontMatter={title:'Piano Component',slug:'/'};const metadata={"unversionedId":"piano","id":"piano","isDocsHomePage":false,"title":"Piano Component","description":"`jsx","source":"@site/../packages/piano-ui/docs/piano.mdx","slug":"/","permalink":"/music-interface-toolkit/piano-ui/","editUrl":"https://github.com/NYUMusEdLab/music-interface-toolkit/edit/master/packages/piano-ui/../packages/piano-ui/docs/piano.mdx","version":"current","sidebar":"docs"};/* @jsx mdx */const rightToc=[];const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(esm["b" /* mdx */])(MDXLayout,Object(esm_extends["a" /* default */])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(esm["b" /* mdx */])("pre",null,Object(esm["b" /* mdx */])("code",Object(esm_extends["a" /* default */])({parentName:"pre"},{"className":"language-jsx"}),`// Specify a range of two octaves
 <Piano low={48} high={72} />
 `)),Object(esm["b" /* mdx */])(Piano,{low:48,high:72,mdxType:"Piano"}));};MDXContent.isMDXComponent=true;
 
@@ -19266,7 +19266,7 @@ if (Object.getOwnPropertyDescriptor(fs, 'promises')) {
 /* 139 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"/music-interface-toolkit/-af0\":{\"component\":\"1f391b9e\",\"content\":\"f3d3f9a5\"},\"/music-interface-toolkit/piano-ui-ea1\":{\"component\":\"1be78505\",\"versionMetadata\":\"f7854297\"},\"/music-interface-toolkit/piano-ui/-546\":{\"component\":\"17896441\",\"content\":\"e2ed18d4\"},\"/music-interface-toolkit/toolkit-837\":{\"component\":\"1be78505\",\"versionMetadata\":\"ac660101\"},\"/music-interface-toolkit/toolkit/-650\":{\"component\":\"17896441\",\"content\":\"f6df1248\"}}");
+module.exports = JSON.parse("{\"/music-interface-toolkit/-915\":{\"component\":\"1f391b9e\",\"content\":\"02fae9b5\"},\"/music-interface-toolkit/piano-ui-810\":{\"component\":\"1be78505\",\"versionMetadata\":\"f7854297\"},\"/music-interface-toolkit/piano-ui/-b19\":{\"component\":\"17896441\",\"content\":\"4b9aea41\"},\"/music-interface-toolkit/toolkit-af7\":{\"component\":\"1be78505\",\"versionMetadata\":\"ac660101\"},\"/music-interface-toolkit/toolkit/-53c\":{\"component\":\"17896441\",\"content\":\"fc212803\"}}");
 
 /***/ }),
 /* 140 */
@@ -19275,7 +19275,7 @@ module.exports = JSON.parse("{\"/music-interface-toolkit/-af0\":{\"component\":\
 "use strict";
 
 
-var reactIs = __webpack_require__(124);
+var reactIs = __webpack_require__(125);
 
 /**
  * Copyright 2015, Yahoo! Inc.
@@ -19384,8 +19384,8 @@ module.exports = hoistNonReactStatics;
 
 // Exports
 module.exports = {
-	"tableOfContents": "tableOfContents_3SO_",
-	"docItemContainer": "docItemContainer_2n-t"
+	"tableOfContents": "tableOfContents_3iuQ",
+	"docItemContainer": "docItemContainer_1mV8"
 };
 
 
@@ -19658,7 +19658,7 @@ Toggle.propTypes = {
 
 // Exports
 module.exports = {
-	"footerLogoLink": "footerLogoLink_1zJy"
+	"footerLogoLink": "footerLogoLink_19Ac"
 };
 
 
@@ -19727,7 +19727,7 @@ module.exports.default = copyTextToClipboard;
 
 // Exports
 module.exports = {
-	"enhancedAnchor": "enhancedAnchor_2cZh"
+	"enhancedAnchor": "enhancedAnchor_3pqN"
 };
 
 
@@ -19737,7 +19737,7 @@ module.exports = {
 
 // Exports
 module.exports = {
-	"mdxCodeBlock": "mdxCodeBlock_1XEh"
+	"mdxCodeBlock": "mdxCodeBlock_xYIz"
 };
 
 
@@ -54618,7 +54618,7 @@ __webpack_require__.r(__webpack_exports__);
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, "default", function() { return /* binding */ serverEntry_render; });
 
-// CONCATENATED MODULE: ./node_modules/eta/dist/eta.es.js
+// CONCATENATED MODULE: ../node_modules/eta/dist/eta.es.js
 function setPrototypeOf(obj, proto) {
     if (Object.setPrototypeOf) {
         Object.setPrototypeOf(obj, proto);
@@ -55328,39 +55328,39 @@ includeFileHelper.bind(defaultConfig);
 
 //# sourceMappingURL=eta.es.js.map
 
-// EXTERNAL MODULE: ./node_modules/react/index.js
+// EXTERNAL MODULE: ../node_modules/react/index.js
 var react = __webpack_require__(0);
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
 
-// EXTERNAL MODULE: ./node_modules/react-router/esm/react-router.js + 1 modules
+// EXTERNAL MODULE: ../node_modules/react-router/esm/react-router.js + 1 modules
 var react_router = __webpack_require__(6);
 
-// EXTERNAL MODULE: ./node_modules/react-dom/server.js
+// EXTERNAL MODULE: ../node_modules/react-dom/server.js
 var server = __webpack_require__(133);
 var server_default = /*#__PURE__*/__webpack_require__.n(server);
 
-// EXTERNAL MODULE: ./node_modules/react-helmet/es/Helmet.js
+// EXTERNAL MODULE: ../node_modules/react-helmet/es/Helmet.js
 var Helmet = __webpack_require__(58);
 
-// EXTERNAL MODULE: ./node_modules/react-loadable-ssr-addon/lib/index.js
+// EXTERNAL MODULE: ../node_modules/react-loadable-ssr-addon/lib/index.js
 var lib = __webpack_require__(136);
 
-// EXTERNAL MODULE: ./node_modules/react-loadable/lib/index.js
+// EXTERNAL MODULE: ../node_modules/react-loadable/lib/index.js
 var react_loadable_lib = __webpack_require__(43);
 var react_loadable_lib_default = /*#__PURE__*/__webpack_require__.n(react_loadable_lib);
 
-// EXTERNAL MODULE: ./node_modules/html-minifier-terser/src/htmlminifier.js
+// EXTERNAL MODULE: ../node_modules/html-minifier-terser/src/htmlminifier.js
 var htmlminifier = __webpack_require__(137);
 
 // EXTERNAL MODULE: external "path"
 var external_path_ = __webpack_require__(4);
 var external_path_default = /*#__PURE__*/__webpack_require__.n(external_path_);
 
-// EXTERNAL MODULE: ./node_modules/fs-extra/lib/index.js
+// EXTERNAL MODULE: ../node_modules/fs-extra/lib/index.js
 var fs_extra_lib = __webpack_require__(138);
 var fs_extra_lib_default = /*#__PURE__*/__webpack_require__.n(fs_extra_lib);
 
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/typeof.js
+// CONCATENATED MODULE: ../node_modules/@babel/runtime/helpers/esm/typeof.js
 function _typeof(obj) {
   "@babel/helpers - typeof";
 
@@ -55376,7 +55376,7 @@ function _typeof(obj) {
 
   return _typeof(obj);
 }
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/interopRequireWildcard.js
+// CONCATENATED MODULE: ../node_modules/@babel/runtime/helpers/esm/interopRequireWildcard.js
 
 
 function _getRequireWildcardCache() {
@@ -55430,7 +55430,7 @@ function _interopRequireWildcard(obj) {
 
   return newObj;
 }
-// CONCATENATED MODULE: ./node_modules/@docusaurus/core/lib/client/theme-fallback/Loading/index.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/core/lib/client/theme-fallback/Loading/index.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -55441,8 +55441,8 @@ function _interopRequireWildcard(obj) {
 var routesChunkNames = __webpack_require__(139);
 
 // CONCATENATED MODULE: ./.docusaurus/registry.js
-/* harmony default export */ var registry = ({'17896441':[()=>Promise.resolve().then(()=>_interopRequireWildcard(__webpack_require__(130))),"@theme/DocItem",/*require.resolve*/(130)],'1be78505':[()=>Promise.resolve().then(()=>_interopRequireWildcard(__webpack_require__(131))),"@theme/DocPage",/*require.resolve*/(131)],'1f391b9e':[()=>Promise.resolve().then(()=>_interopRequireWildcard(__webpack_require__(125))),"@theme/MDXPage",/*require.resolve*/(125)],'ac660101':[()=>Promise.resolve().then(()=>_interopRequireWildcard(__webpack_require__(126))),"~docs/toolkit-docs/version-current-metadata-prop-751.json",/*require.resolve*/(126)],'e2ed18d4':[()=>Promise.resolve().then(()=>_interopRequireWildcard(__webpack_require__(132))),"@site/packages/piano-ui/docs/piano.mdx",/*require.resolve*/(132)],'f3d3f9a5':[()=>Promise.resolve().then(()=>_interopRequireWildcard(__webpack_require__(127))),"@site/docs/pages/index.md",/*require.resolve*/(127)],'f6df1248':[()=>Promise.resolve().then(()=>_interopRequireWildcard(__webpack_require__(129))),"@site/packages/toolkit/docs/scale-wheel.mdx",/*require.resolve*/(129)],'f7854297':[()=>Promise.resolve().then(()=>_interopRequireWildcard(__webpack_require__(128))),"~docs/piano-ui-docs/version-current-metadata-prop-751.json",/*require.resolve*/(128)]});
-// CONCATENATED MODULE: ./node_modules/@docusaurus/core/lib/client/flat.js
+/* harmony default export */ var registry = ({'02fae9b5':[()=>Promise.resolve().then(()=>_interopRequireWildcard(__webpack_require__(124))),"@site/pages/index.md",/*require.resolve*/(124)],'17896441':[()=>Promise.resolve().then(()=>_interopRequireWildcard(__webpack_require__(130))),"@theme/DocItem",/*require.resolve*/(130)],'1be78505':[()=>Promise.resolve().then(()=>_interopRequireWildcard(__webpack_require__(131))),"@theme/DocPage",/*require.resolve*/(131)],'1f391b9e':[()=>Promise.resolve().then(()=>_interopRequireWildcard(__webpack_require__(126))),"@theme/MDXPage",/*require.resolve*/(126)],'4b9aea41':[()=>Promise.resolve().then(()=>_interopRequireWildcard(__webpack_require__(132))),"@site/../packages/piano-ui/docs/piano.mdx",/*require.resolve*/(132)],'ac660101':[()=>Promise.resolve().then(()=>_interopRequireWildcard(__webpack_require__(127))),"~docs/toolkit-docs/version-current-metadata-prop-751.json",/*require.resolve*/(127)],'f7854297':[()=>Promise.resolve().then(()=>_interopRequireWildcard(__webpack_require__(128))),"~docs/piano-ui-docs/version-current-metadata-prop-751.json",/*require.resolve*/(128)],'fc212803':[()=>Promise.resolve().then(()=>_interopRequireWildcard(__webpack_require__(129))),"@site/../packages/toolkit/docs/scale-wheel.mdx",/*require.resolve*/(129)]});
+// CONCATENATED MODULE: ../node_modules/@docusaurus/core/lib/client/flat.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -55451,7 +55451,7 @@ var routesChunkNames = __webpack_require__(139);
  */ // Too dynamic
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function flat(target){const delimiter='.';const output={};function step(object,prev){Object.keys(object).forEach(key=>{const value=object[key];const type=typeof value;const isObject=type==='object'&&!!value;const newKey=prev?prev+delimiter+key:key;if(isObject&&Object.keys(value).length){step(value,newKey);return;}output[newKey]=value;});}step(target);return output;}/* harmony default export */ var client_flat = (flat);
-// CONCATENATED MODULE: ./node_modules/@docusaurus/core/lib/client/exports/ComponentCreator.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/core/lib/client/exports/ComponentCreator.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -55471,14 +55471,14 @@ if(path==='*'){return react_loadable_lib_default()({loading:Loading,loader:()=>P
     */const flatChunkNames=client_flat(chunkNames);Object.keys(flatChunkNames).forEach(key=>{const chunkRegistry=registry[flatChunkNames[key]];if(chunkRegistry){/* eslint-disable prefer-destructuring */optsLoader[key]=chunkRegistry[0];optsModules.push(chunkRegistry[1]);optsWebpack.push(chunkRegistry[2]);/* eslint-enable prefer-destructuring */}});return react_loadable_lib_default.a.Map({loading:Loading,loader:optsLoader,modules:optsModules,webpack:()=>optsWebpack,render:(loaded,props)=>{// Clone the original object since we don't want to alter the original.
 const loadedModules=JSON.parse(JSON.stringify(chunkNames));Object.keys(loaded).forEach(key=>{let val=loadedModules;const keyPath=key.split('.');for(let i=0;i<keyPath.length-1;i+=1){val=val[keyPath[i]];}val[keyPath[keyPath.length-1]]=loaded[key].default;const nonDefaultKeys=Object.keys(loaded[key]).filter(k=>k!=='default');if(nonDefaultKeys&&nonDefaultKeys.length){nonDefaultKeys.forEach(nonDefaultKey=>{val[keyPath[keyPath.length-1]][nonDefaultKey]=loaded[key][nonDefaultKey];});}});const Component=loadedModules.component;delete loadedModules.component;return/*#__PURE__*/react_default.a.createElement(Component,Object.assign({},loadedModules,props));}});}/* harmony default export */ var exports_ComponentCreator = (ComponentCreator);
 // CONCATENATED MODULE: ./.docusaurus/routes.js
-/* harmony default export */ var _docusaurus_routes = ([{path:'/music-interface-toolkit/',component:exports_ComponentCreator('/music-interface-toolkit/','af0'),exact:true},{path:'/music-interface-toolkit/piano-ui',component:exports_ComponentCreator('/music-interface-toolkit/piano-ui','ea1'),routes:[{path:'/music-interface-toolkit/piano-ui/',component:exports_ComponentCreator('/music-interface-toolkit/piano-ui/','546'),exact:true}]},{path:'/music-interface-toolkit/toolkit',component:exports_ComponentCreator('/music-interface-toolkit/toolkit','837'),routes:[{path:'/music-interface-toolkit/toolkit/',component:exports_ComponentCreator('/music-interface-toolkit/toolkit/','650'),exact:true}]},{path:'*',component:exports_ComponentCreator('*')}]);
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/package.json
+/* harmony default export */ var _docusaurus_routes = ([{path:'/music-interface-toolkit/',component:exports_ComponentCreator('/music-interface-toolkit/','915'),exact:true},{path:'/music-interface-toolkit/piano-ui',component:exports_ComponentCreator('/music-interface-toolkit/piano-ui','810'),routes:[{path:'/music-interface-toolkit/piano-ui/',component:exports_ComponentCreator('/music-interface-toolkit/piano-ui/','b19'),exact:true}]},{path:'/music-interface-toolkit/toolkit',component:exports_ComponentCreator('/music-interface-toolkit/toolkit','af7'),routes:[{path:'/music-interface-toolkit/toolkit/',component:exports_ComponentCreator('/music-interface-toolkit/toolkit/','53c'),exact:true}]},{path:'*',component:exports_ComponentCreator('*')}]);
+// EXTERNAL MODULE: ../node_modules/@docusaurus/core/package.json
 var core_package = __webpack_require__(147);
 
-// EXTERNAL MODULE: ./node_modules/react-router-config/esm/react-router-config.js
+// EXTERNAL MODULE: ../node_modules/react-router-config/esm/react-router-config.js
 var react_router_config = __webpack_require__(62);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/core/lib/client/preload.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/core/lib/client/preload.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -55503,19 +55503,19 @@ var globalData = __webpack_require__(148);
 // EXTERNAL MODULE: ./.docusaurus/site-metadata.json
 var site_metadata = __webpack_require__(149);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/renderRoutes.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/core/lib/client/exports/renderRoutes.js
 var renderRoutes = __webpack_require__(61);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/context.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/core/lib/client/exports/context.js
 var exports_context = __webpack_require__(60);
 
-// EXTERNAL MODULE: ./node_modules/nprogress/nprogress.js
+// EXTERNAL MODULE: ../node_modules/nprogress/nprogress.js
 var nprogress = __webpack_require__(73);
 var nprogress_default = /*#__PURE__*/__webpack_require__.n(nprogress);
 
 // CONCATENATED MODULE: ./.docusaurus/client-modules.js
 /* harmony default export */ var client_modules = ([__webpack_require__(87),__webpack_require__(87),__webpack_require__(87),__webpack_require__(296),__webpack_require__(303),__webpack_require__(300)]);
-// CONCATENATED MODULE: ./node_modules/@docusaurus/core/lib/client/client-lifecycles-dispatcher.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/core/lib/client/client-lifecycles-dispatcher.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -55523,7 +55523,7 @@ var nprogress_default = /*#__PURE__*/__webpack_require__.n(nprogress);
  * LICENSE file in the root directory of this source tree.
  */ // too dynamic
 /* eslint-disable @typescript-eslint/no-explicit-any */function dispatchLifecycleAction(lifecycleAction,...args){client_modules.forEach(clientModule=>{const mod=clientModule.__esModule?clientModule.default:clientModule;if(mod&&mod[lifecycleAction]){mod[lifecycleAction](...args);}});}const clientLifecyclesDispatchers={onRouteUpdate(...args){dispatchLifecycleAction('onRouteUpdate',...args);},onRouteUpdateDelayed(...args){dispatchLifecycleAction('onRouteUpdateDelayed',...args);}};/* harmony default export */ var client_lifecycles_dispatcher = (clientLifecyclesDispatchers);
-// CONCATENATED MODULE: ./node_modules/@docusaurus/core/lib/client/normalizeLocation.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/core/lib/client/normalizeLocation.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -55531,10 +55531,10 @@ var nprogress_default = /*#__PURE__*/__webpack_require__.n(nprogress);
  * LICENSE file in the root directory of this source tree.
  */ // Memoize previously normalized pathnames.
 const pathnames={};function normalizeLocation(location){if(pathnames[location.pathname]){return Object.assign(Object.assign({},location),{pathname:pathnames[location.pathname]});}let pathname=location.pathname||'/';pathname=pathname.trim().replace(/\/index\.html$/,'');if(pathname===''){pathname='/';}pathnames[location.pathname]=pathname;return Object.assign(Object.assign({},location),{pathname});}/* harmony default export */ var client_normalizeLocation = (normalizeLocation);
-// EXTERNAL MODULE: ./node_modules/nprogress/nprogress.css
+// EXTERNAL MODULE: ../node_modules/nprogress/nprogress.css
 var nprogress_nprogress = __webpack_require__(301);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/core/lib/client/PendingNavigation.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/core/lib/client/PendingNavigation.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -55551,24 +55551,24 @@ preload(routes,nextLocation.pathname).then(()=>{client_lifecycles_dispatcher.onR
 this.previousLocation=null;this.setState({nextRouteHasLoaded:true},this.stopProgressBar);const{hash}=nextLocation;if(!hash){window.scrollTo(0,0);}else{const id=hash.substring(1);const element=document.getElementById(id);if(element){element.scrollIntoView();}}}).catch(e=>console.warn(e));return false;}// There's a pending route transition. Don't update until it's done.
 if(!nextState.nextRouteHasLoaded){return false;}// Route has loaded, we can update now.
 return true;}clearProgressBarTimeout(){if(this.progressBarTimeout){clearTimeout(this.progressBarTimeout);this.progressBarTimeout=null;}}startProgressBar(delay){this.clearProgressBarTimeout();this.progressBarTimeout=setTimeout(()=>{client_lifecycles_dispatcher.onRouteUpdateDelayed({location:client_normalizeLocation(this.props.location)});nprogress_default.a.start();},delay);}stopProgressBar(){this.clearProgressBarTimeout();nprogress_default.a.done();}render(){const{children,location}=this.props;return/*#__PURE__*/react_default.a.createElement(react_router["d" /* Route */],{location:client_normalizeLocation(location),render:()=>children});}}/* harmony default export */ var client_PendingNavigation = (Object(react_router["o" /* withRouter */])(PendingNavigation_PendingNavigation));
-// CONCATENATED MODULE: ./node_modules/@docusaurus/core/lib/client/App.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/core/lib/client/App.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */function App(){const[isClient,setIsClient]=Object(react["useState"])(false);Object(react["useEffect"])(()=>{setIsClient(true);},[]);return/*#__PURE__*/react_default.a.createElement(exports_context["a" /* default */].Provider,{value:{siteConfig: docusaurus_config["a" /* default */],siteMetadata: site_metadata,globalData: globalData,isClient}},/*#__PURE__*/react_default.a.createElement(client_PendingNavigation,{routes:_docusaurus_routes},Object(renderRoutes["a" /* default */])(_docusaurus_routes)));}/* harmony default export */ var client_App = (App);
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/LinksCollector.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/core/lib/client/LinksCollector.js
 var LinksCollector = __webpack_require__(44);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/templates/ssr.html.template.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/core/lib/client/templates/ssr.html.template.js
 var ssr_html_template = __webpack_require__(150);
 var ssr_html_template_default = /*#__PURE__*/__webpack_require__.n(ssr_html_template);
 
-// EXTERNAL MODULE: ./node_modules/lodash/lodash.js
+// EXTERNAL MODULE: ../node_modules/lodash/lodash.js
 var lodash = __webpack_require__(151);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/core/lib/client/serverEntry.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/core/lib/client/serverEntry.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -55591,16 +55591,16 @@ return Object(htmlminifier["minify"])(renderedHtml,{removeComments:true,removeRe
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// EXTERNAL MODULE: ./node_modules/prism-react-renderer/prism/index.js
+// EXTERNAL MODULE: ../node_modules/prism-react-renderer/prism/index.js
 var prism = __webpack_require__(34);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/ExecutionEnvironment.js
+// EXTERNAL MODULE: ../node_modules/@docusaurus/core/lib/client/exports/ExecutionEnvironment.js
 var ExecutionEnvironment = __webpack_require__(22);
 
 // EXTERNAL MODULE: ./.docusaurus/docusaurus.config.js
 var docusaurus_config = __webpack_require__(69);
 
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/lib/theme/prism-include-languages.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/lib/theme/prism-include-languages.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -55608,7 +55608,7 @@ var docusaurus_config = __webpack_require__(69);
  * LICENSE file in the root directory of this source tree.
  */const prismIncludeLanguages=PrismObject=>{if(ExecutionEnvironment["a" /* default */].canUseDOM){const{themeConfig:{prism:{additionalLanguages=[]}={}}}=docusaurus_config["a" /* default */];window.Prism=PrismObject;additionalLanguages.forEach(lang=>{__webpack_require__(88)(`./prism-${lang}`);// eslint-disable-line
 });delete window.Prism;}};/* harmony default export */ var prism_include_languages = (prismIncludeLanguages);
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/src/prism-include-languages.js
+// CONCATENATED MODULE: ../node_modules/@docusaurus/theme-classic/src/prism-include-languages.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
