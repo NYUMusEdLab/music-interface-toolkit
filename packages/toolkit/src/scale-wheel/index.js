@@ -1,2 +1,2 @@
-export * from './ScaleWheel.jsx';
+export * from './ScaleWheel.tsx';
 export * from './ScaleIcon.jsx';

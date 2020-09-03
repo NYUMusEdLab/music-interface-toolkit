@@ -18,7 +18,9 @@
   "dependencies": {
     "@musedlab/symbols": "file:../symbols",
     "@tonaljs/core": "^3.5.4",
-    "@tonaljs/scale": "^3.6.1"
+    "@tonaljs/pcset": "^3.5.4",
+    "@tonaljs/scale": "^3.6.1",
+    "clsx": "^1.1.1"
   },
   "peerDependencies": {
     "react": "^16.8.0"

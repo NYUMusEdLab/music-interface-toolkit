@@ -4,10 +4,15 @@ slug: /
 ---
 
 import { wheel } from './css/wheel.module.css';
-import { ScaleWheel } from '../src/scale-wheel';
+import { ScaleWheel, CIRCLE_OF_FIFTHS } from '../src/scale-wheel';
+
+import { get as scale } from '@tonaljs/scale';
+
+<ScaleWheel className={wheel} size={300} scale={scale('Ab minor').notes} />
 
 <ScaleWheel
   className={wheel}
   size={300}
-  scale={['C', 'Db', 'E', 'F#', 'G', 'A', 'B']}
+  scale={scale('Ab minor').notes}
+  pitchOrder={CIRCLE_OF_FIFTHS}
 />
