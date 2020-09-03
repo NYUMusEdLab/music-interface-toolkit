@@ -7,16 +7,19 @@ import { Accidental } from './Accidental';
 
 type Enharmonic = 'sharp' | 'flat' | 'both';
 
-type PitchProps =
+type PitchProps = { className?: string } & (
   | { children: string }
   | {
       midi: number;
       pitchClass?: boolean;
       scale?: string[];
       enharmonic?: Enharmonic;
-    };
+    }
+);
 
 export function Pitch(props: PitchProps) {
+  let { className } = props;
+
   if ('children' in props) {
     if (typeof props.children !== 'string') {
       throw new Error(`Child of pitch label should be a pitch string`);
@@ -28,7 +31,7 @@ export function Pitch(props: PitchProps) {
       let { pc, oct } = parsed;
 
       return (
-        <span>
+        <span className={className}>
           <PC>{pc}</PC>
           {oct}
         </span>
@@ -48,7 +51,7 @@ export function Pitch(props: PitchProps) {
         let { pc } = parsed;
 
         return (
-          <span>
+          <span className={className}>
             <PC>{pc}</PC>
             {oct}
           </span>
@@ -63,7 +66,7 @@ export function Pitch(props: PitchProps) {
       });
 
       return (
-        <span>
+        <span className={className}>
           <PC>{pc}</PC>
           {oct}
         </span>
@@ -81,12 +84,12 @@ export function Pitch(props: PitchProps) {
 
       return (
         <>
-          <span>
+          <span className={className}>
             <PC>{pc1}</PC>
             {oct}
           </span>
           {pc1 !== pc2 ? (
-            <span>
+            <span className={className}>
               <PC>{pc2}</PC>
               {oct}
             </span>
@@ -95,7 +98,9 @@ export function Pitch(props: PitchProps) {
       );
     }
   } else {
-    throw new Error();
+    throw new Error(
+      'Pitch must either have a pitch string child or a midi value'
+    );
   }
 }
 
