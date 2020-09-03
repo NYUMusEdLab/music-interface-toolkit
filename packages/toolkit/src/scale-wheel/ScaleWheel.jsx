@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { note } from '@tonaljs/tonal';
+import { note } from '@tonaljs/core';
+import { scaleNotes } from '@tonaljs/scale';
 import { getPitchInScale, getIntervalQuality } from './theory';
 
 import {
@@ -38,6 +39,7 @@ export function ScaleWheel({
   size = 100,
   pitchOrder = CHROMATIC,
   activeNotes = [],
+  className = '',
 }) {
   let wheelContents = [];
 
@@ -108,7 +110,7 @@ export function ScaleWheel({
 
   return (
     <svg
-      className="scale-wheel"
+      className={'scale-wheel ' + className}
       width={size}
       height={size}
       viewBox={`${-size / 2} ${-size / 2} ${size} ${size}`}>
@@ -175,11 +177,26 @@ function ScaleWheelSlice({
               height={20}
               x={-12}
               y={-10}>
-              {/* <Pitch>{pitch}</Pitch> */}
+              <ScaleDegree index={index} pitch={pitch} root={root} />
             </foreignObject>
           </SliceGroup>
         </>
       ) : null}
     </g>
+  );
+}
+
+import { Accidental } from '@musedlab/symbols/accidental';
+import { interval, distance } from '@tonaljs/tonal';
+import { createClassExpression } from 'typescript';
+
+function ScaleDegree({ pitch, root }) {
+  let { alt, simple } = interval(distance(root, pitch));
+
+  return (
+    <span>
+      {alt !== 0 ? <Accidental alter={alt} /> : null}
+      {simple}
+    </span>
   );
 }

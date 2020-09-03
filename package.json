@@ -8,8 +8,8 @@
     "build": "lerna exec -- rollup -c",
     "prepublishOnly": "npm run build",
     "postpublish": "npm run clean",
-    "docs-dev": "cd docs; docusaurus start",
-    "docs": "cd docs; docusaurus build --out-dir ../generated-docs"
+    "docs-dev": "npm run build; cd docs; docusaurus start",
+    "docs": "npm run build; cd docs; docusaurus build --out-dir ../generated-docs"
   },
   "author": "NYU Music Experience Design Lab (MusEDLab)",
   "license": "MIT",

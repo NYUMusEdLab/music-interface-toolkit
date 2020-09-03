@@ -3,6 +3,11 @@ title: Scale Wheel
 slug: /
 ---
 
+import { wheel } from './css/wheel.module.css';
 import { ScaleWheel } from '../src/scale-wheel';
 
-<ScaleWheel size={300} scale={['C', 'D', 'E', 'F', 'G', 'A', 'B']} />
+<ScaleWheel
+  className={wheel}
+  size={300}
+  scale={['C', 'Db', 'E', 'F#', 'G', 'A', 'B']}
+/>
