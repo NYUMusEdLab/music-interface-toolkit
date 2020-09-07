@@ -1,0 +1,27 @@
+---
+title: All the Pianos
+---
+
+import { Piano } from '../src/index.ts';
+
+import theme from './assets/DocsPiano.module.css';
+
+export function Pianos() {
+  let pianos = [];
+  for (let i = 0; i < 12; ++i) {
+    pianos.push(
+      <>
+        <Piano
+          low={48 + i}
+          high={72 + i}
+          theme={theme}
+          keyLabel={(key) => key}
+        />
+        <br />
+      </>
+    );
+  }
+  return pianos;
+}
+
+<Pianos />

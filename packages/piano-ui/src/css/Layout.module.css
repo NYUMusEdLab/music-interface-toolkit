@@ -1,0 +1,48 @@
+.piano {
+  position: relative;
+  height: 100px;
+}
+
+.piano > div {
+  display: flex;
+  pointer-events: none;
+}
+
+.piano > div:first-child {
+  width: 100%;
+  height: 55%;
+  position: absolute;
+}
+
+.piano > div:last-child {
+  height: 100%;
+}
+
+.key {
+  flex: 1;
+  pointer-events: auto;
+}
+
+.gap {
+  visibility: hidden;
+}
+
+.piano > div:first-child .gap {
+  flex: 0.3;
+}
+
+.piano > div:first-child .gap + .gap {
+  flex: 1;
+}
+
+.piano > div:first-child .gap:first-child {
+  flex: 0.7;
+}
+
+.piano > div:first-child .gap:last-child {
+  flex: 1.6;
+}
+
+.piano > div:last-child .gap {
+  flex: 1;
+}

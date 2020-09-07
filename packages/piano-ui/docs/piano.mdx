@@ -8,6 +8,24 @@ slug: /
 <Piano low={48} high={72} />
 ```
 
-import { Piano } from '../src/index.tsx';
+import { Piano } from '../src/index.ts';
+import { useState } from 'react';
 
-<Piano low={48} high={72} />
+import theme from './assets/DocsPiano.module.css';
+
+export function NoteSelect() {
+  let [current, setCurrent] = useState(48);
+  return (
+    <Piano
+      low={48}
+      high={72}
+      theme={theme}
+      active={current}
+      onClick={({ key }) => {
+        setCurrent(key);
+      }}
+    />
+  );
+}
+
+<NoteSelect />

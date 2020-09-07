@@ -71,7 +71,7 @@ module.exports = {
         id: 'piano-ui-docs',
         path: '../packages/piano-ui/docs',
         routeBasePath: 'piano-ui',
-        sidebarPath: '../packages/piano-ui/docs/sidebar.js',
+        sidebarPath: '../packages/piano-ui/docs/sidebar.json',
         versions: {
           current: {
             label: require('../packages/piano-ui/package.json').version,

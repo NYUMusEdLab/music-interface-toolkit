@@ -1,0 +1,8 @@
+.key-white {
+  border: solid 1px black;
+  background: white;
+}
+
+.key-black {
+  background: black;
+}
