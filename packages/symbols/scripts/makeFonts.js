@@ -3,6 +3,7 @@ import { readFile, writeFile, unlink } from 'fs/promises';
 
 const unicodeRanges = {
   Accidentals: 'U+ED60-ED66',
+  Chords: 'U+E870-E87F',
 };
 
 for (let [name, codepoints] of Object.entries(unicodeRanges)) {
