@@ -3,9 +3,8 @@
   "version": "0.0.8",
   "description": "UI Components for music interfaces",
   "files": [
-    "labels.js",
-    "radial-layout.js",
-    "scale-wheel.js",
+    "radial-layout/*",
+    "scale-wheel/*",
     "shared/*"
   ],
   "repository": {

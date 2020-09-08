@@ -1,17 +1,18 @@
 import resolve from 'rollup-plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
-import babel from 'rollup-plugin-babel';
+import ts from '@wessberg/rollup-plugin-ts';
 
 export default {
-  external: ['react', '@tonaljs/tonal'],
+  external: ['react'],
   plugins: [
     resolve(),
     postcss({
       extensions: ['.css'],
     }),
-    babel({
-      presets: ['@babel/preset-env', '@babel/preset-react'],
-      exclude: 'node_modules/**',
+    ts({
+      tsconfig: '../../tsconfig.json',
+      include: ['src/**/*'],
+      transpiler: 'babel',
     }),
   ],
   input: {
@@ -21,6 +22,7 @@ export default {
   output: {
     dir: '.',
     format: 'esm',
+    entryFileNames: '[name]/index.js',
     chunkFileNames: 'shared/[name]-[hash].js',
   },
 };

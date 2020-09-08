@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { note } from '@tonaljs/tonal';
+import { note } from '@tonaljs/core';
 import { midiToNoteName } from '@tonaljs/midi';
 
 import { Accidental } from './Accidental';

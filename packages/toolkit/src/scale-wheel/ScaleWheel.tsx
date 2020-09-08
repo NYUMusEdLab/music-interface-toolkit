@@ -11,6 +11,7 @@ import {
   SliceShape,
   SliceGroup,
   RadialPolygon,
+  // @ts-ignore: TODO: Re-write radial UI library in TS
 } from '../radial-layout';
 
 import { Pitch } from '@musedlab/symbols/pitch';
@@ -42,51 +43,25 @@ export function ScaleWheel({
   // Get a mapping of the pitch classes in the scale to the pitch name
   const scaleChromas = getChromaMap(scale);
 
-  console.log(scaleChromas);
-
   let wheelContents = [];
 
   let root = scale[0] || 'C';
   let rootChroma = note(root).chroma || 0;
 
-  // Map active note names to pitch class chromas (eg, 'D' to 2)
-  // Also, remove duplicate listings
-  let activeNoteChromas = activeNotes
-    .map((pitch) => note(pitch).chroma % 12)
-    .filter((chroma, index, array) => array.indexOf(chroma) === index);
+  const activeChromas = getChromaMap(activeNotes);
 
   const step = pitchOrder === CIRCLE_OF_FIFTHS ? 7 : 1;
 
   for (let i = 0; i < 12; ++i) {
     let chroma = (i * step + rootChroma) % 12;
 
-    /*
-<ScaleWheelSlice
-        key={i}
-        index={i}
-        pitch={pitch}
-        chroma={chroma}
-        root={root}
-        isInScale={!!pitchInScale}
-        isActive={!!getPitchInScale(chroma, activeNotes)}
-        size={size}
-      />
-*/
-
-    // if (isInScale) {
-    //   classList.push(getIntervalQuality(root, pitch));
-    // }
-
-    // if (isActive) {
-    //   classList.push('active');
-    // }
     wheelContents.push(
       <g
         className={clsx(
           'pitch-slice',
           chroma in scaleChromas &&
-            getIntervalQuality(root, scaleChromas[chroma])
-          /*isActive && 'active'*/
+            getIntervalQuality(root, scaleChromas[chroma]),
+          chroma in activeChromas && 'active'
         )}
         key={chroma}>
         <SliceShape
@@ -136,9 +111,9 @@ export function ScaleWheel({
   }
 
   if (activeNotes.length > 0) {
-    let activeNoteIndices = activeNoteChromas.map(
+    let activeNoteIndices = Object.keys(activeChromas).map(
       (chroma) =>
-        ((chroma - rootChroma + 12) *
+        ((parseInt(chroma) - rootChroma + 12) *
           (pitchOrder === CIRCLE_OF_FIFTHS ? 7 : 1)) %
         12
     );
@@ -181,20 +156,8 @@ export function ScaleWheel({
   );
 }
 
-// function ScaleWheelSlice({
-//   index,
-//   pitch,
-//   chroma,
-//   root,
-//   isInScale,
-//   isActive,
-//   size,
-// }) {
-
-// }
-
 import { Accidental } from '@musedlab/symbols/accidental';
-import { interval, distance } from '@tonaljs/tonal';
+import { interval, distance } from '@tonaljs/core';
 
 type ScaleDegreeProps = {
   pitch: string;

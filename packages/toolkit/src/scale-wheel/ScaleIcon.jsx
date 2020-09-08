@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { note } from '@tonaljs/tonal';
+import { note } from '@tonaljs/core';
 import { getPitchInScale, getIntervalQuality } from './theory';
 
 import { RadialLayout, SliceShape } from '../radial-layout';
