@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { note } from '@tonaljs/core';
-import { getPitchInScale, getIntervalQuality } from './theory';
+import { getChromaMap, getIntervalQuality } from './theory';
 
 import { RadialLayout, SliceShape } from '../radial-layout';
 
@@ -9,23 +9,22 @@ export function ScaleIcon({ scale }) {
   let segments = [];
 
   let root = scale[0] || 'C';
-  let scaleDegrees = scale.map((pitch) => note(pitch).chroma);
+  let scaleChromas = getChromaMap(scale);
 
   for (let i = 0; i < 12; ++i) {
     let chroma = (i + note(root).chroma) % 12;
-    let pitchInScale = getPitchInScale(chroma, scale);
 
     let className = 'pitch-slice';
 
-    if (!!pitchInScale) {
-      className += ` ${getIntervalQuality(root, pitchInScale)}`;
+    if (chroma in scaleChromas) {
+      className += ` ${getIntervalQuality(root, scaleChromas[chroma])}`;
     }
 
     segments.push(
       <g key={i} className={className}>
         <SliceShape
           index={i}
-          innerRadius={scaleDegrees.includes(i) ? 20 : 35}
+          innerRadius={chroma in scaleChromas ? 20 : 35}
           outerRadius={49}
         />
       </g>

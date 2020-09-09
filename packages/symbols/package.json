@@ -5,11 +5,11 @@
   "description": "React components for rendering musical symbols",
   "type": "module",
   "exports": {
-    "./accidental": "./file/index.js",
+    "./chord": "./chord/index.js",
     "./pitch": "./pitch/index.js"
   },
   "files": [
-    "accidental/*",
+    "chord/*",
     "pitch/*"
   ],
   "scripts": {

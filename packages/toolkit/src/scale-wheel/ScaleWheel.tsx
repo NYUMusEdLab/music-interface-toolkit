@@ -14,7 +14,7 @@ import {
   // @ts-ignore: TODO: Re-write radial UI library in TS
 } from '../radial-layout';
 
-import { Pitch } from '@musedlab/symbols/pitch';
+import { Pitch, Accidental } from '@musedlab/symbols/pitch';
 
 import Classes from './ScaleWheel.module.css';
 
@@ -156,7 +156,6 @@ export function ScaleWheel({
   );
 }
 
-import { Accidental } from '@musedlab/symbols/accidental';
 import { interval, distance } from '@tonaljs/core';
 
 type ScaleDegreeProps = {

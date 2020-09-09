@@ -1,5 +1,4 @@
 import { note, interval, distance } from '@tonaljs/core';
-import { scaleNotes } from '@tonaljs/scale';
 
 export function getChromaMap(scale: string[]) {
   return scale.reduce<{ [chroma: number]: string }>((prev, pitch) => {
@@ -10,14 +9,6 @@ export function getChromaMap(scale: string[]) {
       return prev;
     }
   }, {});
-}
-
-export function getPitchInScale(chroma: number, scale: string[]) {
-  let scaleChromas = scale.map((pitch) => note(pitch).chroma);
-
-  return scaleChromas.includes(chroma)
-    ? scale[scaleChromas.indexOf(chroma)]
-    : null;
 }
 
 export function getIntervalQuality(root: string, scalePitch: string) {

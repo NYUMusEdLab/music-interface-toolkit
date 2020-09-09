@@ -1,31 +1,34 @@
 import React from 'react';
 
-import { Symbol } from './util/Symbol';
-
-import './fonts/Accidentals.css';
+import '../fonts/Accidentals.css';
+import styles from './Accidental.module.css';
 
 type AccidentalProps = {
   alter: number;
 };
 
 export function Accidental({ alter }: AccidentalProps) {
+  let symbol;
+
   if (alter === -3) {
-    return <Symbol>&#xED66;</Symbol>;
+    symbol = '\uED66';
   } else if (alter === -2) {
-    return <Symbol>&#xED64;</Symbol>;
+    symbol = '\uED64';
   } else if (alter === -1) {
-    return <Symbol>&#xED60;</Symbol>;
+    symbol = '\uED60';
   } else if (alter === 0) {
-    return <Symbol>&#xED61;</Symbol>;
+    symbol = '\uED61';
   } else if (alter === 1) {
-    return <Symbol>&#xED62;</Symbol>;
+    symbol = '\uED62';
   } else if (alter === 2) {
-    return <Symbol>&#xED63;</Symbol>;
+    symbol = '\uED63';
   } else if (alter === 3) {
-    return <Symbol>&#xED65;</Symbol>;
+    symbol = '\uED65';
+  } else {
+    throw new Error(`Unsuppored accidental: alter=${alter}`);
   }
 
-  throw new Error(`Unsuppored accidental: alter=${alter}`);
+  return <span className={styles.accidental}>{symbol}</span>;
 }
 
 export const TripleFlat = <Accidental alter={-3} />;

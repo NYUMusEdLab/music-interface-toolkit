@@ -8,6 +8,7 @@ export default {
     resolve(),
     postcss({
       extensions: ['.css'],
+      modules: true,
     }),
     ts({
       tsconfig: '../../tsconfig.json',
@@ -16,8 +17,8 @@ export default {
     }),
   ],
   input: {
-    accidental: 'src/Accidental.tsx',
-    pitch: 'src/Pitch.tsx',
+    chord: 'src/chord/index.ts',
+    pitch: 'src/pitch/index.ts',
   },
   output: {
     dir: '.',

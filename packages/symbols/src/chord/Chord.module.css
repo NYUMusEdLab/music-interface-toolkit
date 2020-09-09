@@ -1,0 +1,8 @@
+.chord-symbol {
+  font-family: 'MusUI';
+}
+
+sup .chord-symbol,
+sub .chord-symbol {
+  font-feature-settings: 'salt';
+}
