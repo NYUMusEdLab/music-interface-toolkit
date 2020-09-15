@@ -2,7 +2,7 @@
   "docs": [
     "overview",
     {
-      "Symbols": ["pitch", "accidental"]
+      "Symbols": ["pitch", "accidental", "chord"]
     }
   ]
 }
