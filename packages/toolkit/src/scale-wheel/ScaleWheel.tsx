@@ -167,9 +167,14 @@ function ScaleDegree({ pitch, root }: ScaleDegreeProps) {
   let { alt, simple } = interval(distance(root, pitch));
 
   return (
-    <span>
-      {alt ? <Accidental alter={alt} /> : null}
-      {simple}
+    <span className={Classes['scale-degree']}>
+      {alt ? <Accidental alter={alt} theme={Classes} /> : null}
+      <span
+        className={clsx(
+          Classes[`pitch-class-${simple}` as keyof typeof Classes]
+        )}>
+        {simple}
+      </span>
     </span>
   );
 }

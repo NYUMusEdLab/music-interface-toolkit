@@ -10,3 +10,8 @@
   font-size: 16px;
   line-height: 20px;
 }
+
+/* A couple adjustments to scale degree kerning */
+.scale-degree .flat + .pitch-class-7 {
+  margin-left: -0.08em;
+}

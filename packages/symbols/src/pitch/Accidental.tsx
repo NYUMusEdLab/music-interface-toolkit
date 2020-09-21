@@ -7,6 +7,8 @@ import styles from './Accidental.module.css';
 type AccidentalProps = {
   className?: string;
 
+  theme?: typeof styles;
+
   /**
    * An integer describing the number of semitones the accidental adjusts
    * pitches by (eg, a sharp is +1, a double flat is -2).
@@ -14,40 +16,46 @@ type AccidentalProps = {
   alter: number;
 };
 
-const symbols: { [alter: number]: string } = {
-  [-3]: '\uED66',
-  [-2]: '\uED64',
-  [-1]: '\uED60',
-  [0]: '\uED61',
-  [1]: '\uED62',
-  [2]: '\uED63',
-  [3]: '\uED65',
-};
+const symbols = new Map<number, string>([
+  [-3, '\uED66'],
+  [-2, '\uED64'],
+  [-1, '\uED60'],
+  [0, '\uED61'],
+  [1, '\uED62'],
+  [2, '\uED63'],
+  [3, '\uED65'],
+]);
 
-const names: { [alter: number]: string } = {
-  [-3]: 'triple flat',
-  [-2]: 'double flat',
-  [-1]: 'flat',
-  [0]: 'natural',
-  [1]: 'sharp',
-  [2]: 'double sharp',
-  [3]: 'triple sharp',
-};
+const names = new Map<number, keyof typeof styles>([
+  [-3, 'triple-flat'],
+  [-2, 'double-flat'],
+  [-1, 'flat'],
+  [0, 'natural'],
+  [1, 'sharp'],
+  [2, 'double-sharp'],
+  [3, 'triple-sharp'],
+]);
 
 /**
  *
  * @param props
  */
-export function Accidental({ className, alter }: AccidentalProps) {
-  if (alter in symbols) {
-    return (
-      <span className={clsx(styles.accidental, className)}>
-        {symbols[alter]}
-      </span>
-    );
-  } else {
+export function Accidental({ className, theme = {}, alter }: AccidentalProps) {
+  if (!symbols.has(alter)) {
     throw new Error(`Unsuppored accidental: alter=${alter}`);
   }
+
+  return (
+    <span
+      className={clsx(
+        styles.accidental,
+        className,
+        theme.accidental,
+        theme[names.get(alter)!]
+      )}>
+      {symbols.get(alter)}
+    </span>
+  );
 }
 
 type OptionalAccProps = Omit<AccidentalProps, 'alter'>;

@@ -1,9 +1,12 @@
 import React from 'react';
+import clsx from 'clsx';
 
 import { note } from '@tonaljs/core';
 import { midiToNoteName } from '@tonaljs/midi';
 
 import { Accidental } from './Accidental';
+
+import styles from './Pitch.module.css';
 
 type Enharmonic = 'sharp' | 'flat' | 'both';
 
@@ -19,6 +22,8 @@ type PitchProps = { className?: string } & (
 
 export function Pitch(props: PitchProps) {
   let { className } = props;
+
+  className = clsx(className, styles.pitch);
 
   if ('children' in props) {
     if (typeof props.children !== 'string') {
@@ -121,7 +126,7 @@ function PC({ children }: { children: string }) {
   return (
     <>
       {letter}
-      {alt !== 0 ? <Accidental alter={alt} /> : null}
+      {alt !== 0 ? <Accidental alter={alt} theme={styles} /> : null}
     </>
   );
 }
