@@ -16,7 +16,7 @@ import {
 
 import { Pitch, Accidental } from '@musedlab/symbols/pitch';
 
-import Classes from './ScaleWheel.module.css';
+import classes from './ScaleWheel.module.css';
 
 // Constant values for representing pitch orders
 export const CHROMATIC = Symbol();
@@ -74,7 +74,7 @@ export function ScaleWheel({
         />
         <SliceGroup index={i} radius={0.39 * size} scale={(size * 0.13) / 20}>
           <foreignObject
-            className={Classes.label}
+            className={classes.label}
             width={24}
             height={20}
             x={-12}
@@ -96,7 +96,7 @@ export function ScaleWheel({
               radius={0.25 * size}
               scale={(size * 0.1) / 20}>
               <foreignObject
-                className={Classes.label}
+                className={classes.label}
                 width={24}
                 height={20}
                 x={-12}
@@ -167,11 +167,11 @@ function ScaleDegree({ pitch, root }: ScaleDegreeProps) {
   let { alt, simple } = interval(distance(root, pitch));
 
   return (
-    <span className={Classes['scale-degree']}>
-      {alt ? <Accidental alter={alt} theme={Classes} /> : null}
+    <span className={classes['scale-degree']}>
+      {alt ? <Accidental alter={alt} /> : null}
       <span
         className={clsx(
-          Classes[`pitch-class-${simple}` as keyof typeof Classes]
+          classes[`pitch-class-${simple}` as keyof typeof classes]
         )}>
         {simple}
       </span>

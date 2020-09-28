@@ -1,7 +1,6 @@
 {
   "name": "@musedlab/symbols",
   "version": "0.0.1",
-  "private": true,
   "description": "React components for rendering musical symbols",
   "type": "module",
   "exports": {
@@ -10,7 +9,8 @@
   },
   "files": [
     "chord/*",
-    "pitch/*"
+    "pitch/*",
+    "shared/*"
   ],
   "scripts": {
     "make-fonts": "node ./scripts/makeFonts"
@@ -18,9 +18,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/NYUMusEdLab/music-interface-toolkit.git",
-    "directory": "packages/midi-ui"
+    "directory": "packages/symbols"
   },
-  "homepage": "https://NYUMusEdLab.github.io/music-interface-toolkit/labels",
+  "homepage": "https://NYUMusEdLab.github.io/music-interface-toolkit/symbols",
   "author": "NYU Music Experience Design Lab (MusEDLab)",
   "license": "MIT",
   "publishConfig": {

@@ -51,54 +51,22 @@ module.exports = {
         path: 'pages',
       },
     ],
-    [
+    // List of packages to be documented
+    ...['toolkit', 'symbols', 'piano-ui'].map((name) => [
       '@docusaurus/plugin-content-docs',
       {
-        id: 'toolkit-docs',
-        path: '../packages/toolkit/docs',
-        routeBasePath: 'toolkit',
-        sidebarPath: '../packages/toolkit/docs/sidebar.json',
+        id: `${name}-docs`,
+        path: `../packages/${name}/docs`,
+        routeBasePath: name,
+        sidebarPath: `../packages/${name}/docs/sidebar.json`,
         versions: {
           current: {
-            label: require('../packages/toolkit/package.json').version,
+            label: require(`../packages/${name}/package.json`).version,
           },
         },
         editUrl:
-          'https://github.com/NYUMusEdLab/music-interface-toolkit/edit/master/packages/toolkit/',
+          'https://github.com/NYUMusEdLab/music-interface-toolkit/edit/master/packages/',
       },
-    ],
-
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'symbols-docs',
-        path: '../packages/symbols/docs',
-        routeBasePath: 'symbols',
-        sidebarPath: '../packages/symbols/docs/sidebar.json',
-        versions: {
-          current: {
-            label: require('../packages/symbols/package.json').version,
-          },
-        },
-        editUrl:
-          'https://github.com/NYUMusEdLab/music-interface-toolkit/edit/master/packages/symbols/',
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'piano-ui-docs',
-        path: '../packages/piano-ui/docs',
-        routeBasePath: 'piano-ui',
-        sidebarPath: '../packages/piano-ui/docs/sidebar.js',
-        versions: {
-          current: {
-            label: require('../packages/piano-ui/package.json').version,
-          },
-        },
-        editUrl:
-          'https://github.com/NYUMusEdLab/music-interface-toolkit/edit/master/packages/piano-ui/',
-      },
-    ],
+    ]),
   ],
 };

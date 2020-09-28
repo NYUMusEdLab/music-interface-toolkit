@@ -2,18 +2,19 @@ import React from 'react';
 import clsx from 'clsx';
 
 import '../fonts/Accidentals.css';
-import styles from './Accidental.module.css';
+import classes from './Accidental.module.css';
 
 type AccidentalProps = {
-  className?: string;
-
-  theme?: typeof styles;
-
   /**
    * An integer describing the number of semitones the accidental adjusts
    * pitches by (eg, a sharp is +1, a double flat is -2).
    */
   alter: number;
+
+  /**
+   * An optional CSS class name
+   */
+  className?: string;
 };
 
 const symbols = new Map<number, string>([
@@ -26,33 +27,28 @@ const symbols = new Map<number, string>([
   [3, '\uED65'],
 ]);
 
-const names = new Map<number, keyof typeof styles>([
-  [-3, 'triple-flat'],
-  [-2, 'double-flat'],
+const names = new Map<number, string>([
+  [-3, 'triple flat'],
+  [-2, 'double flat'],
   [-1, 'flat'],
   [0, 'natural'],
   [1, 'sharp'],
-  [2, 'double-sharp'],
-  [3, 'triple-sharp'],
+  [2, 'double sharp'],
+  [3, 'triple sharp'],
 ]);
 
 /**
  *
- * @param props
  */
-export function Accidental({ className, theme = {}, alter }: AccidentalProps) {
+export function Accidental(props: AccidentalProps) {
+  const { alter, className } = props;
+
   if (!symbols.has(alter)) {
-    throw new Error(`Unsuppored accidental: alter=${alter}`);
+    throw new Error(`Unsupported accidental: alter=${alter}`);
   }
 
   return (
-    <span
-      className={clsx(
-        styles.accidental,
-        className,
-        theme.accidental,
-        theme[names.get(alter)!]
-      )}>
+    <span className={clsx(classes.accidental, className)}>
       {symbols.get(alter)}
     </span>
   );

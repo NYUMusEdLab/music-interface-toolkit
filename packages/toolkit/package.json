@@ -12,6 +12,7 @@
     "url": "https://github.com/NYUMusEdLab/music-interface-toolkit.git",
     "directory": "packages/toolkit"
   },
+  "homepage": "https://NYUMusEdLab.github.io/music-interface-toolkit/toolkit",
   "author": "NYU Music Experience Design Lab (MusEDLab)",
   "license": "MIT",
   "dependencies": {
