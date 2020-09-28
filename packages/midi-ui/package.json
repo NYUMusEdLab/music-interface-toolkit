@@ -1,6 +1,6 @@
 {
   "name": "@musedlab/midi-ui",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": true,
   "description": "React components for working with the WebMIDI API",
   "type": "module",
